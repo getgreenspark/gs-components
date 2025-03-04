@@ -1,5 +1,5 @@
 import { createVuetify } from 'vuetify'
-import { aliases } from 'vuetify/iconsets/mdi'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { VDateInput } from 'vuetify/labs/VDateInput'
@@ -24,7 +24,7 @@ const greenspark = {
   },
 }
 
-export default createVuetify({
+const vuetify = createVuetify({
   components: {
     VDateInput,
     VTimePicker,
@@ -32,7 +32,11 @@ export default createVuetify({
   },
   directives,
   icons: {
+    defaultSet: 'mdi',
     aliases,
+    sets: {
+      mdi,
+    },
   },
   theme: {
     defaultTheme: 'greenspark',
@@ -41,3 +45,5 @@ export default createVuetify({
     },
   },
 })
+
+export default vuetify

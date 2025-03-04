@@ -95,6 +95,7 @@ const loaderSize = computed(() => {
   cursor: pointer;
   outline: none;
   border: none;
+  user-select: none;
 
   &:hover,
   &:active,

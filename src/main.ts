@@ -3,10 +3,10 @@ import { createApp } from 'vue'
 import '@/assets/style/fonts.css'
 import '@/assets/style/variables.css'
 
-import vuetify from './plugins/vuetify'
-import App from './App.vue'
+import App from '@/App.vue'
+import { registerPlugins } from '@/plugins'
 
 export const app = createApp(App)
 
-app.use(vuetify)
+registerPlugins(app)
 app.mount('#app')
