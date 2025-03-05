@@ -1,8 +1,8 @@
 import { fileURLToPath, URL } from 'node:url'
+import { resolve } from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import typescript2 from 'rollup-plugin-typescript2'
 
 export default defineConfig({
   resolve: {
@@ -10,37 +10,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  plugins: [
-    vue(),
-    typescript2({
-      check: false,
-      include: ['src/components/*.vue', 'src/components/**/*.vue', 'src/*.ts', 'src/**/*.ts'],
-      tsconfigOverride: {
-        compilerOptions: {
-          outDir: 'dist',
-          sourceMap: true,
-          declaration: true,
-          declarationMap: true,
-        },
-      },
-      exclude: ['vite.config.ts', 'main.ts'],
-    }),
-  ],
+  plugins: [vue()],
   build: {
-    cssCodeSplit: false,
     lib: {
-      entry: './src/GsComponents.ts',
-      formats: ['es', 'cjs'],
-      name: 'ViewerPlugin',
-      fileName: (format) => `plugin.${format}.js`,
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'GsComponents',
+      fileName: 'gs-components',
     },
-
     rollupOptions: {
       external: ['vue'],
       output: {
-        exports: 'named',
         globals: {
-          Vue: 'Vue',
+          vue: 'Vue',
         },
       },
     },
