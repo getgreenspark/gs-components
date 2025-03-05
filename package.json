@@ -3,13 +3,6 @@
   "version": "0.1.2",
   "private": true,
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "import": "./dist/index.es.js",
-    "require": "./dist/index.cjs.js"
-  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -58,7 +51,6 @@
     "storybook": "^8.6.3",
     "typescript": "~5.7.3",
     "vite": "^6.0.11",
-    "vite-plugin-dts": "^4.5.3",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vitest": "^3.0.5",
     "vue-tsc": "^2.2.0"

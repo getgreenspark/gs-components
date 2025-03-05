@@ -10,7 +10,6 @@
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": false,
-    "outDir": "dist",
     "skipLibCheck": true,
     "esModuleInterop": true
   }
