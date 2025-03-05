@@ -13,7 +13,8 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "release": "release-it"
   },
   "dependencies": {
     "vue": "^3.5.13",
@@ -68,7 +69,7 @@
       "tagAnnotation": "@getgreenspark/gs-components v${version}"
     },
     "npm": {
-      "publish": true
+      "publish": false
     },
     "hooks": {
       "before:init": [
