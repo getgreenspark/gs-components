@@ -1,6 +1,6 @@
 {
   "name": "gs-components",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "description": "Greenspark's component library.",
   "author": "Greenspark <support@getgreenspark.com>",
