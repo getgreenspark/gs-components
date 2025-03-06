@@ -1,45 +1,68 @@
 # gs-components
 
-This template should help get you started developing with Vue 3 in Vite.
+A reusable component library for Vue 3, built with TypeScript. Designed to provide a consistent UI/UX for Greenspark projects.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Installation
 
 ```sh
-npm install
+npm install @getgreenspark/gs-components
 ```
 
-### Compile and Hot-Reload for Development
+or using yarn:
 
 ```sh
+yarn add @getgreenspark/gs-components
+```
+
+## Usage
+
+### Global Registration
+
+You can register all components globally in your Vue app:
+
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+
+import gsComponents from '@getgreenspark/gs-components'
+import '@getgreenspark/gs-components/gs-components.css'
+
+const app = createApp(App)
+app.use(gsComponents)
+app.mount('#app')
+```
+
+### Importing Individual Components
+
+To reduce bundle size, import only the components you need:
+
+```vue
+<script setup lang="ts">
+import { GsButton } from '@getgreenspark/gs-components'
+</script>
+
+<template>
+  <GsButton>Click Me</GsButton>
+</template>
+```
+
+## Components
+
+| Component  | Description                     |
+| ---------- | ------------------------------- |
+| `GsButton` | A customizable button component |
+
+More components and documentation coming soon.
+
+## Development
+
+```sh
+git clone https://github.com/getgreenspark/gs-components.git
+cd gs-components
+npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## License
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
