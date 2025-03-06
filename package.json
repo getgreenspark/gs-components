@@ -12,15 +12,18 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/gs-components.umd.cjs",
-  "module": "./dist/gs-components.js",
+  "main": "./dist/gs-components.umd.js",
+  "module": "./dist/gs-components.es.js",
   "exports": {
     ".": {
-      "import": "./dist/gs-components.js",
-      "require": "./dist/gs-components.umd.cjs"
+      "types": "./dist/index.d.ts",
+      "style": "./dist/gs-components.css",
+      "import": "./dist/gs-components.es.js",
+      "require": "./dist/gs-components.umd.js"
     },
-    "./style.css": "./dist/style.css"
+    "./gs-components.css": "./dist/gs-components.css"
   },
+  "style": "./dist/gs-components.css",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
@@ -66,6 +69,7 @@
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.4.2",
     "release-it": "^18.1.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.85.1",
     "storybook": "^8.6.3",
     "typescript": "~5.7.3",
@@ -93,9 +97,8 @@
     "hooks": {
       "before:init": [
         "npm run format",
-        "npm run type-check",
         "npm run lint",
-        "npm run build-only"
+        "npm run build"
       ]
     }
   }

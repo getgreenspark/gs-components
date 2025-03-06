@@ -1,10 +1,9 @@
 import { createApp } from 'vue'
 
-import '@/assets/style/fonts.css'
-import '@/assets/style/variables.css'
+import './style.css'
 
-import App from '@/App.vue'
-import { registerPlugins } from '@/plugins'
+import App from './App.vue'
+import { registerPlugins } from './plugins'
 
 export const app = createApp(App)
 
