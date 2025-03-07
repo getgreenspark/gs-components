@@ -3,7 +3,7 @@ import { resolve } from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import typescript from 'rollup-plugin-typescript2'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   resolve: {
@@ -13,18 +13,11 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    typescript({
-      check: false,
+    dts({
+      outDir: 'dist',
+      insertTypesEntry: true,
+      tsconfigPath: './tsconfig.app.json',
       include: ['src/components/*.vue', 'src/components/**/*.vue', 'src/*.ts', 'src/**/*.ts'],
-      tsconfigOverride: {
-        compilerOptions: {
-          outDir: 'dist',
-          sourceMap: true,
-          declaration: true,
-          declarationMap: true,
-        },
-      },
-      exclude: ['vite.config.ts', 'main.ts'],
     }),
   ],
   build: {
