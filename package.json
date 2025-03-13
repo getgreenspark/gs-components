@@ -39,8 +39,8 @@
     "release": "release-it"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "vuetify": "^3.7.14"
+    "vue": "^3.1.0",
+    "vuetify": "^3.6.6"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.5",
@@ -93,7 +93,7 @@
       "tagAnnotation": "@getgreenspark/gs-components v${version}"
     },
     "npm": {
-      "publish": false
+      "publish": true
     },
     "hooks": {
       "before:init": [
