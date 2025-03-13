@@ -4,6 +4,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineConfig({
   resolve: {
@@ -12,7 +13,10 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
+    vue({
+      template: { transformAssetUrls },
+    }),
+    vuetify(),
     dts({
       outDir: 'dist',
       insertTypesEntry: true,
