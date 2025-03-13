@@ -93,7 +93,7 @@
       "tagAnnotation": "@getgreenspark/gs-components v${version}"
     },
     "npm": {
-      "publish": true
+      "publish": false
     },
     "hooks": {
       "before:init": [
