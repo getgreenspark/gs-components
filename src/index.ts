@@ -1,14 +1,28 @@
 import { type App } from 'vue'
 
 import './style.css'
-import { registerPlugins } from './plugins'
 import GsButton from './components/GsButton.vue'
+import { registerPlugins } from './plugins'
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    GsButton: (typeof import('./components/GsButton.vue'))['default']
+  }
+}
 
 export { GsButton }
 
-export default {
+const components = {
+  GsButton: GsButton,
+}
+
+const GsComponents = {
   install(app: App) {
     registerPlugins(app)
-    app.component('GsButton', GsButton)
+    for (const [name, component] of Object.entries(components)) {
+      app.component(name, component)
+    }
   },
 }
+
+export default GsComponents
