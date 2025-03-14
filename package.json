@@ -1,13 +1,13 @@
 {
   "name": "@getgreenspark/gs-components",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "type": "module",
   "description": "Greenspark's component library.",
   "author": "Greenspark <support@getgreenspark.com>",
   "homepage": "https://github.com/getgreenspark/gs-components",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/getgreenspark/gs-components.git"
+    "url": "git+https://git@github.com/getgreenspark/gs-components.git"
   },
   "files": [
     "dist"
