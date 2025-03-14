@@ -36,7 +36,8 @@
     "format": "prettier --write src/",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "release-it"
+    "release": "release-it",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "vue": "^3.5.13",
