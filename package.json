@@ -7,7 +7,7 @@
   "homepage": "https://github.com/getgreenspark/gs-components",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/getgreenspark/gs-components.git"
+    "url": "git+https://git@github.com/getgreenspark/gs-components.git"
   },
   "files": [
     "dist"
