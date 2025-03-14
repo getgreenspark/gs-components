@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
+import 'vuetify/styles'
 import '@/assets/style/fonts.css'
 import '@/assets/style/variables.css'
+import '@mdi/font/css/materialdesignicons.min.css'
 
 import GsButton from '@/components/GsButton.vue'
 

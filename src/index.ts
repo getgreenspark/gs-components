@@ -1,6 +1,7 @@
 import { type App } from 'vue'
 
-import './style.css'
+import './assets/style/variables.css'
+
 import GsButton from './components/GsButton.vue'
 import { registerPlugins } from './plugins'
 

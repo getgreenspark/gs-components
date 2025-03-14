@@ -16,25 +16,28 @@ export default defineConfig({
     vue({
       template: { transformAssetUrls },
     }),
-    vuetify(),
+    vuetify({ autoImport: true }),
     dts({
       outDir: 'dist',
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.app.json',
-      include: ['src/components/*.vue', 'src/components/**/*.vue', 'src/*.ts', 'src/**/*.ts'],
+      include: ['src/components/*.vue', 'src/components/**/*.vue', 'src/*.ts', 'src/plugins/*.ts'],
     }),
   ],
   build: {
+    minify: 'esbuild',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'GsComponents',
       fileName: (format) => `gs-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue'],
+      treeshake: true,
+      external: ['vue', 'vuetify', '@mdi/font'],
       output: {
         globals: {
           vue: 'Vue',
+          vuetify: 'Vuetify',
         },
       },
     },
