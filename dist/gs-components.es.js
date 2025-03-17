@@ -948,7 +948,7 @@ const en = {
   __name: "GsButton",
   props: {
     tag: { default: "button" },
-    variant: { default: "primary" },
+    type: { default: "primary" },
     size: {},
     icon: {},
     disabled: { type: Boolean },
@@ -956,19 +956,19 @@ const en = {
     fullWidth: { type: Boolean },
     href: {},
     width: {},
-    target: { default: "_self" },
-    buttonType: {}
+    target: { default: "_self" }
   },
   setup(e) {
     const t = e, n = f(() => t.href ? "a" : t.tag || "button"), r = f(
       () => n.value === "a" ? !1 : { class: "ripple-effect" }
     ), s = f(() => [
       "gs-button",
-      `gs-${t.variant}`,
+      `gs-${t.type}`,
       t.size,
       {
         "full-width": t.fullWidth,
-        "is-loading": t.loading
+        "is-loading": t.loading,
+        "gs-icon": t.icon
       }
     ]), i = f(() => {
       switch (t.size) {
@@ -985,8 +985,8 @@ const en = {
       disabled: t.disabled || t.loading,
       href: t.href,
       target: t.target,
-      type: t.buttonType,
-      style: rt({ width: a.width + "px" })
+      style: rt({ width: a.width + "px" }),
+      type: "button"
     }, {
       default: ne(() => [
         t.icon && !t.loading ? ($(), D(W(Gt), {
@@ -998,7 +998,7 @@ const en = {
           ]),
           _: 1
         })) : M("", !0),
-        a.$slots.default && !t.loading ? ($(), it("span", tn, [
+        a.$slots.default ? ($(), it("span", tn, [
           lt(a.$slots, "default", {}, void 0, !0)
         ])) : M("", !0),
         t.loading ? ($(), D(W(Xt), {
@@ -1009,7 +1009,7 @@ const en = {
         }, null, 8, ["size"])) : M("", !0)
       ]),
       _: 3
-    }, 8, ["class", "disabled", "href", "target", "type", "style"])), [
+    }, 8, ["class", "disabled", "href", "target", "style"])), [
       [en, r.value]
     ]);
   }
@@ -1018,7 +1018,7 @@ const en = {
   for (const [r, s] of t)
     n[r] = s;
   return n;
-}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-648c0ff6"]]), an = {
+}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-980d4323"]]), an = {
   dark: !1,
   colors: {
     primary: "#3B755F",
