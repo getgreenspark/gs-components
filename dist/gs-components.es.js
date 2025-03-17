@@ -1003,6 +1003,7 @@ const en = {
         ])) : M("", !0),
         t.loading ? ($(), D(W(Xt), {
           key: 2,
+          class: "loader",
           size: i.value,
           indeterminate: "",
           color: "gray"
@@ -1018,7 +1019,7 @@ const en = {
   for (const [r, s] of t)
     n[r] = s;
   return n;
-}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-a03fe760"]]), an = {
+}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-591c7735"]]), an = {
   dark: !1,
   colors: {
     primary: "#3B755F",

@@ -71,7 +71,13 @@ const loaderSize = computed(() => {
     <span v-if="$slots.default" class="text">
       <slot />
     </span>
-    <v-progress-circular v-if="props.loading" :size="loaderSize" indeterminate color="gray" />
+    <v-progress-circular
+      v-if="props.loading"
+      class="loader"
+      :size="loaderSize"
+      indeterminate
+      color="gray"
+    />
   </component>
 </template>
 
@@ -110,6 +116,13 @@ const loaderSize = computed(() => {
     color: var(--ui-white) !important;
     border-color: var(--gray-light) !important;
     cursor: not-allowed;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &.is-loading {
