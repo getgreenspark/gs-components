@@ -967,8 +967,7 @@ const en = {
       t.size,
       {
         "full-width": t.fullWidth,
-        "is-loading": t.loading,
-        "gs-icon": t.icon
+        "is-loading": t.loading
       }
     ]), i = f(() => {
       switch (t.size) {
@@ -1019,7 +1018,7 @@ const en = {
   for (const [r, s] of t)
     n[r] = s;
   return n;
-}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-5f8046c5"]]), an = {
+}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-bdd1228a"]]), an = {
   dark: !1,
   colors: {
     primary: "#3B755F",

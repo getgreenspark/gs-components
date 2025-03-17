@@ -46,7 +46,6 @@ const buttonClasses = computed(() => [
   {
     'full-width': props.fullWidth,
     'is-loading': props.loading,
-    'gs-icon': props.icon,
   },
 ])
 
@@ -95,7 +94,7 @@ const loaderSize = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 4px;
   font-size: 16px;
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
