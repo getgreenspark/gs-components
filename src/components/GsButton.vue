@@ -2,15 +2,14 @@
 import { computed } from 'vue'
 import { VIcon, VProgressCircular } from 'vuetify/components'
 
-type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'link'
+type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'link' | 'icon'
 type ButtonSize = 'small' | 'large'
 type ButtonTag = 'a' | 'button' | 'router-link'
-type ButtonType = 'button' | 'submit' | 'reset'
 type AnchorTarget = '_blank' | '_self' | '_parent' | '_top'
 
 type ButtonProps = {
   tag?: ButtonTag
-  variant?: ButtonVariant
+  type?: ButtonType
   size?: ButtonSize
   icon?: string
   disabled?: boolean
@@ -19,12 +18,11 @@ type ButtonProps = {
   href?: string
   width?: string
   target?: AnchorTarget
-  buttonType?: ButtonType
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
-  variant: 'primary',
+  type: 'primary',
   target: '_self',
 })
 
@@ -35,11 +33,12 @@ const rippleEffect = computed(() =>
 
 const buttonClasses = computed(() => [
   'gs-button',
-  `gs-${props.variant}`,
+  `gs-${props.type}`,
   props.size,
   {
     'full-width': props.fullWidth,
     'is-loading': props.loading,
+    'gs-icon': props.icon,
   },
 ])
 
@@ -63,13 +62,13 @@ const loaderSize = computed(() => {
     :disabled="props.disabled || props.loading"
     :href="props.href"
     :target="props.target"
-    :type="props.buttonType"
     :style="{ width: width + 'px' }"
+    type="button"
   >
     <v-icon v-if="props.icon && !props.loading" class="icon">
       {{ props.icon }}
     </v-icon>
-    <span v-if="$slots.default && !props.loading" class="text">
+    <span v-if="$slots.default" class="text">
       <slot />
     </span>
     <v-progress-circular v-if="props.loading" :size="loaderSize" indeterminate color="gray" />
@@ -82,20 +81,22 @@ const loaderSize = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   font-size: 16px;
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
   line-height: 19px;
   min-width: 64px;
-  height: 36px;
+  height: 40px;
   padding: 0 16px;
   text-transform: capitalize;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   outline: none;
   border: none;
   user-select: none;
+  text-decoration: none;
 
   &:hover,
   &:active,
@@ -111,8 +112,10 @@ const loaderSize = computed(() => {
     cursor: not-allowed;
   }
 
-  .icon {
-    margin-right: 8px;
+  &.is-loading {
+    .text {
+      opacity: 0;
+    }
   }
 
   &.small {
@@ -157,6 +160,12 @@ const loaderSize = computed(() => {
   &.gs-danger {
     color: var(--ui-white);
     background-color: var(--ui-red);
+  }
+
+  &.gs-icon {
+    min-width: unset;
+    box-sizing: content-box;
+    padding: 4px 8px;
   }
 
   &.gs-link {

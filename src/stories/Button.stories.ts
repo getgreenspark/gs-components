@@ -17,7 +17,7 @@ const meta: Meta<typeof GsButton> = {
       options: ['a', 'button', 'router-link'],
       description: 'The HTML tag to be used for the button component.',
     },
-    variant: {
+    type: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'danger', 'info', 'link'],
       description: 'The variant style of the button.',
@@ -56,11 +56,6 @@ const meta: Meta<typeof GsButton> = {
       options: ['_blank', '_self', '_parent', '_top'],
       description: 'Specifies where to open the linked document.',
     },
-    buttonType: {
-      control: 'select',
-      options: ['button', 'submit', 'reset'],
-      description: 'The type attribute for the button element.',
-    },
   },
 }
 
@@ -82,12 +77,13 @@ export const Variants: Story = {
     },
     template: `
       <div class="d-flex ga-3">
-        <GsButton variant="primary">Primary</GsButton>
-        <GsButton variant="secondary">Secondary</GsButton>
-        <GsButton variant="success">Success</GsButton>
-        <GsButton variant="danger">Danger</GsButton>
-        <GsButton variant="info">Info</GsButton>
-        <GsButton variant="link">Link</GsButton>
+        <GsButton type="primary">Primary</GsButton>
+        <GsButton type="secondary">Secondary</GsButton>
+        <GsButton type="success">Success</GsButton>
+        <GsButton type="danger">Danger</GsButton>
+        <GsButton type="info">Info</GsButton>
+        <GsButton type="link">Link</GsButton>
+        <GsButton type="icon" icon="mdi-bell" />
       </div>
     `,
   }),
