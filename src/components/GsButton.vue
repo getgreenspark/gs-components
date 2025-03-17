@@ -46,6 +46,7 @@ const buttonClasses = computed(() => [
   {
     'full-width': props.fullWidth,
     'is-loading': props.loading,
+    'with-icon': props.icon,
   },
 ])
 
@@ -94,7 +95,6 @@ const loaderSize = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
   font-size: 16px;
   font-weight: bold;
   font-family: 'Cabin', sans-serif;
@@ -130,6 +130,10 @@ const loaderSize = computed(() => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &.with-icon {
+    gap: 4px;
   }
 
   &.is-loading {
