@@ -1,4 +1,4 @@
-type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'link' | 'icon';
+type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'link' | 'icon' | 'outlined';
 type ButtonSize = 'small' | 'large';
 type ButtonTag = 'a' | 'button' | 'router-link';
 type AnchorTarget = '_blank' | '_self' | '_parent' | '_top';

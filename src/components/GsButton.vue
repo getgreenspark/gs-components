@@ -2,7 +2,15 @@
 import { computed } from 'vue'
 import { VIcon, VProgressCircular } from 'vuetify/components'
 
-type ButtonType = 'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'link' | 'icon'
+type ButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'info'
+  | 'link'
+  | 'icon'
+  | 'outlined'
 type ButtonSize = 'small' | 'large'
 type ButtonTag = 'a' | 'button' | 'router-link'
 type AnchorTarget = '_blank' | '_self' | '_parent' | '_top'
@@ -181,6 +189,12 @@ const loaderSize = computed(() => {
     padding: 4px 8px;
     color: var(--ui-white);
     background-color: var(--ui-green);
+  }
+
+  &.gs-outlined {
+    border: 1px solid var(--ui-black);
+    color: var(--ui-black);
+    background-color: var(--ui-white);
   }
 
   &.gs-link {
