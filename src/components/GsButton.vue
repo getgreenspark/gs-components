@@ -166,6 +166,8 @@ const loaderSize = computed(() => {
     min-width: unset;
     box-sizing: content-box;
     padding: 4px 8px;
+    color: var(--ui-white);
+    background-color: var(--ui-green);
   }
 
   &.gs-link {

@@ -1018,7 +1018,7 @@ const en = {
   for (const [r, s] of t)
     n[r] = s;
   return n;
-}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-980d4323"]]), an = {
+}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-a03fe760"]]), an = {
   dark: !1,
   colors: {
     primary: "#3B755F",
