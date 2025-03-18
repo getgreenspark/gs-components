@@ -135,6 +135,11 @@ const loaderSize = computed(() => {
 
   &.with-icon {
     gap: 4px;
+
+    &.large {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
 
   &.is-loading {
