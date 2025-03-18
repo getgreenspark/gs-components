@@ -189,6 +189,15 @@ const loaderSize = computed(() => {
     background-color: var(--ui-white);
     border: 2px solid var(--ui-green);
     color: var(--ui-green);
+    transition: background-color 100ms ease-in-out;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active:focus {
+      opacity: 1;
+      background-color: #3b755f33;
+    }
   }
 
   &.gs-tertiary {
@@ -199,6 +208,16 @@ const loaderSize = computed(() => {
   &.gs-success {
     color: var(--ui-black);
     background-color: var(--ui-emerald-green);
+    transition: all 100ms ease-in-out;
+    border: 2px solid transparent;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active:focus {
+      opacity: 1;
+      border: 2px solid var(--ui-green);
+    }
   }
 
   &.gs-info {

@@ -119,7 +119,7 @@ export const Rounded: Story = {
     template: `
       <div class="d-flex ga-3">
         <GsButton type="secondary" rounded>Rounded Button</GsButton>
-        <GsButton rounded>Rounded Button</GsButton>
+        <GsButton type="success" rounded>Rounded Button</GsButton>
       </div>
     `,
   }),
