@@ -146,6 +146,9 @@ const loaderSize = computed(() => {
 
   &.rounded {
     border-radius: 25px !important;
+    font-size: 20px;
+    line-height: 24px;
+    height: 44px;
   }
 
   &.is-loading {
