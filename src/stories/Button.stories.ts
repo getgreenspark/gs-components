@@ -110,6 +110,21 @@ export const Sizes: Story = {
   }),
 }
 
+export const Rounded: Story = {
+  render: (args) => ({
+    components: { GsButton },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div class="d-flex ga-3">
+        <GsButton type="secondary" rounded>Rounded Button</GsButton>
+        <GsButton rounded>Rounded Button</GsButton>
+      </div>
+    `,
+  }),
+}
+
 export const WithIcon: Story = {
   args: {
     icon: 'mdi-check',

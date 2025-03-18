@@ -27,6 +27,7 @@ type ButtonProps = {
   href?: string
   width?: string
   target?: AnchorTarget
+  rounded?: boolean
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -48,6 +49,7 @@ const buttonClasses = computed(() => [
     'full-width': props.fullWidth,
     'is-loading': props.loading,
     'with-icon': props.icon,
+    rounded: props.rounded,
   },
 ])
 
@@ -140,6 +142,10 @@ const loaderSize = computed(() => {
       font-size: 24px;
       line-height: 28px;
     }
+  }
+
+  &.rounded {
+    border-radius: 25px !important;
   }
 
   &.is-loading {
