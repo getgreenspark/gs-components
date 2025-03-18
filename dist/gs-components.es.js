@@ -212,7 +212,7 @@ function x(e) {
     let t = e.startsWith("#") ? e.slice(1) : e;
     [3, 4].includes(t.length) ? t = t.split("").map((r) => r + r).join("") : [6, 8].includes(t.length) || E(`'${e}' is not a valid hex(a) color`);
     const n = parseInt(t, 16);
-    return (isNaN(n) || n < 0 || n > 4294967295) && E(`'${e}' is not a valid hex(a) color`), Ft(t);
+    return (isNaN(n) || n < 0 || n > 4294967295) && E(`'${e}' is not a valid hex(a) color`), Bt(t);
   } else if (typeof e == "object") {
     if (j(e, ["r", "g", "b"]))
       return e;
@@ -258,8 +258,8 @@ function Te(e) {
     a: s
   };
 }
-function Ft(e) {
-  e = Bt(e);
+function Bt(e) {
+  e = Ft(e);
   let [t, n, r, s] = pt(e, 2).map((i) => parseInt(i, 16));
   return s = s === void 0 ? s : s / 255, {
     r: t,
@@ -268,7 +268,7 @@ function Ft(e) {
     a: s
   };
 }
-function Bt(e) {
+function Ft(e) {
   return e.startsWith("#") && (e = e.slice(1)), e = e.replace(/([^0-9a-f])/gi, "F"), (e.length === 3 || e.length === 4) && (e = e.split("").map((t) => t + t).join("")), e.length !== 6 && (e = ie(ie(e, 6), 8, "F")), e;
 }
 function Rt(e) {
@@ -295,7 +295,7 @@ function $t(e) {
     return n[e];
 }
 const Y = Symbol.for("vuetify:defaults");
-function Fe() {
+function Be() {
   const e = J(Y);
   if (!e) throw new Error("[Vuetify] Could not find defaults instance");
   return e;
@@ -305,7 +305,7 @@ function zt(e, t) {
   return typeof ((n = e.props) == null ? void 0 : n[t]) < "u" || typeof ((r = e.props) == null ? void 0 : r[_(t)]) < "u";
 }
 function Ot() {
-  let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Fe();
+  let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Be();
   const r = R("useDefaults");
   if (t = t ?? r.type.name ?? r.type.__name, !t)
     throw new Error("[Vuetify] Could not determine component name");
@@ -347,7 +347,7 @@ function P(e) {
     e.filterProps = function(r) {
       return mt(r, t);
     }, e.props._as = String, e.setup = function(r, s) {
-      const i = Fe();
+      const i = Be();
       if (!i.value) return e._setup(r, s);
       const {
         props: a,
@@ -362,7 +362,7 @@ function Q() {
   let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !0;
   return (t) => (e ? P : be)(t);
 }
-function Be(e) {
+function Fe(e) {
   const t = R("useRender");
   t.render = e;
 }
@@ -636,7 +636,7 @@ const Ht = y({
       textColorClasses: o,
       textColorStyles: l
     } = U(H(e, "color"));
-    return Be(() => {
+    return Fe(() => {
       var p, g;
       const d = (p = r.default) == null ? void 0 : p.call(r);
       d && (s.value = (g = xe(d).filter((h) => h.type === et && h.children && typeof h.children == "string")[0]) == null ? void 0 : g.children);
@@ -732,7 +732,7 @@ const Ut = y({
     } = Nt(), b = f(() => Math.max(0, Math.min(100, parseFloat(e.modelValue)))), S = f(() => Number(e.width)), ee = f(() => o.value ? Number(e.size) : k.value ? k.value.width : Math.max(S.value, 32)), V = f(() => r / (1 - S.value / ee.value) * 2), te = f(() => S.value / ee.value * V.value), He = f(() => w((100 - b.value) / 100 * s));
     return K(() => {
       g.value = i.value, I.value = i.value;
-    }), Be(() => m(e.tag, {
+    }), Fe(() => m(e.tag, {
       ref: i,
       class: ["v-progress-circular", {
         "v-progress-circular--indeterminate": !!e.indeterminate,
@@ -850,7 +850,7 @@ const Kt = function(e, t) {
 function Pe(e) {
   return typeof e > "u" || !!e;
 }
-function F(e) {
+function B(e) {
   const t = {}, n = e.currentTarget;
   if (!(!(n != null && n._ripple) || n._ripple.touched || e[X])) {
     if (e[X] = !0, q(e))
@@ -889,15 +889,15 @@ function Ae(e) {
   const t = e.currentTarget;
   t != null && t._ripple && (t._ripple.showTimerCommit && (t._ripple.showTimerCommit = null), window.clearTimeout(t._ripple.showTimer));
 }
-let B = !1;
+let F = !1;
 function Ve(e) {
-  !B && (e.keyCode === se.enter || e.keyCode === se.space) && (B = !0, F(e));
+  !F && (e.keyCode === se.enter || e.keyCode === se.space) && (F = !0, B(e));
 }
 function De(e) {
-  B = !1, v(e);
+  F = !1, v(e);
 }
 function Me(e) {
-  B && (B = !1, v(e));
+  F && (F = !1, v(e));
 }
 function je(e, t, n) {
   const {
@@ -911,19 +911,19 @@ function je(e, t, n) {
       }), e.addEventListener("mousedown", he);
       return;
     }
-    e.addEventListener("touchstart", F, {
+    e.addEventListener("touchstart", B, {
       passive: !0
     }), e.addEventListener("touchend", v, {
       passive: !0
     }), e.addEventListener("touchmove", Ae, {
       passive: !0
-    }), e.addEventListener("touchcancel", v), e.addEventListener("mousedown", F), e.addEventListener("mouseup", v), e.addEventListener("mouseleave", v), e.addEventListener("keydown", Ve), e.addEventListener("keyup", De), e.addEventListener("blur", Me), e.addEventListener("dragstart", v, {
+    }), e.addEventListener("touchcancel", v), e.addEventListener("mousedown", B), e.addEventListener("mouseup", v), e.addEventListener("mouseleave", v), e.addEventListener("keydown", Ve), e.addEventListener("keyup", De), e.addEventListener("blur", Me), e.addEventListener("dragstart", v, {
       passive: !0
     });
   } else !i && n && We(e);
 }
 function We(e) {
-  e.removeEventListener("mousedown", F), e.removeEventListener("touchstart", F), e.removeEventListener("touchend", v), e.removeEventListener("touchmove", Ae), e.removeEventListener("touchcancel", v), e.removeEventListener("mouseup", v), e.removeEventListener("mouseleave", v), e.removeEventListener("keydown", Ve), e.removeEventListener("keyup", De), e.removeEventListener("dragstart", v), e.removeEventListener("blur", Me);
+  e.removeEventListener("mousedown", B), e.removeEventListener("touchstart", B), e.removeEventListener("touchend", v), e.removeEventListener("touchmove", Ae), e.removeEventListener("touchcancel", v), e.removeEventListener("mouseup", v), e.removeEventListener("mouseleave", v), e.removeEventListener("keydown", Ve), e.removeEventListener("keyup", De), e.removeEventListener("dragstart", v), e.removeEventListener("blur", Me);
 }
 function Zt(e, t) {
   je(e, t, !1);
@@ -956,7 +956,8 @@ const en = {
     fullWidth: { type: Boolean },
     href: {},
     width: {},
-    target: { default: "_self" }
+    target: { default: "_self" },
+    rounded: { type: Boolean }
   },
   setup(e) {
     const t = e, n = f(() => t.href ? "a" : t.tag || "button"), r = f(
@@ -968,7 +969,8 @@ const en = {
       {
         "full-width": t.fullWidth,
         "is-loading": t.loading,
-        "with-icon": t.icon
+        "with-icon": t.icon,
+        rounded: t.rounded
       }
     ]), i = f(() => {
       switch (t.size) {
@@ -1019,7 +1021,7 @@ const en = {
   for (const [r, s] of t)
     n[r] = s;
   return n;
-}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-526efb3a"]]), an = {
+}, sn = /* @__PURE__ */ rn(nn, [["__scopeId", "data-v-de68a19e"]]), an = {
   dark: !1,
   colors: {
     primary: "#3B755F",
