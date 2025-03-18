@@ -5,6 +5,7 @@ import { VIcon, VProgressCircular } from 'vuetify/components'
 type ButtonType =
   | 'primary'
   | 'secondary'
+  | 'tertiary'
   | 'success'
   | 'danger'
   | 'info'
@@ -142,6 +143,10 @@ const loaderSize = computed(() => {
     }
   }
 
+  &.full-width {
+    width: 100%;
+  }
+
   &.small {
     height: 28px;
     font-size: 14px;
@@ -154,10 +159,11 @@ const loaderSize = computed(() => {
     font-size: 18px;
     line-height: 20px;
     padding: 0 16px;
-  }
 
-  &.full-width {
-    width: 100%;
+    &.full-width {
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
 
   &.gs-primary {
@@ -169,6 +175,11 @@ const loaderSize = computed(() => {
     background-color: var(--ui-white);
     border: 2px solid var(--ui-green);
     color: var(--ui-green);
+  }
+
+  &.gs-tertiary {
+    color: var(--ui-white);
+    background-color: var(--ui-dark-gray);
   }
 
   &.gs-success {
@@ -188,7 +199,6 @@ const loaderSize = computed(() => {
 
   &.gs-icon {
     min-width: unset;
-    box-sizing: content-box;
     padding: 4px 8px;
     color: var(--ui-white);
     background-color: var(--ui-green);

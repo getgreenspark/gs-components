@@ -79,6 +79,8 @@ export const Variants: Story = {
       <div class="d-flex ga-3">
         <GsButton type="primary">Primary</GsButton>
         <GsButton type="secondary">Secondary</GsButton>
+        <GsButton type="tertiary">Tertiary</GsButton>
+        <GsButton type="outlined">Outlined</GsButton>
         <GsButton type="success">Success</GsButton>
         <GsButton type="danger">Danger</GsButton>
         <GsButton type="info">Info</GsButton>
@@ -100,6 +102,9 @@ export const Sizes: Story = {
         <GsButton size="small">Small Size</GsButton>
         <GsButton>Default Size</GsButton>
         <GsButton size="large">Large Size</GsButton>
+      </div>
+      <div class="mt-3" style="width: 335px;">
+        <GsButton full-width size="large">Full Width</GsButton>
       </div>
     `,
   }),
