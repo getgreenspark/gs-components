@@ -135,6 +135,12 @@ const loaderSize = computed(() => {
     transform: translate(-50%, -50%);
   }
 
+  .text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   &.with-icon {
     gap: 4px;
 
