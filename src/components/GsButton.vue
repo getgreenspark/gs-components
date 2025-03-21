@@ -145,8 +145,10 @@ const loaderSize = computed(() => {
     gap: 4px;
 
     &.large {
-      font-size: 24px;
-      line-height: 28px;
+      @media (min-width: 991px) {
+        font-size: 24px;
+        line-height: 28px;
+      }
     }
   }
 
@@ -175,8 +177,10 @@ const loaderSize = computed(() => {
     padding: 0 16px;
 
     &.full-width {
-      font-size: 24px;
-      line-height: 28px;
+      @media (min-width: 991px) {
+        font-size: 24px;
+        line-height: 28px;
+      }
     }
   }
 
