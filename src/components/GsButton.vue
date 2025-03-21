@@ -111,6 +111,8 @@ const loaderSize = computed(() => {
   border: none;
   user-select: none;
   text-decoration: none;
+  outline: none;
+  transition: all 100ms ease-in-out;
 
   &:hover,
   &:active,
@@ -181,13 +183,21 @@ const loaderSize = computed(() => {
   &.gs-primary {
     color: var(--ui-white);
     background-color: var(--ui-green);
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:not(:disabled):not(.disabled):active:focus {
+      opacity: 1;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+        var(--ui-green);
+    }
   }
 
   &.gs-secondary {
     background-color: transparent;
     border: 2px solid var(--ui-green);
     color: var(--ui-green);
-    transition: background-color 100ms ease-in-out;
 
     &:hover,
     &:active,
