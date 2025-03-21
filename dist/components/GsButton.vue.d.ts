@@ -13,7 +13,6 @@ type ButtonProps = {
     href?: string;
     width?: string;
     target?: AnchorTarget;
-    rounded?: boolean;
 };
 declare function __VLS_template(): {
     attrs: Partial<{}>;
