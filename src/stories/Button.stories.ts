@@ -76,7 +76,7 @@ export const Variants: Story = {
       return { args }
     },
     template: `
-      <div class="d-flex ga-3">
+      <div class="d-flex ga-3 align-items-center">
         <GsButton type="primary">Primary</GsButton>
         <GsButton type="secondary">Secondary</GsButton>
         <GsButton type="tertiary">Tertiary</GsButton>
@@ -85,7 +85,6 @@ export const Variants: Story = {
         <GsButton type="danger">Danger</GsButton>
         <GsButton type="info">Info</GsButton>
         <GsButton type="link">Link</GsButton>
-        <GsButton type="icon" icon="mdi-bell" />
       </div>
     `,
   }),
@@ -110,7 +109,7 @@ export const Sizes: Story = {
   }),
 }
 
-export const Rounded: Story = {
+export const WithIcon: Story = {
   render: (args) => ({
     components: { GsButton },
     setup() {
@@ -118,18 +117,12 @@ export const Rounded: Story = {
     },
     template: `
       <div class="d-flex ga-3">
-        <GsButton type="secondary" rounded>Rounded Button</GsButton>
-        <GsButton type="success" rounded>Rounded Button</GsButton>
+        <GsButton icon="mdi-check">With Icon</GsButton>
+        <GsButton icon="mdi-chevron-left" type="link">Back</GsButton>
+        <GsButton type="icon" icon="mdi-bell" />
       </div>
     `,
   }),
-}
-
-export const WithIcon: Story = {
-  args: {
-    icon: 'mdi-check',
-    default: 'With Icon',
-  },
 }
 
 export const Disabled: Story = {

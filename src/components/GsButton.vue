@@ -27,7 +27,6 @@ type ButtonProps = {
   href?: string
   width?: string
   target?: AnchorTarget
-  rounded?: boolean
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -49,7 +48,6 @@ const buttonClasses = computed(() => [
     'full-width': props.fullWidth,
     'is-loading': props.loading,
     'with-icon': props.icon,
-    rounded: props.rounded,
   },
 ])
 
@@ -150,13 +148,6 @@ const loaderSize = computed(() => {
     }
   }
 
-  &.rounded {
-    border-radius: 25px !important;
-    font-size: 20px;
-    line-height: 24px;
-    height: 44px;
-  }
-
   &.is-loading {
     .text {
       opacity: 0;
@@ -167,7 +158,8 @@ const loaderSize = computed(() => {
     width: 100%;
   }
 
-  &.small {
+  &.small,
+  &.gs-link {
     height: 28px;
     font-size: 14px;
     line-height: 16px;
@@ -192,7 +184,7 @@ const loaderSize = computed(() => {
   }
 
   &.gs-secondary {
-    background-color: var(--ui-white);
+    background-color: transparent;
     border: 2px solid var(--ui-green);
     color: var(--ui-green);
     transition: background-color 100ms ease-in-out;
@@ -227,7 +219,7 @@ const loaderSize = computed(() => {
   }
 
   &.gs-info {
-    color: var(--gray);
+    color: var(--ui-black);
     background-color: transparent;
   }
 
@@ -256,6 +248,7 @@ const loaderSize = computed(() => {
     width: auto;
     height: auto;
     text-decoration: none;
+    gap: 0;
 
     &:hover,
     &:active,
