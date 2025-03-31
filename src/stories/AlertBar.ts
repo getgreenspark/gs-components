@@ -14,7 +14,7 @@ const meta: Meta<typeof GsAlertBar> = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['default', 'success', 'error', 'warning'],
+      options: ['info', 'success', 'error', 'warning'],
       description: 'The variant style of the info bar.',
     },
     fullWidth: {
@@ -40,7 +40,7 @@ export const Variants: Story = {
         <GsAlertBar type="success" :message="message" />
         <GsAlertBar type="success" :message="message" title="Success Title" />
         <GsAlertBar type="info" :message="message" />
-        <GsAlertBar type="info" :message="message" title="Default Title" />
+        <GsAlertBar type="info" :message="message" title="Info Title" />
         <GsAlertBar type="warning" :message="message" />
         <GsAlertBar type="warning" :message="message" title="Warning Title" />
         <GsAlertBar type="error" :message="message" />
