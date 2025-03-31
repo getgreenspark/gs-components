@@ -25,7 +25,7 @@ const infoBarClasses = computed(() => [
 </script>
 
 <template>
-  <div :class="infoBarClasses" :style="{ width: fullWidth ? '100%' : 'fit-content' }" role="alert">
+  <div :class="infoBarClasses" :style="{ width: props.fullWidth ? '100%' : 'fit-content' }" role="alert">
     <div style="display: flex; gap: 12px; align-items: center">
       <div style="display: flex; align-self: flex-start">
         <v-icon icon="mdi-information-outline" class="icon"></v-icon>
