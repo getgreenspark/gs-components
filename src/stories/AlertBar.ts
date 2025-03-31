@@ -8,18 +8,18 @@ import '@mdi/font/css/materialdesignicons.min.css'
 import GsAlertBar from '@/components/GsAlertBar.vue'
 
 const meta: Meta<typeof GsAlertBar> = {
-  title: 'Components/InfoBar',
+  title: 'Components/AlertBar',
   component: GsAlertBar,
   tags: ['autodocs'],
   argTypes: {
     type: {
       control: 'select',
       options: ['info', 'success', 'error', 'warning'],
-      description: 'The variant style of the info bar.',
+      description: 'The variant style of the alert bar.',
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Makes the info bar take the full width of its container.',
+      description: 'Makes the alert bar take the full width of its container.',
     },
   },
 }
