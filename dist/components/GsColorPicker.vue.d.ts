@@ -17,6 +17,6 @@ declare const _default: import('vue').DefineComponent<__VLS_PublicProps, {}, {},
 }>, {
     placeholder: string;
     clearable: boolean;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 export default _default;
 //# sourceMappingURL=GsColorPicker.vue.d.ts.map
