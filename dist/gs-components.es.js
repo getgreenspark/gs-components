@@ -7110,7 +7110,7 @@ const Ss = _e({
       _: 1
     }));
   }
-}), Rs = /* @__PURE__ */ Mn($s, [["__scopeId", "data-v-489d03ec"]]), Ms = {
+}), Rs = /* @__PURE__ */ Mn($s, [["__scopeId", "data-v-a535deda"]]), Ms = {
   dark: !1,
   colors: {
     primary: "#3B755F",

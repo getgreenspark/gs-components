@@ -38,8 +38,13 @@ const handleClear = () => {
 <template>
   <v-menu location="top" offset="15" :close-on-content-click="false" close-on-back>
     <template v-slot:activator="{ props: menuProps }">
-      <div :class="colorPickerClasses" v-bind="menuProps" role="button" tabindex="0"
-           :aria-label="`Open color picker. Current color: ${model || 'white'}`">
+      <div
+        :class="colorPickerClasses"
+        v-bind="menuProps"
+        role="button"
+        tabindex="0"
+        :aria-label="`Open color picker. Current color: ${model || 'white'}`"
+      >
         <label class="gs-color-picker-label" v-if="label">{{ label }}</label>
         <v-text-field
           v-model="model"
@@ -51,10 +56,7 @@ const handleClear = () => {
           :placeholder="placeholder"
         >
           <template v-slot:prepend>
-            <div
-              class="gs-color-picker-swatch"
-              :style="{ backgroundColor: model || '#FFFFFF' }"
-            >
+            <div class="gs-color-picker-swatch" :style="{ backgroundColor: model || '#FFFFFF' }">
               <span class="sr-only">{{ model || 'white' }}</span>
             </div>
           </template>
@@ -83,7 +85,6 @@ const handleClear = () => {
     </v-card>
   </v-menu>
 </template>
-
 
 <style lang="scss" scoped>
 .gs-color-picker {
