@@ -17,6 +17,10 @@ const meta: Meta<typeof GsColorPicker> = {
       control: 'text',
       description: 'The label of the color picker.',
     },
+    placeholder: {
+      control: 'text',
+      description: 'The placeholder of the color picker.',
+    },
     disabled: {
       control: 'boolean',
       description: 'Makes the color picker disabled.',
@@ -25,6 +29,10 @@ const meta: Meta<typeof GsColorPicker> = {
       control: 'multi-select',
       options: ['hex', 'rgb', 'hsl'],
       description: 'Changes the color picker mode.',
+    },
+    clearable: {
+      control: 'boolean',
+      description: 'Makes the color picker clearable.',
     },
   },
 }
