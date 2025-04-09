@@ -36,60 +36,65 @@ const handleClear = () => {
 </script>
 
 <template>
-  <div :class="colorPickerClasses">
-    <label class="gs-color-picker-label" v-if="label">{{ label }}</label>
-    <v-text-field
-      v-model="model"
-      flat
-      variant="outlined"
-      readonly
-      :disabled="disabled"
-      :aria-label="label || placeholder"
-      :placeholder="placeholder"
-    >
-      <template v-slot:prepend>
-        <v-menu location="top" offset="15" :close-on-content-click="false" close-on-back>
-          <template v-slot:activator="{ props: menuProps }">
+  <v-menu location="top" offset="15" :close-on-content-click="false" close-on-back>
+    <template v-slot:activator="{ props: menuProps }">
+      <div :class="colorPickerClasses" v-bind="menuProps" role="button" tabindex="0"
+           :aria-label="`Open color picker. Current color: ${model || 'white'}`">
+        <label class="gs-color-picker-label" v-if="label">{{ label }}</label>
+        <v-text-field
+          v-model="model"
+          flat
+          variant="outlined"
+          readonly
+          :disabled="disabled"
+          :aria-label="label || placeholder"
+          :placeholder="placeholder"
+        >
+          <template v-slot:prepend>
             <div
               class="gs-color-picker-swatch"
               :style="{ backgroundColor: model || '#FFFFFF' }"
-              v-bind="menuProps"
-              role="button"
-              :aria-label="`Open color picker. Current color: ${model || 'white'}`"
-              tabindex="0"
             >
               <span class="sr-only">{{ model || 'white' }}</span>
             </div>
           </template>
-          <v-card>
-            <v-card-text class="pa-0">
-              <v-color-picker
-                v-model="model"
-                :modes="allowedColorModes"
-                :aria-label="`Color picker for ${label || 'color selection'}`"
-              />
-            </v-card-text>
-          </v-card>
-        </v-menu>
-      </template>
-      <template v-slot:append v-if="clearable && model && !disabled">
-        <v-icon
-          icon="mdi-close"
-          size="small"
-          @click="handleClear"
-          role="button"
-          tabindex="0"
-          aria-label="Clear color selection"
+          <template v-slot:append v-if="clearable && model && !disabled">
+            <v-icon
+              icon="mdi-close"
+              size="small"
+              @click.stop="handleClear"
+              role="button"
+              tabindex="0"
+              aria-label="Clear color selection"
+            />
+          </template>
+        </v-text-field>
+      </div>
+    </template>
+
+    <v-card>
+      <v-card-text class="pa-0">
+        <v-color-picker
+          v-model="model"
+          :modes="allowedColorModes"
+          :aria-label="`Color picker for ${label || 'color selection'}`"
         />
-      </template>
-    </v-text-field>
-  </div>
+      </v-card-text>
+    </v-card>
+  </v-menu>
 </template>
+
 
 <style lang="scss" scoped>
 .gs-color-picker {
   min-width: 180px;
   width: 100%;
+  cursor: pointer;
+
+  &.gs-color-picker-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 
   :deep(.v-field) {
     border: 0;
@@ -100,6 +105,7 @@ const handleClear = () => {
   }
 
   :deep(.v-field__input) {
+    cursor: pointer;
     padding: 0;
   }
 
@@ -144,11 +150,6 @@ const handleClear = () => {
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 2px var(--ui-green);
-  }
 
   &:focus-visible {
     outline: 2px solid var(--ui-green);
