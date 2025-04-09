@@ -19,7 +19,7 @@ const meta: Meta<typeof GsColorPicker> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'Makes the alert bar disabled.',
+      description: 'Makes the color picker disabled.',
     },
     colorModes: {
       control: 'multi-select',
