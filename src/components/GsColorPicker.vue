@@ -33,6 +33,10 @@ const colorPickerClasses = computed(() => [
 const handleClear = () => {
   model.value = ''
 }
+
+const handleColorChange = (value: string) => {
+  model.value = value
+}
 </script>
 
 <template>
@@ -44,6 +48,7 @@ const handleClear = () => {
         role="button"
         tabindex="0"
         v-bind="menuProps"
+        @click.stop
       >
         <label v-if="label" class="gs-color-picker-label">{{ label }}</label>
         <v-text-field
@@ -80,6 +85,7 @@ const handleClear = () => {
           v-model="model"
           :aria-label="`Color picker for ${label || 'color selection'}`"
           :modes="allowedColorModes"
+          @update:model-value="handleColorChange"
         />
       </v-card-text>
     </v-card>
