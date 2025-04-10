@@ -1,172 +1,130 @@
 <template>
-  <article class="gs-manage-plan">
-    <div class="image-container">
-      <img
-        :src="imageUrl"
-        :alt="imageAlt"
-        class="plan-image"
-      />
-      <div v-if="hasTrial" class="trial-tag">
-        <GsTags
-          :label="tagText"
-          backgroundColor="main-black"
-          fontColor="main-white"
-          bold
-          fontSize="caption"
-        />
+  <div :class="{ 'gs-manage-plan--disabled': disabled }" class="gs-manage-plan">
+    <div class="gs-manage-plan__content">
+      <img :alt="title" :src="icon" class="gs-manage-plan__icon" />
+      <div class="gs-manage-plan__text">
+        <GsTypography bold tag="h2" variant="title-1">
+          {{ title }}
+        </GsTypography>
+        <GsTypography variant="big-description">
+          <slot name="description">{{ description }}</slot>
+        </GsTypography>
       </div>
     </div>
-    <div class="content-wrapper">
-      <GsTypography
-        variant="title-2"
-        bold
-        class="plan-title"
-      >
-        {{ title }}
-      </GsTypography>
-      <GsTypography
-        variant="body"
-        class="plan-description"
-        v-html="description"
-      />
-      <GsButton
-        :icon="buttonIcon"
-        full-width
-        @click="$emit('action')"
-      >
-        {{ buttonText }}
-      </GsButton>
-    </div>
-  </article>
+    <GsButton
+      :full-width="isSmallScreen"
+      :icon="buttonIcon"
+      type="success"
+      @click="handleButtonClick"
+    >
+      {{ buttonLabel }}
+    </GsButton>
+  </div>
 </template>
 
-<script setup lang="ts">
-import GsTypography from './GsTypography.vue'
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import GsButton from './GsButton.vue'
-import GsTags from './GsTags.vue'
+import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsManagePlan'
+  name: 'GsManagePlan',
 })
 
-defineProps({
-  imageUrl: {
-    type: String,
-    required: true
-  },
-  imageAlt: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true,
-    /**
-     * The description text to display below the title.
-     * Supports HTML content which will be safely rendered.
-     * @example "Get started with our <a href='#'>premium features</a>"
-     */
-  },
-  buttonText: {
-    type: String,
-    default: 'Manage'
-  },
-  buttonIcon: {
-    type: String,
-    default: ''
-  },
-  hasTrial: {
-    type: Boolean,
-    default: false
-  },
-  tagText: {
-    type: String,
-    default: 'Free trial'
-  }
+interface Props {
+  icon: string
+  title: string
+  description?: string
+  buttonLabel?: string
+  buttonIcon?: string
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  description: '',
+  buttonLabel: 'Manage',
+  buttonIcon: 'mdi-cog',
+  disabled: false,
 })
 
-defineEmits(['action'])
+const emit = defineEmits<{
+  (e: 'button-click'): void
+}>()
+
+const isSmallScreen = ref(false)
+
+const checkScreenSize = () => {
+  isSmallScreen.value = window.innerWidth < 768
+}
+
+onMounted(() => {
+  checkScreenSize()
+  window.addEventListener('resize', checkScreenSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkScreenSize)
+})
+
+const handleButtonClick = () => {
+  emit('button-click')
+}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .gs-manage-plan {
   display: flex;
-  width: 286px;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  background: var(--main-white);
-  overflow: hidden;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 140px;
-}
-
-.plan-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.trial-tag {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-}
-
-.content-wrapper {
-  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   padding: 16px;
-  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--main-white);
+  border: 1px solid var(--gray-light-CD);
+  gap: 16px;
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    padding: 16px;
+    flex-direction: column;
+    align-items: stretch;
+
+    :deep(.gs-button) {
+      margin-top: 8px;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 16px;
+    align-items: center;
+  }
+}
+
+.gs-manage-plan__content {
+  display: flex;
   align-items: flex-start;
   gap: 16px;
-  width: 100%;
-  border: 1px solid var(--grey-scale-60);
-  border-top: none;
-  border-radius: 0 0 8px 8px;
+  flex: 1;
+  min-width: 0;
 }
 
-.plan-title {
-  margin: 0;
-  width: 100%;
+.gs-manage-plan__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.plan-description {
-  margin: 0;
-  width: 100%;
-}
+.gs-manage-plan__text {
+  flex: 1;
+  min-width: 0;
 
-:deep(a) {
-  color: inherit;
-  text-decoration: underline;
-  
-  &:hover {
-    opacity: 0.8;
+  .gs-typography {
+    margin-bottom: 4px;
   }
 }
-
-@media (max-width: 991px) {
-  .gs-manage-plan {
-    width: 100%;
-    max-width: 286px;
-  }
-}
-
-@media (max-width: 640px) {
-  .gs-manage-plan {
-    width: 100%;
-    max-width: none;
-  }
-
-  .content-wrapper {
-    padding: 12px;
-  }
-}
-</style> 
+</style>

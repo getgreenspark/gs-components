@@ -1,11 +1,12 @@
 <!-- GsIntegrationSelector.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import '@/assets/style/colorVariables.css'
 import GsTypography from './GsTypography.vue'
 import GsTags from './GsTags.vue'
+import { computed } from 'vue'
 
 defineOptions({
-  name: 'GsIntegrationSelector'
+  name: 'GsIntegrationSelector',
 })
 
 interface Props {
@@ -19,6 +20,10 @@ interface Props {
   disabled?: boolean
   icon?: string
   tagLabel?: string
+  errorMessages?: string | string[]
+  hideDetails?: boolean
+  density?: 'default' | 'comfortable' | 'compact'
+  color?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,37 +31,53 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   label: 'Integration name',
   icon: '',
-  tagLabel: undefined
+  tagLabel: undefined,
+  errorMessages: '',
+  hideDetails: false,
+  density: 'default',
+  color: 'primary',
 })
 
-defineEmits<{
-  'update:modelValue': [value: boolean]
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: boolean): void
+  (e: 'change', value: boolean): void
 }>()
+
+const model = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value),
+})
+
+const handleChange = (value: boolean) => {
+  emit('change', value)
+}
 </script>
 
 <template>
   <div
-    class="gs-integration-selector"
     :class="{
-      'gs-integration-selector--selected': modelValue,
-      'gs-integration-selector--disabled': disabled
+      'gs-integration-selector--selected': model,
+      'gs-integration-selector--disabled': disabled,
     }"
-    @click="!disabled && $emit('update:modelValue', !modelValue)"
+    class="gs-integration-selector"
+    @click="!disabled && handleChange(!model)"
   >
     <div class="gs-integration-selector__content">
       <div class="gs-integration-selector__icon">
-        <img v-if="icon" :src="icon" alt="" width="24" height="24" />
-        <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" fill="#00B67A" />
+        <img v-if="icon" :src="icon" alt="" height="24" width="24" />
+        <svg v-else fill="none" height="24" viewBox="0 0 24 24" width="24">
+          <rect fill="#00B67A" height="24" width="24" />
         </svg>
       </div>
-      <GsTypography variant="big-description" v-html="label" />
+      <GsTypography variant="big-description">
+        <slot name="label">{{ label }}</slot>
+      </GsTypography>
     </div>
     <GsTags
       v-if="tagLabel"
       :label="tagLabel"
       background-color="main-green"
-      bold="true"
+      bold
       class="gs-integration-selector__tag"
     />
   </div>
@@ -116,9 +137,9 @@ defineEmits<{
 .gs-integration-selector :deep(a) {
   color: inherit;
   text-decoration: underline;
-  
+
   &:hover {
     opacity: 0.8;
   }
 }
-</style> 
+</style>

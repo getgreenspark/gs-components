@@ -1,11 +1,10 @@
 <!-- GsCheckbox.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { VCheckbox } from 'vuetify/components'
-import GsTypography from './GsTypography.vue'
 import { computed } from 'vue'
 
 defineOptions({
-  name: 'GsCheckbox'
+  name: 'GsCheckbox',
 })
 
 type TextSize = 'description' | 'body'
@@ -14,7 +13,7 @@ interface Props {
   /**
    * The model value for the checkbox
    */
-  modelValue: boolean
+  modelValue?: boolean
   /**
    * The label text to display next to the checkbox.
    * Supports HTML content which will be safely rendered.
@@ -36,109 +35,75 @@ interface Props {
    * @default false
    */
   bold?: boolean
+  errorMessages?: string | string[]
+  hideDetails?: boolean
+  density?: 'default' | 'comfortable' | 'compact'
+  color?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  modelValue: false,
+  label: '',
   disabled: false,
   textSize: 'description',
-  bold: false
+  bold: false,
+  errorMessages: '',
+  hideDetails: false,
+  density: 'default',
+  color: 'primary',
 })
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void
+  (e: 'change', value: boolean): void
 }>()
 
-const isChecked = computed({
+const model = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: (value) => emit('update:modelValue', value),
 })
 </script>
 
 <template>
-  <div 
-    class="gs-checkbox-wrapper"
-    @click="!disabled && (isChecked = !isChecked)"
-  >
-    <VCheckbox
-      v-model="isChecked"
+  <div :class="{ 'gs-checkbox--disabled': disabled }" class="gs-checkbox">
+    <v-checkbox
+      v-model="model"
+      :color="color"
+      :density="density"
       :disabled="disabled"
-      class="gs-checkbox"
-      density="compact"
-      hide-details
+      :error-messages="errorMessages"
+      :hide-details="hideDetails"
+      :label="label"
+      :ripple="false"
     >
       <template v-if="label" #label>
-        <GsTypography
-          :variant="textSize"
-          :bold="bold"
-          v-html="label"
-        />
+        <slot name="label">{{ label }}</slot>
       </template>
-    </VCheckbox>
+    </v-checkbox>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.gs-checkbox-wrapper {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  
-  &:has(.v-checkbox--disabled) {
-    cursor: not-allowed;
-  }
-
-  :deep(a) {
-    color: inherit;
-    text-decoration: underline;
-    
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
 .gs-checkbox {
-  :deep(.v-selection-control) {
-    min-height: unset;
+  width: 100%;
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 
-  :deep(.v-selection-control__wrapper) {
-    margin-right: 4px;
+  :deep(.v-checkbox) {
+    width: 100%;
   }
 
-  :deep(.v-selection-control--dirty .v-selection-control__input > .v-icon) {
+  :deep(.v-checkbox__input) {
+    margin-right: 8px;
+  }
+
+  :deep(.v-checkbox__label) {
+    font-size: 14px;
+    line-height: 22px;
     color: var(--main-black);
-    background-color: transparent;
-  }
-
-  :deep(.v-checkbox-btn .v-btn.v-btn--icon.v-btn--density-compact) {
-    width: 20px;
-    height: 20px;
-  }
-
-  :deep(.v-selection-control__input) {
-    .v-btn {
-      border: 2px solid var(--main-black);
-      background-color: transparent !important;
-      color: var(--main-black) !important;
-
-      &::before {
-        display: none;
-      }
-    }
-
-    .v-btn--variant-plain {
-      border: 2px solid var(--main-black) !important;
-      opacity: 1;
-    }
-  }
-
-  :deep(.v-selection-control-group) {
-    .v-selection-control__input {
-      .v-btn {
-        border-color: var(--main-black) !important;
-      }
-    }
   }
 }
-</style> 
+</style>

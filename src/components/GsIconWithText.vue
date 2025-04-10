@@ -1,39 +1,23 @@
 <template>
-  <article
-    class="gs-icon-with-text"
-    role="region"
-  >
+  <article class="gs-icon-with-text" role="region">
     <div class="icon-wrapper">
-      <img 
-        v-if="iconPath" 
-        :src="iconPath" 
-        :alt="iconAlt"
-        class="custom-icon"
-      />
-      <v-icon
-        v-else-if="mdiIcon"
-        :icon="mdiIcon"
-        :size="iconSize"
-        :color="iconColor"
-      />
+      <img v-if="iconPath" :alt="iconAlt" :src="iconPath" class="custom-icon" />
+      <v-icon v-else-if="mdiIcon" :color="iconColor" :icon="mdiIcon" :size="iconSize" />
     </div>
     <div class="text-wrapper">
-      <GsTypography
-        :variant="textVariant"
-        :tag="tag"
-        class="text-content"
-        v-html="text"
-      />
+      <GsTypography :tag="tag" :variant="textVariant" class="text-content">
+        <slot name="text">{{ text }}</slot>
+      </GsTypography>
     </div>
   </article>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { VIcon } from 'vuetify/components'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsIconWithText'
+  name: 'GsIconWithText',
 })
 
 interface Props {
@@ -47,14 +31,27 @@ interface Props {
   iconSize?: string | number
   /** Icon color using design system variables */
   iconColor?: string
-  /** 
+  /**
    * Text content to display next to the icon.
    * Supports HTML content which will be safely rendered.
    * @example "Check out our <a href='#'>documentation</a>"
    */
   text: string
   /** Typography variant for the text */
-  textVariant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'title-1' | 'title-2' | 'big-description' | 'description' | 'body' | 'caption' | 'minimum'
+  textVariant?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'title-1'
+    | 'title-2'
+    | 'big-description'
+    | 'description'
+    | 'body'
+    | 'caption'
+    | 'minimum'
   /** HTML tag to use for the text */
   tag?: string
 }
@@ -63,7 +60,7 @@ withDefaults(defineProps<Props>(), {
   iconSize: 20,
   iconColor: 'var(--main-black)',
   textVariant: 'body',
-  tag: 'p'
+  tag: 'p',
 })
 </script>
 
@@ -98,7 +95,7 @@ withDefaults(defineProps<Props>(), {
 :deep(a) {
   color: inherit;
   text-decoration: underline;
-  
+
   &:hover {
     opacity: 0.8;
   }
@@ -116,4 +113,4 @@ withDefaults(defineProps<Props>(), {
     gap: 6px;
   }
 }
-</style> 
+</style>

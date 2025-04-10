@@ -1,35 +1,25 @@
 <template>
   <article class="gs-notification-bar">
     <div class="gs-notification-content">
-      <img
-        v-if="icon"
-        :src="icon"
-        :alt="title"
-        class="gs-notification-icon"
-      />
+      <img v-if="icon" :alt="title" :src="icon" class="gs-notification-icon" />
       <div class="gs-notification-text">
-        <GsTypography
-          v-if="title"
-          variant="title-1"
-          bold
-          tag="h2"
-          color="main-white"
-        >
+        <GsTypography v-if="title" bold color="main-white" tag="h2" variant="title-1">
           {{ title }}
         </GsTypography>
         <GsTypography
           v-if="description"
-          variant="big-description"
-          color="main-white"
           class="gs-notification-description"
-          v-html="description"
-        />
+          color="main-white"
+          variant="big-description"
+        >
+          <slot name="description">{{ description }}</slot>
+        </GsTypography>
       </div>
     </div>
     <GsButton
-      type="success"
-      :icon="buttonIcon"
       :full-width="isSmallScreen"
+      :icon="buttonIcon"
+      type="success"
       @click="handleButtonClick"
     >
       {{ buttonLabel }}
@@ -37,14 +27,14 @@
   </article>
 </template>
 
-<script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import GsButton from './GsButton.vue'
 import GsTypography from './GsTypography.vue'
 import '../assets/style/colorVariables.css'
 
 defineOptions({
-  name: 'GsNotificationBar'
+  name: 'GsNotificationBar',
 })
 
 type NotificationBarProps = {
@@ -52,8 +42,7 @@ type NotificationBarProps = {
   title?: string
   /**
    * The description text to display below the title.
-   * Supports HTML content which will be safely rendered.
-   * @example "Check out our <a href='#'>latest updates</a>"
+   * This prop is used as a fallback when no description slot is provided.
    */
   description?: string
   buttonLabel?: string
@@ -65,7 +54,7 @@ const props = withDefaults(defineProps<NotificationBarProps>(), {
   title: '',
   description: '',
   buttonLabel: 'Action',
-  buttonIcon: ''
+  buttonIcon: '',
 })
 
 const emit = defineEmits<{
@@ -102,7 +91,12 @@ const handleButtonClick = () => {
   padding: 16px;
   align-items: flex-start;
   gap: 16px;
-  font-family: Cabin, -apple-system, Roboto, Helvetica, sans-serif;
+  font-family:
+    Cabin,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
   justify-content: space-between;
   flex-wrap: wrap;
 
@@ -110,7 +104,7 @@ const handleButtonClick = () => {
     color: var(--main-white);
     text-decoration: underline;
     opacity: 0.8;
-    
+
     &:hover {
       opacity: 1;
     }
@@ -157,4 +151,4 @@ const handleButtonClick = () => {
   margin-top: 4px;
   opacity: 0.8;
 }
-</style> 
+</style>

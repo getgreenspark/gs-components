@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { VIcon } from 'vuetify/components'
 import GsTypography from './GsTypography.vue'
@@ -26,10 +26,12 @@ interface Props {
    * Makes the alert take the full width of its container
    */
   fullWidth?: boolean
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'info',
+  disabled: false,
 })
 
 const alertBarClasses = computed(() => [
@@ -37,18 +39,43 @@ const alertBarClasses = computed(() => [
   `gs-${props.type}`,
   {
     'full-width': props.fullWidth,
+    'gs-alert-bar--disabled': props.disabled,
   },
 ])
+
+const icon = computed(() => {
+  switch (props.type) {
+    case 'success':
+      return 'mdi-check-circle'
+    case 'warning':
+      return 'mdi-alert'
+    case 'error':
+      return 'mdi-close-circle'
+    default:
+      return 'mdi-information'
+  }
+})
 </script>
 
 <template>
   <div :class="alertBarClasses" role="alert">
     <div class="d-flex">
-      <v-icon icon="mdi-information-outline" class="icon me-3" size="16" />
-      <div class="d-flex flex-column">
-        <GsTypography v-if="title" variant="description" bold :class="'title'" v-html="title" />
-        <GsTypography variant="description" :class="'message'" v-html="message" />
+      <div class="gs-alert-bar__content">
+        <div class="gs-alert-bar__icon">
+          <v-icon :icon="icon" class="icon me-3" size="16" />
+        </div>
+        <div class="d-flex flex-column">
+          <GsTypography v-if="title" :class="'title'" bold variant="description">
+            <slot name="title">{{ title }}</slot>
+          </GsTypography>
+          <GsTypography :class="'message'" variant="description">
+            <slot name="message">{{ message }}</slot>
+          </GsTypography>
+        </div>
       </div>
+    </div>
+    <div v-if="!disabled" class="gs-alert-bar__actions">
+      <slot name="actions" />
     </div>
   </div>
 </template>
@@ -96,5 +123,41 @@ const alertBarClasses = computed(() => [
       color: var(--ui-white);
     }
   }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.gs-alert-bar__content {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.gs-alert-bar__icon {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.gs-alert-bar__text {
+  flex: 1;
+  min-width: 0;
+
+  .title {
+    margin-bottom: 4px;
+  }
+
+  .message {
+    opacity: 0.8;
+  }
+}
+
+.gs-alert-bar__actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
 }
 </style>
