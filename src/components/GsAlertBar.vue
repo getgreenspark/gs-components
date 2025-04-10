@@ -1,17 +1,34 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { VIcon } from 'vuetify/components'
+import GsTypography from './GsTypography.vue'
 
 type AlertBarType = 'info' | 'success' | 'error' | 'warning'
 
-type AlertBarProps = {
+interface Props {
+  /**
+   * The type of alert to display
+   */
   type?: AlertBarType
+  /**
+   * Optional title for the alert.
+   * Supports HTML content which will be safely rendered.
+   * @example "<strong>Important:</strong> Please note"
+   */
   title?: string
+  /**
+   * The main message to display.
+   * Supports HTML content which will be safely rendered.
+   * @example "Visit our <a href='#'>documentation</a> for more info"
+   */
   message: string
+  /**
+   * Makes the alert take the full width of its container
+   */
   fullWidth?: boolean
 }
 
-const props = withDefaults(defineProps<AlertBarProps>(), {
+const props = withDefaults(defineProps<Props>(), {
   type: 'info',
 })
 
@@ -29,8 +46,8 @@ const alertBarClasses = computed(() => [
     <div class="d-flex">
       <v-icon icon="mdi-information-outline" class="icon me-3" size="16" />
       <div class="d-flex flex-column">
-        <span v-if="title" class="title font-weight-bold" v-html="title" />
-        <span class="message" v-html="message" />
+        <GsTypography v-if="title" variant="description" bold :class="'title'" v-html="title" />
+        <GsTypography variant="description" :class="'message'" v-html="message" />
       </div>
     </div>
   </div>

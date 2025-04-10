@@ -1,0 +1,83 @@
+<!-- GsProjectFilter.vue -->
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import GsTags from './GsTags.vue'
+
+defineOptions({
+  name: 'GsProjectFilter'
+})
+
+interface MenuItem {
+  text: string
+  selected: boolean
+  icon?: string
+}
+
+interface Props {
+  items: MenuItem[]
+}
+
+const props = defineProps<Props>()
+const emit = defineEmits(['itemClick', 'update:items'])
+
+const localItems = ref<MenuItem[]>([])
+
+// Initialize localItems with props.items
+watch(() => props.items, (newItems) => {
+  localItems.value = JSON.parse(JSON.stringify(newItems))
+}, { immediate: true, deep: true })
+
+const handleItemClick = (item: MenuItem, index: number) => {
+  // Create new array with updated selection state
+  const updatedItems = localItems.value.map((menuItem, i) => ({
+    ...menuItem,
+    selected: i === index ? !menuItem.selected : false
+  }))
+  
+  // Update local state
+  localItems.value = updatedItems
+  
+  // Emit both the clicked item and the updated items array
+  emit('itemClick', { ...item, selected: !item.selected })
+  emit('update:items', updatedItems)
+}
+</script>
+
+<template>
+  <div class="gs-project-filter">
+    <div
+      v-for="(item, index) in localItems"
+      :key="index"
+      class="gs-project-filter__item"
+      @click="handleItemClick(item, index)"
+    >
+      <GsTags
+        :label="item.text"
+        :icon="item.icon"
+        :background-color="item.selected ? 'grey-scale-800' : 'grey-scale-80'"
+        font-color="main-white"
+        font-size="description"
+        border-color="none"
+        icon-size="16"
+      />
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.gs-project-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gs-project-filter__item {
+  display: inline-flex;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gs-project-filter__item:hover {
+  opacity: 0.9;
+}
+</style> 

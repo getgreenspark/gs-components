@@ -111,7 +111,6 @@ const loaderSize = computed(() => {
   border: none;
   user-select: none;
   text-decoration: none;
-  outline: none;
   transition: all 100ms ease-in-out;
 
   &:hover,
@@ -208,7 +207,7 @@ const loaderSize = computed(() => {
     &:focus,
     &:not(:disabled):not(.disabled):active:focus {
       opacity: 1;
-      background-color: #3b755f33;
+      background-color: colorMapping['main-light-green'] + '33';
     }
   }
 
