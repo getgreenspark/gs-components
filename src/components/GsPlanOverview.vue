@@ -3,31 +3,32 @@
   <article class="gs-plan-overview">
     <!-- Header -->
     <header class="gs-plan-overview__header">
-      <GsTypography variant="title-2" bold tag="h1">Your plan</GsTypography>
+      <GsTypography bold tag="h1" variant="title-2">Your plan</GsTypography>
     </header>
 
     <div class="gs-plan-overview__content">
       <!-- Plan Card -->
       <GsManagePlan
-        :image-url="imageUrl"
-        :title="title"
         :description="description"
-        :tag-text="tagText"
         :has-trial="showTag"
+        :icon="''"
+        :image-url="imageUrl"
+        :tag-text="tagText"
+        :title="title"
         @manage-click="onManagePlanClick"
       />
 
       <!-- Features Section -->
       <section class="gs-plan-overview__features">
-        <GsTypography variant="title-2" bold tag="h2">Included in your plan</GsTypography>
+        <GsTypography bold tag="h2" variant="title-2">Included in your plan</GsTypography>
         <ul class="gs-plan-overview__features-list">
           <li v-for="(feature, index) in features" :key="index">
             <GsIconWithText
-              mdiIcon="mdi-check"
-              iconColor="var(--main-green)"
               :text="feature"
-              textVariant="body"
+              iconColor="var(--main-green)"
+              mdiIcon="mdi-check"
               tag="p"
+              textVariant="body"
             />
           </li>
         </ul>
@@ -35,20 +36,20 @@
 
       <!-- Billing Section -->
       <section class="gs-plan-overview__billing">
-        <GsTypography variant="title-2" bold tag="h2">Billing and payment</GsTypography>
-        
+        <GsTypography bold tag="h2" variant="title-2">Billing and payment</GsTypography>
+
         <div class="gs-plan-overview__payment-info">
           <GsIconWithText
-            iconPath="/icons/stripe-card.svg"
             iconAlt="Stripe"
+            iconPath="/icons/stripe-card.svg"
             text="Paid via Stripe"
             textVariant="description"
           />
 
           <div class="gs-plan-overview__price-details">
             <GsIconWithText
-              iconPath="/icons/money.svg"
               :text="priceText"
+              iconPath="/icons/money.svg"
               textVariant="description"
             />
             <div class="gs-plan-overview__billing-cycle">
@@ -57,18 +58,14 @@
                 text="Current billing cycle:"
                 textVariant="description"
               />
-              <GsTypography variant="description" class="gs-plan-overview__bold">
+              <GsTypography class="gs-plan-overview__bold" variant="description">
                 {{ billingCycle }}
               </GsTypography>
               <GsTypography variant="description">
                 {{ billingType }}
               </GsTypography>
             </div>
-            <GsButton
-              type="secondary"
-              full-width
-              @click="onUpdatePaymentClick"
-            >
+            <GsButton full-width type="secondary" @click="onUpdatePaymentClick">
               Update Payment
             </GsButton>
           </div>
@@ -76,16 +73,11 @@
       </section>
     </div>
 
-    <GsAlertBar
-      v-if="showTrialNotice"
-      type="warning"
-      :message="trialMessage"
-      full-width
-    />
+    <GsAlertBar v-if="showTrialNotice" :message="trialMessage" full-width type="warning" />
   </article>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import GsManagePlan from './GsManagePlan.vue'
 import GsTypography from './GsTypography.vue'
 import GsIconWithText from './GsIconWithText.vue'
@@ -93,7 +85,7 @@ import GsAlertBar from './GsAlertBar.vue'
 import GsButton from './GsButton.vue'
 
 defineOptions({
-  name: 'GsPlanOverview'
+  name: 'GsPlanOverview',
 })
 
 interface Props {
@@ -133,17 +125,18 @@ const props = withDefaults(defineProps<Props>(), {
     '1 active user',
     '1 active app integration with basic automations',
     'Public profile, dynamic widgets and badges to showcase & share your impact',
-    'Offset your team\'s carbon and plastic footprints',
+    "Offset your team's carbon and plastic footprints",
     'Basic analytics to track your impact',
-    'One additional tree planted free every month'
+    'One additional tree planted free every month',
   ],
   priceText: '£5/month',
   billingCycle: 'Oct 4, 2024 - Nov 3, 2024',
   billingType: 'Monthly plan, paid monthly',
   showTrialNotice: true,
-  trialMessage: 'You\'re on a free trial of the <Plan_Name>. If you change your plan type during your trial it will end and you\'ll be charged.',
+  trialMessage:
+    "You're on a free trial of the <Plan_Name>. If you change your plan type during your trial it will end and you'll be charged.",
   onUpdatePaymentClick: () => {},
-  onManagePlanClick: () => {}
+  onManagePlanClick: () => {},
 })
 </script>
 
@@ -235,9 +228,9 @@ const props = withDefaults(defineProps<Props>(), {
 :deep(a) {
   color: inherit;
   text-decoration: underline;
-  
+
   &:hover {
     opacity: 0.8;
   }
 }
-</style> 
+</style>

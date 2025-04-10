@@ -1,9 +1,9 @@
 <!-- GsDivider.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 
 defineOptions({
-  name: 'GsDivider'
+  name: 'GsDivider',
 })
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  color: 'grey200'
+  color: 'grey200',
 })
 
 const dividerColor = computed(() => {
@@ -31,7 +31,7 @@ const dividerColor = computed(() => {
 </script>
 
 <template>
-  <hr class="gs-divider" :style="{ borderColor: dividerColor }" />
+  <hr :style="{ borderColor: dividerColor }" class="gs-divider" />
 </template>
 
 <style scoped>
@@ -42,4 +42,4 @@ const dividerColor = computed(() => {
   border: none;
   border-top: 0.5px solid;
 }
-</style> 
+</style>

@@ -1,11 +1,11 @@
 <!-- GsProgressBar.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { VProgressLinear } from 'vuetify/components'
 import { computed } from 'vue'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsProgressBar'
+  name: 'GsProgressBar',
 })
 
 type ProgressColor = 'main-black' | 'main-light-green' | 'main-red'
@@ -42,7 +42,7 @@ const props = withDefaults(defineProps<Props>(), {
   color: 'main-light-green',
   backgroundColor: 'main-white',
   showPercentage: true,
-  height: 8
+  height: 8,
 })
 
 const progressBarColor = computed(() => `var(--${props.color})`)
@@ -57,21 +57,21 @@ const getTextColor = (value: number) => {
 <template>
   <div class="gs-progress-bar-wrapper">
     <VProgressLinear
-      :model-value="modelValue"
-      color="transparent"
       :height="height"
-      rounded
-      class="gs-progress-bar"
+      :model-value="modelValue"
       :style="{
         '--progress-color': progressBarColor,
-        '--background-color': progressBarBackground
+        '--background-color': progressBarBackground,
       }"
+      class="gs-progress-bar"
+      color="transparent"
+      rounded
     >
       <template v-if="showPercentage" #default="{ value }">
         <GsTypography
-          variant="caption"
           :style="{ color: getTextColor(value) }"
           class="gs-progress-bar__text"
+          variant="caption"
         >
           {{ Math.round(value) }}%
         </GsTypography>
@@ -110,4 +110,4 @@ const getTextColor = (value: number) => {
   line-height: 1;
   transition: color 0.2s ease;
 }
-</style> 
+</style>

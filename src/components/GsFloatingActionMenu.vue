@@ -5,47 +5,39 @@
       <GsTypography
         :variant="isMobile ? 'description' : 'big-description'"
         bold
-        tag="h2"
         class="gs-floating-action-menu__title"
+        tag="h2"
       >
         {{ title }}
       </GsTypography>
       <GsTypography
         v-if="!isMobile"
-        variant="description"
-        tag="p"
         class="gs-floating-action-menu__description"
+        tag="p"
+        variant="description"
       >
         {{ description }}
       </GsTypography>
     </div>
 
     <div class="gs-floating-action-menu__actions">
-      <GsButton
-        type="secondary"
-        fullWidth
-        @click="$emit('primary-action')"
-      >
+      <GsButton fullWidth type="secondary" @click="$emit('primary-action')">
         {{ primaryButtonText }}
       </GsButton>
-      <GsButton
-        type="primary"
-        fullWidth
-        @click="$emit('secondary-action')"
-      >
+      <GsButton fullWidth type="primary" @click="$emit('secondary-action')">
         {{ secondaryButtonText }}
       </GsButton>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import GsTypography from './GsTypography.vue'
 import GsButton from './GsButton.vue'
 
 defineOptions({
-  name: 'GsFloatingActionMenu'
+  name: 'GsFloatingActionMenu',
 })
 
 interface Props {
@@ -59,7 +51,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Ready to take action and support this project?',
   description: 'Add a tailored impact or create an automation to help drive change!',
   primaryButtonText: 'Tailored impact',
-  secondaryButtonText: 'Add automation'
+  secondaryButtonText: 'Add automation',
 })
 
 defineEmits(['primary-action', 'secondary-action'])
@@ -87,7 +79,7 @@ onUnmounted(() => {
   align-items: center;
   gap: 8px;
   background-color: var(--grey-scale-10);
-  box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 -4px 5px 0px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   width: 100%;
 }
@@ -162,4 +154,4 @@ onUnmounted(() => {
     text-align: center;
   }
 }
-</style> 
+</style>

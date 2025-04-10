@@ -8,9 +8,10 @@
   </component>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
+<script lang="ts" setup>
+defineOptions({
+  name: 'GsTypography',
+})
 
 type TypographyVariant =
   | 'h1'
@@ -27,30 +28,19 @@ type TypographyVariant =
   | 'caption'
   | 'minimum'
 
-export default defineComponent({
-  name: 'GsTypography',
-  props: {
-    variant: {
-      type: String as PropType<TypographyVariant>,
-      required: true,
-    },
-    bold: {
-      type: Boolean,
-      default: false,
-    },
-    tag: {
-      type: String,
-      default: 'p',
-    },
-    color: {
-      type: String,
-      default: 'main-black',
-    },
+withDefaults(
+  defineProps<{
+    variant: TypographyVariant
+    bold?: boolean
+    tag?: string
+    color?: string
+  }>(),
+  {
+    bold: false,
+    tag: 'p',
+    color: 'main-black',
   },
-  setup(props) {
-    console.log('Typography color prop:', props.color)
-  },
-})
+)
 </script>
 
 <style lang="scss" scoped>

@@ -80,8 +80,8 @@ withDefaults(defineProps<Props>(), {
 }
 
 .custom-icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
+  width: 14px;
+  height: 14px;
 }
 
 .text-wrapper {

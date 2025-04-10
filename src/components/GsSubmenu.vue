@@ -5,33 +5,30 @@
       <li
         v-for="(item, index) in localItems"
         :key="index"
-        class="gs-submenu__item"
         :class="{ 'gs-submenu__item--selected': item.selected }"
+        class="gs-submenu__item"
         @click="handleItemClick(item, index)"
       >
         <GsTypography
-          variant="description"
+          :class="{ 'gs-submenu__text--unselected': !item.selected }"
           bold
           tag="span"
-          :class="{ 'gs-submenu__text--unselected': !item.selected }"
+          variant="description"
         >
           {{ item.text }}
         </GsTypography>
-        <div
-          v-if="item.selected"
-          class="gs-submenu__divider"
-        />
+        <div v-if="item.selected" class="gs-submenu__divider" />
       </li>
     </ul>
   </nav>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref, watch } from 'vue'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsSubmenu'
+  name: 'GsSubmenu',
 })
 
 interface MenuItem {
@@ -49,20 +46,24 @@ const emit = defineEmits(['itemClick', 'update:items'])
 const localItems = ref<MenuItem[]>([])
 
 // Initialize localItems with props.items
-watch(() => props.items, (newItems) => {
-  localItems.value = JSON.parse(JSON.stringify(newItems))
-}, { immediate: true, deep: true })
+watch(
+  () => props.items,
+  (newItems) => {
+    localItems.value = JSON.parse(JSON.stringify(newItems))
+  },
+  { immediate: true, deep: true },
+)
 
 const handleItemClick = (item: MenuItem, index: number) => {
   // Create new array with updated selection state
   const updatedItems = localItems.value.map((menuItem, i) => ({
     ...menuItem,
-    selected: i === index
+    selected: i === index,
   }))
-  
+
   // Update local state
   localItems.value = updatedItems
-  
+
   // Emit both the clicked item and the updated items array
   emit('itemClick', { ...item, selected: true })
   emit('update:items', updatedItems)
@@ -92,7 +93,7 @@ const handleItemClick = (item: MenuItem, index: number) => {
 /* Add styles to prevent text shifting */
 .gs-submenu__item :deep(.gs-typography) {
   display: block;
-  font-feature-settings: "tnum" on;
+  font-feature-settings: 'tnum' on;
   white-space: nowrap;
 }
 
@@ -112,4 +113,4 @@ const handleItemClick = (item: MenuItem, index: number) => {
   height: 2px;
   background-color: var(--grey-scale-800);
 }
-</style> 
+</style>

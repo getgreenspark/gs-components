@@ -1,10 +1,10 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import GsTypography from './GsTypography.vue'
 import GsRadioButton from './GsRadioButton.vue'
 
 defineOptions({
-  name: 'GsCardSelector'
+  name: 'GsCardSelector',
 })
 
 interface Props {
@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   selected: false,
   disabled: false,
   imageSrc: undefined,
-  imageAlt: ''
+  imageAlt: '',
 })
 
 const emit = defineEmits<{
@@ -31,16 +31,20 @@ const emit = defineEmits<{
 
 const modelValue = ref<string | number | undefined>(undefined)
 
-watch(() => props.selected, (newValue) => {
-  modelValue.value = newValue ? props.value : undefined
-}, { immediate: true })
+watch(
+  () => props.selected,
+  (newValue) => {
+    modelValue.value = newValue ? props.value : undefined
+  },
+  { immediate: true },
+)
 
 const cardClasses = computed(() => [
   'gs-card-selector',
   {
     'gs-card-selector--selected': modelValue.value === props.value,
-    'gs-card-selector--disabled': props.disabled
-  }
+    'gs-card-selector--disabled': props.disabled,
+  },
 ])
 
 const handleChange = (value: string | number | undefined) => {
@@ -67,28 +71,27 @@ const handleCardClick = (event: MouseEvent) => {
 </script>
 
 <template>
-  <article
-    :class="cardClasses"
-    role="article"
-    @click="handleCardClick"
-  >
+  <article :class="cardClasses" role="article" @click="handleCardClick">
     <div class="gs-card-selector__content">
       <div class="gs-card-selector__radio">
         <GsRadioButton
+          :disabled="disabled"
+          :model-value="modelValue"
           :name="name"
           :value="value"
-          :model-value="modelValue"
-          :disabled="disabled"
-          @update:model-value="handleChange"
           class="gs-radio-button"
+          @update:model-value="handleChange"
         />
       </div>
-      <GsTypography variant="body" class="gs-card-selector__text">
+      <GsTypography class="gs-card-selector__text" variant="body">
         {{ text }}
       </GsTypography>
     </div>
-    <div class="gs-card-selector__image" :class="{ 'gs-card-selector__image--placeholder': !imageSrc }">
-      <img v-if="imageSrc" :src="imageSrc" :alt="imageAlt">
+    <div
+      :class="{ 'gs-card-selector__image--placeholder': !imageSrc }"
+      class="gs-card-selector__image"
+    >
+      <img v-if="imageSrc" :alt="imageAlt" :src="imageSrc" />
       <div v-else class="gs-card-selector__pattern"></div>
     </div>
   </article>
@@ -175,7 +178,11 @@ const handleCardClick = (event: MouseEvent) => {
       linear-gradient(45deg, transparent 75%, var(--grey-scale-100) 75%),
       linear-gradient(-45deg, transparent 75%, var(--grey-scale-100) 75%);
     background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-position:
+      0 0,
+      0 10px,
+      10px -10px,
+      -10px 0px;
     opacity: 0.5;
   }
 }

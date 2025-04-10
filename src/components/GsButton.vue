@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { VIcon, VProgressCircular } from 'vuetify/components'
 
@@ -70,8 +70,8 @@ const loaderSize = computed(() => {
     :class="buttonClasses"
     :disabled="props.disabled || props.loading"
     :href="props.href"
-    :target="props.target"
     :style="{ width: width + 'px' }"
+    :target="props.target"
     type="button"
   >
     <v-icon v-if="props.icon && !props.loading" class="icon">
@@ -82,10 +82,10 @@ const loaderSize = computed(() => {
     </span>
     <v-progress-circular
       v-if="props.loading"
-      class="loader"
       :size="loaderSize"
-      indeterminate
+      class="loader"
       color="gray"
+      indeterminate
     />
   </component>
 </template>
@@ -207,7 +207,7 @@ const loaderSize = computed(() => {
     &:focus,
     &:not(:disabled):not(.disabled):active:focus {
       opacity: 1;
-      background-color: colorMapping['main-light-green'] + '33';
+      background-color: #3b755f33;
     }
   }
 

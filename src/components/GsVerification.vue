@@ -1,11 +1,11 @@
 <!-- GsVerification.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import GsTypography from './GsTypography.vue'
 import GsIconWithText from './GsIconWithText.vue'
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 defineOptions({
-  name: 'GsVerification'
+  name: 'GsVerification',
 })
 
 interface VerificationItem {
@@ -33,7 +33,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Verification'
+  title: 'Verification',
 })
 
 const isMobile = ref(false)
@@ -51,26 +51,18 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateIsMobile)
 })
 
-const textVariant = computed(() => isMobile.value ? 'body' : 'description')
+const textVariant = computed(() => (isMobile.value ? 'body' : 'description'))
 </script>
 
 <template>
   <section class="gs-verification">
-    <GsTypography variant="description" bold tag="h3">
+    <GsTypography bold tag="h3" variant="description">
       {{ title }}
     </GsTypography>
 
     <div class="gs-verification__grid">
-      <div
-        v-for="(item, index) in items"
-        :key="index"
-        class="gs-verification__item"
-      >
-        <GsIconWithText
-          :icon-path="item.iconPath"
-          :text="item.text"
-          :text-variant="textVariant"
-        />
+      <div v-for="(item, index) in items" :key="index" class="gs-verification__item">
+        <GsIconWithText :icon-path="item.iconPath" :text="item.text" :text-variant="textVariant" />
       </div>
     </div>
   </section>

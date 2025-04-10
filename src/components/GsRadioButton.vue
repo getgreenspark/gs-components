@@ -1,21 +1,21 @@
 <!-- GsRadioButton.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { VRadio } from 'vuetify/components'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsRadioButton'
+  name: 'GsRadioButton',
 })
 
 interface Props {
   /**
    * The model value for the radio button
    */
-  modelValue?: any
+  modelValue?: string | number | undefined
   /**
    * The value of this radio button
    */
-  value?: any
+  value?: string | number | undefined
   /**
    * The label text for the radio button
    */
@@ -30,21 +30,21 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   modelValue: undefined,
   value: undefined,
-  disabled: false
+  disabled: false,
 })
 
 defineEmits<{
-  'update:modelValue': [value: any]
+  'update:modelValue': [value: string | number | undefined]
 }>()
 </script>
 
 <template>
   <VRadio
-    :model-value="modelValue"
-    @update:model-value="$emit('update:modelValue', $event)"
-    :value="value"
     :disabled="disabled"
+    :model-value="modelValue"
+    :value="value"
     class="gs-radio"
+    @update:model-value="$emit('update:modelValue', $event)"
   >
     <template #label>
       <GsTypography variant="description">{{ label }}</GsTypography>
@@ -56,4 +56,4 @@ defineEmits<{
 .gs-radio {
   cursor: pointer;
 }
-</style> 
+</style>

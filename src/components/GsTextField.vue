@@ -1,9 +1,9 @@
 <!-- GsTextField.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { VTextField } from 'vuetify/components'
 
 defineOptions({
-  name: 'GsTextField'
+  name: 'GsTextField',
 })
 
 interface Props {
@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
   disabled: false,
   error: false,
-  success: false
+  success: false,
 })
 
 defineEmits<{
@@ -62,18 +62,18 @@ defineEmits<{
 
 <template>
   <VTextField
-    :model-value="modelValue"
-    @update:model-value="$emit('update:modelValue', $event)"
-    :label="label"
-    :placeholder="placeholder"
     :disabled="disabled"
     :error="error"
     :error-messages="error ? errorMessage : undefined"
-    :success="success"
+    :label="label"
     :messages="!error && !success ? description : success ? successMessage : undefined"
-    variant="outlined"
-    density="comfortable"
+    :model-value="modelValue"
+    :placeholder="placeholder"
+    :success="success"
     class="gs-text-field"
+    density="comfortable"
+    variant="outlined"
+    @update:model-value="$emit('update:modelValue', $event)"
   />
 </template>
 
@@ -81,4 +81,4 @@ defineEmits<{
 .gs-text-field :deep(.v-field__input) {
   min-height: 48px;
 }
-</style> 
+</style>

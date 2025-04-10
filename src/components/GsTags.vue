@@ -1,16 +1,16 @@
 <!-- GsTags.vue -->
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import '../assets/style/colorVariables.css'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsTags'
+  name: 'GsTags',
 })
 
-type Color = 
-  | 'main-green' 
-  | 'main-light-green' 
+type Color =
+  | 'main-green'
+  | 'main-light-green'
   | 'main-beige'
   | 'project-blue'
   | 'project-orange'
@@ -48,7 +48,7 @@ const props = withDefaults(defineProps<Props>(), {
   icon: undefined,
   bold: false,
   fontSize: 'caption',
-  iconSize: '14'
+  iconSize: '14',
 })
 
 const textColor = computed(() => {
@@ -67,7 +67,7 @@ const textColor = computed(() => {
     'project-pastel-green',
     'project-pastel-turquoise',
     'project-pastel-purple',
-    'main-beige'
+    'main-beige',
   ]
   return pastelColors.includes(props.backgroundColor) ? 'var(--main-black)' : 'var(--main-white)'
 })
@@ -84,27 +84,27 @@ const backgroundStyle = computed(() => {
 </script>
 
 <template>
-  <div 
-    class="gs-tags" 
-    :style="{ 
+  <div
+    :style="{
       backgroundColor: backgroundStyle,
-      border: borderStyle
+      border: borderStyle,
     }"
+    class="gs-tags"
   >
-    <img 
-      v-if="icon" 
-      :src="icon"
-      alt=""
-      :width="iconSize"
+    <img
+      v-if="icon"
       :height="iconSize"
+      :src="icon"
       :style="{ filter: textColor === 'var(--main-black)' ? 'none' : 'brightness(0) invert(1)' }"
+      :width="iconSize"
+      alt=""
     />
-    <GsTypography 
-      :variant="fontSize" 
-      :style="{ 
+    <GsTypography
+      :style="{
         color: textColor,
-        fontWeight: bold ? '700' : '400'
+        fontWeight: bold ? '700' : '400',
       }"
+      :variant="fontSize"
     >
       {{ label }}
     </GsTypography>
@@ -123,4 +123,4 @@ const backgroundStyle = computed(() => {
   align-items: center;
   gap: 8px;
 }
-</style> 
+</style>
