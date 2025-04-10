@@ -68,6 +68,13 @@ No need to import the component manually when using it globally.
         defaultValue: { summary: false }
       }
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the alert if set to true.',
+      table: {
+        defaultValue: { summary: false }
+      }
+    },
   },
 }
 
@@ -80,7 +87,8 @@ export const Playground: Story = {
     type: 'info',
     title: 'Alert Title',
     message: 'This is an alert message. Try changing the props in the controls panel to see how the component updates in real-time!',
-    fullWidth: false
+    fullWidth: false,
+    disabled: false
   },
   render: (args) => ({
     components: { GsAlertBar },
@@ -99,7 +107,7 @@ export const Playground: Story = {
   }),
 }
 
-export const AllVariants: Story = {
+export const Success: Story = {
   render: (args) => ({
     components: { GsAlertBar },
     setup() {
@@ -109,24 +117,98 @@ export const AllVariants: Story = {
       <div class="d-flex flex-column ga-4">
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">Without Title</h3>
-          <GsAlertBar type="success" message="Success message without title" />
-          <GsAlertBar type="info" message="Info message without title" />
-          <GsAlertBar type="warning" message="Warning message without title" />
-          <GsAlertBar type="error" message="Error message without title" />
+          <GsAlertBar type="success" message="Operation completed successfully" />
         </div>
-        
+
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">With Title</h3>
-          <GsAlertBar type="success" title="Success Alert" message="Success message with title" />
-          <GsAlertBar type="info" title="Info Alert" message="Info message with title" />
-          <GsAlertBar type="warning" title="Warning Alert" message="Warning message with title" />
-          <GsAlertBar type="error" title="Error Alert" message="Error message with title" />
+          <GsAlertBar type="success" title="Success" message="Your changes have been saved successfully" />
         </div>
-        
+
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">Full Width</h3>
           <GsAlertBar type="success" message="Full width success message" :full-width="true" />
-          <GsAlertBar type="info" message="Full width info message" :full-width="true" />
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const Info: Story = {
+  render: (args) => ({
+    components: { GsAlertBar },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div class="d-flex flex-column ga-4">
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Without Title</h3>
+          <GsAlertBar type="info" message="New features are available in this update" />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">With Title</h3>
+          <GsAlertBar type="info" title="Information" message="Please review the updated terms of service" />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Full Width</h3>
+          <GsAlertBar type="info" message="Full width information message" :full-width="true" />
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const Warning: Story = {
+  render: (args) => ({
+    components: { GsAlertBar },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div class="d-flex flex-column ga-4">
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Without Title</h3>
+          <GsAlertBar type="warning" message="Your session will expire in 5 minutes" />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">With Title</h3>
+          <GsAlertBar type="warning" title="Warning" message="This action cannot be undone" />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Full Width</h3>
+          <GsAlertBar type="warning" message="Full width warning message" :full-width="true" />
+        </div>
+      </div>
+    `,
+  }),
+}
+
+export const Error: Story = {
+  render: (args) => ({
+    components: { GsAlertBar },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div class="d-flex flex-column ga-4">
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Without Title</h3>
+          <GsAlertBar type="error" message="Failed to save changes. Please try again." />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">With Title</h3>
+          <GsAlertBar type="error" title="Error" message="An unexpected error occurred. Please contact support." />
+        </div>
+
+        <div class="d-flex flex-column ga-2">
+          <h3 class="text-h6">Full Width</h3>
+          <GsAlertBar type="error" message="Full width error message" :full-width="true" />
         </div>
       </div>
     `,

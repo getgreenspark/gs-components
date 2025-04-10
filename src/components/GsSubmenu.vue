@@ -1,4 +1,3 @@
-<!-- GsSubmenu.vue -->
 <template>
   <nav class="gs-submenu">
     <ul class="gs-submenu__list">

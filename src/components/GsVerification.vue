@@ -1,4 +1,3 @@
-<!-- GsVerification.vue -->
 <script lang="ts" setup>
 import GsTypography from './GsTypography.vue'
 import GsIconWithText from './GsIconWithText.vue'

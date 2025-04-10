@@ -1,4 +1,3 @@
-<!-- GsTextField.vue -->
 <script lang="ts" setup>
 import { VTextField } from 'vuetify/components'
 

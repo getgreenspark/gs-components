@@ -1,4 +1,3 @@
-<!-- GsCheckbox.vue -->
 <script lang="ts" setup>
 import { VCheckbox } from 'vuetify/components'
 import { computed } from 'vue'

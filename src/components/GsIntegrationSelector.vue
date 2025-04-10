@@ -1,4 +1,3 @@
-<!-- GsIntegrationSelector.vue -->
 <script lang="ts" setup>
 import '@/assets/style/colorVariables.css'
 import GsTypography from './GsTypography.vue'

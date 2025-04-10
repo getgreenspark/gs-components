@@ -1,13 +1,10 @@
-<!-- GsPlanOverview.vue -->
 <template>
   <article class="gs-plan-overview">
-    <!-- Header -->
     <header class="gs-plan-overview__header">
       <GsTypography bold tag="h1" variant="title-2">Your plan</GsTypography>
     </header>
 
     <div class="gs-plan-overview__content">
-      <!-- Plan Card -->
       <GsManagePlan
         :description="description"
         :has-trial="showTag"
@@ -18,7 +15,6 @@
         @manage-click="onManagePlanClick"
       />
 
-      <!-- Features Section -->
       <section class="gs-plan-overview__features">
         <GsTypography bold tag="h2" variant="title-2">Included in your plan</GsTypography>
         <ul class="gs-plan-overview__features-list">
@@ -34,7 +30,6 @@
         </ul>
       </section>
 
-      <!-- Billing Section -->
       <section class="gs-plan-overview__billing">
         <GsTypography bold tag="h2" variant="title-2">Billing and payment</GsTypography>
 

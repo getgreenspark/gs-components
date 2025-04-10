@@ -1,4 +1,3 @@
-<!-- GsTags.vue -->
 <script lang="ts" setup>
 import { computed } from 'vue'
 import '../assets/style/colorVariables.css'

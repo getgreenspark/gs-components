@@ -1,4 +1,3 @@
-<!-- GsProgressBar.vue -->
 <script lang="ts" setup>
 import { VProgressLinear } from 'vuetify/components'
 import GsTypography from './GsTypography.vue'

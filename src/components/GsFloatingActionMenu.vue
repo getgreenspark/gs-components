@@ -1,4 +1,3 @@
-<!-- GsFloatingActionMenu.vue -->
 <template>
   <section class="gs-floating-action-menu">
     <div class="gs-floating-action-menu__content">

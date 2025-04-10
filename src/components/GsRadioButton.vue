@@ -1,4 +1,3 @@
-<!-- GsRadioButton.vue -->
 <script lang="ts" setup>
 import { VRadio } from 'vuetify/components'
 import GsTypography from './GsTypography.vue'
