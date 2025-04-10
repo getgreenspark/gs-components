@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsTypography from '@/components/GsTypography.vue'
 import '@/assets/style/colorVariables.css'
-import '@/assets/style/colorPalette.css'
+import '@/stories/colorPalette.css'
 
 const meta: Meta = {
   title: 'Foundation/01-Colours/Project Colors',
@@ -13,10 +13,10 @@ const meta: Meta = {
 ## Project Colors
 
 This story showcases the project-specific colors used in our design system.
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -33,7 +33,7 @@ const projectColors = [
   { name: 'Pastel Orange', hex: '#FFE7C0', variable: 'project-pastel-orange' },
   { name: 'Pastel Green', hex: '#CBEFE1', variable: 'project-pastel-green' },
   { name: 'Pastel Turquoise', hex: '#9BD3D3', variable: 'project-pastel-turquoise' },
-  { name: 'Pastel Purple', hex: '#93B1FF', variable: 'project-pastel-purple' }
+  { name: 'Pastel Purple', hex: '#93B1FF', variable: 'project-pastel-purple' },
 ]
 
 export const ProjectColors: Story = {
@@ -44,12 +44,14 @@ export const ProjectColors: Story = {
     },
     template: /* html */ `
       <div class="color-palette">
-        <div v-for="color in projectColors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex, color: ['#FDFDFD', '#FFE7C0', '#CBEFE1'].includes(color.hex) ? '#000' : '#fff' }">
+        <div v-for="color in projectColors" :key="color.hex" class="color-swatch"
+             :style="{ backgroundColor: color.hex, color: ['#FDFDFD', '#FFE7C0', '#CBEFE1'].includes(color.hex) ? '#000' : '#fff' }">
           <GsTypography variant="body" class="color-name">{{ color.name }}</GsTypography>
           <GsTypography variant="caption" class="color-hex">{{ color.hex }}</GsTypography>
-          <GsTypography variant="caption" class="color-variable">var(--{{ color.variable }})</GsTypography>
+          <GsTypography variant="caption" class="color-variable">var(--{{ color.variable }})
+          </GsTypography>
         </div>
       </div>
-    `
-  })
-} 
+    `,
+  }),
+}

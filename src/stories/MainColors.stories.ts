@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsTypography from '@/components/GsTypography.vue'
 import '@/assets/style/colorVariables.css'
-import '@/assets/style/colorPalette.css'
+import '@/stories/colorPalette.css'
 
 const meta: Meta = {
   title: 'Foundation/01-Colours/Main Colors',
@@ -13,10 +13,10 @@ const meta: Meta = {
 ## Main Colors
 
 This story showcases the main colors used in our design system.
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -32,7 +32,7 @@ const colors = [
   { name: 'Yellow', hex: '#F5C26F', variable: 'main-yellow' },
   { name: 'Beige', hex: '#F2EBDB', variable: 'main-beige' },
   { name: 'Black', hex: '#393939', variable: 'main-black' },
-  { name: 'White', hex: '#FDFDFD', variable: 'main-white' }
+  { name: 'White', hex: '#FDFDFD', variable: 'main-white' },
 ]
 
 export const MainColors: Story = {
@@ -43,10 +43,20 @@ export const MainColors: Story = {
     },
     template: /* html */ `
       <div class="color-palette">
-        <div v-for="color in colors" :key="color.hex" class="color-swatch" :style="{ backgroundColor: color.hex }">
-          <GsTypography variant="body" class="color-name" :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">{{ color.name }}</GsTypography>
-          <GsTypography variant="caption" class="color-hex" :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">{{ color.hex }}</GsTypography>
-          <GsTypography variant="caption" class="color-variable" :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">var(--{{ color.variable }})</GsTypography>
+        <div v-for="color in colors" :key="color.hex" class="color-swatch"
+             :style="{ backgroundColor: color.hex }">
+          <GsTypography variant="body" class="color-name"
+                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+            {{ color.name }}
+          </GsTypography>
+          <GsTypography variant="caption" class="color-hex"
+                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+            {{ color.hex }}
+          </GsTypography>
+          <GsTypography variant="caption" class="color-variable"
+                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+            var(--{{ color.variable }})
+          </GsTypography>
         </div>
       </div>
     `,
@@ -58,7 +68,7 @@ export const MainColors: Story = {
           gap: 16px;
           padding: 16px;
         }
-        
+
         .color-swatch {
           display: flex;
           flex-direction: column;
@@ -68,16 +78,16 @@ export const MainColors: Story = {
           border-radius: 8px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .color-name {
           font-weight: 600;
           margin-bottom: 4px;
         }
-        
+
         .color-hex, .color-variable {
           opacity: 0.8;
         }
       </style>
-    `
-  })
-} 
+    `,
+  }),
+}
