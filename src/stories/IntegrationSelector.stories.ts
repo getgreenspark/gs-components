@@ -10,24 +10,25 @@ const meta: Meta<typeof GsIntegrationSelector> = {
   argTypes: {
     modelValue: {
       control: 'boolean',
-      description: 'Whether the selector is selected'
+      description: 'Whether the selector is selected',
     },
     label: {
       control: 'text',
-      description: 'Label text for the selector'
+      description: 'Label text for the selector',
     },
     disabled: {
       control: 'boolean',
-      description: 'Whether the selector is disabled'
+      description: 'Whether the selector is disabled',
     },
     icon: {
       control: 'text',
-      description: 'URL or path to the integration icon'
+      description: 'URL or path to the integration icon',
     },
     tagLabel: {
       control: 'text',
-      description: 'Optional label for the tag (if provided, shows a tag). Used to show active number of integrations'
-    }
+      description:
+        'Optional label for the tag (if provided, shows a tag). Used to show active number of integrations',
+    },
   },
   parameters: {
     docs: {
@@ -55,10 +56,10 @@ A selectable integration card component with an icon and optional tag.
   />
 </template>
 \`\`\`
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -67,23 +68,23 @@ type Story = StoryObj<typeof GsIntegrationSelector>
 export const Unselected: Story = {
   args: {
     modelValue: false,
-    label: 'Integration name'
-  }
+    label: 'Integration name',
+  },
 }
 
 export const Selected: Story = {
   args: {
     modelValue: true,
-    label: 'Integration name'
-  }
+    label: 'Integration name',
+  },
 }
 
 export const WithTag: Story = {
   args: {
     modelValue: false,
     label: 'Integration name',
-    tagLabel: 'Connected'
-  }
+    tagLabel: 'Connected',
+  },
 }
 
 export const AllStates: Story = {
@@ -142,6 +143,6 @@ export const AllStates: Story = {
           />
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }

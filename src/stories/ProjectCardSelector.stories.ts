@@ -38,22 +38,22 @@ const handleReadMore = () => {
 }
 </script>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     variant: {
       control: 'select',
-      options: ['horizontal', 'compact']
+      options: ['horizontal', 'compact'],
     },
     readMoreVariant: {
       control: 'select',
-      options: ['text', 'chevron']
+      options: ['text', 'chevron'],
     },
     enableHover: {
       control: 'boolean',
-      description: 'Enable hover effects (shadow and border)'
+      description: 'Enable hover effects (shadow and border)',
     },
     title: { control: 'text' },
     subtitle: { control: 'text' },
@@ -64,9 +64,9 @@ const handleReadMore = () => {
     locationIcon: { control: 'text' },
     cardBackgroundColor: {
       control: 'select',
-      options: ['grey-scale-10', 'grey-scale-20']
+      options: ['grey-scale-10', 'grey-scale-20'],
     },
-    tagBackgroundColor: { 
+    tagBackgroundColor: {
       control: 'select',
       options: [
         'main-green',
@@ -82,10 +82,10 @@ const handleReadMore = () => {
         'project-pastel-green',
         'project-pastel-turquoise',
         'project-pastel-purple',
-        'none'
-      ]
+        'none',
+      ],
     },
-    tagFontColor: { 
+    tagFontColor: {
       control: 'select',
       options: [
         'main-green',
@@ -101,11 +101,11 @@ const handleReadMore = () => {
         'project-pastel-green',
         'project-pastel-turquoise',
         'project-pastel-purple',
-        'none'
-      ]
+        'none',
+      ],
     },
-    tagText: { control: 'text' }
-  }
+    tagText: { control: 'text' },
+  },
 } satisfies Meta<typeof GsProjectCardSelector>
 
 export default meta
@@ -118,13 +118,14 @@ export const Horizontal: Story = {
     enableHover: true,
     title: 'Project Title',
     subtitle: 'Project Subtitle',
-    description: 'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
+    description:
+      'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
     location: 'Location, Country',
     imageUrl: 'https://picsum.photos/300/140',
     imageAlt: 'Project image',
     tagBackgroundColor: 'main-green',
-    tagText: 'XXX impact created'
-  }
+    tagText: 'XXX impact created',
+  },
 }
 
 export const Compact: Story = {
@@ -134,12 +135,12 @@ export const Compact: Story = {
     enableHover: true,
     title: 'Project Title',
     subtitle: 'Project Subtitle',
-    description: 'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
+    description:
+      'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
     location: 'Location, Country',
     imageUrl: 'https://picsum.photos/300/140',
     imageAlt: 'Project image',
     tagBackgroundColor: 'main-green',
-    tagText: 'XXX impact created'
-  }
+    tagText: 'XXX impact created',
+  },
 }
-

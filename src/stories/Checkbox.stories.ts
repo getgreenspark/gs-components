@@ -31,37 +31,37 @@ A customizable checkbox component with support for labels, different text sizes,
   />
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 const isChecked = ref(false)
 </script>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     modelValue: {
       control: 'boolean',
-      description: 'The checked state of the checkbox'
+      description: 'The checked state of the checkbox',
     },
     label: {
       control: 'text',
-      description: 'The label text to display next to the checkbox'
+      description: 'The label text to display next to the checkbox',
     },
     disabled: {
       control: 'boolean',
-      description: 'Whether the checkbox is disabled'
+      description: 'Whether the checkbox is disabled',
     },
     textSize: {
       control: 'select',
       options: ['description', 'body'],
-      description: 'The size of the label text'
+      description: 'The size of the label text',
     },
     bold: {
       control: 'boolean',
-      description: 'Whether the label text should be bold'
-    }
-  }
+      description: 'Whether the label text should be bold',
+    },
+  },
 }
 
 export default meta
@@ -71,8 +71,8 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     modelValue: false,
-    label: 'Default checkbox'
-  }
+    label: 'Default checkbox',
+  },
 }
 
 // Different text sizes
@@ -86,7 +86,7 @@ export const TextSizes: Story = {
       return {
         checked1,
         checked2,
-        args
+        args,
       }
     },
     template: `
@@ -102,8 +102,8 @@ export const TextSizes: Story = {
           text-size="body"
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // Text weights
@@ -117,7 +117,7 @@ export const TextWeights: Story = {
       return {
         checked1,
         checked2,
-        args
+        args,
       }
     },
     template: `
@@ -132,8 +132,8 @@ export const TextWeights: Story = {
           bold
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // Disabled state
@@ -147,7 +147,7 @@ export const Disabled: Story = {
       return {
         checked1,
         checked2,
-        args
+        args,
       }
     },
     template: `
@@ -163,8 +163,8 @@ export const Disabled: Story = {
           disabled
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 // All variations
@@ -178,16 +178,17 @@ export const AllVariations: Story = {
         body: false,
         bold: false,
         disabledUnchecked: false,
-        disabledChecked: true
+        disabledChecked: true,
       })
 
       return {
         states,
-        args
+        args,
       }
     },
     template: `
-      <div style="width: 500px; padding: 20px; display: flex; flex-direction: column; gap: 16px; background: white;">
+      <div
+        style="width: 500px; padding: 20px; display: flex; flex-direction: column; gap: 16px; background: white;">
         <GsCheckbox
           v-model="states.default"
           label="Default checkbox"
@@ -218,6 +219,6 @@ export const AllVariations: Story = {
           disabled
         />
       </div>
-    `
-  })
-} 
+    `,
+  }),
+}

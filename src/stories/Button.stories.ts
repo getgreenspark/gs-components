@@ -30,9 +30,9 @@ Once you have installed and set up the GS Components library, you can use the bu
 \`\`\`
 
 No need to import the component manually when using it globally.
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     tag: {

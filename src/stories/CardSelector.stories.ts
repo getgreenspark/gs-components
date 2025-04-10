@@ -45,16 +45,16 @@ Once you have installed and set up the GS Components library, you can use the ca
   />
 </template>
 
-<script setup>
+<script>
 const isSelected = ref(false)
 const handleChange = (value) => {
   console.log('Selected value:', value)
 }
 </script>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     text: {
@@ -95,8 +95,8 @@ export const Playground: Story = {
     selected: false,
     disabled: false,
     imageSrc: placeholderImage,
-    imageAlt: 'Placeholder image'
-  }
+    imageAlt: 'Placeholder image',
+  },
 }
 
 export const AllVariants: Story = {

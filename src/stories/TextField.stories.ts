@@ -11,40 +11,40 @@ const meta: Meta<typeof GsTextField> = {
   argTypes: {
     modelValue: {
       control: 'text',
-      description: 'The value of the input'
+      description: 'The value of the input',
     },
     label: {
       control: 'text',
-      description: 'Label text for the input'
+      description: 'Label text for the input',
     },
     placeholder: {
       control: 'text',
-      description: 'Placeholder text when input is empty'
+      description: 'Placeholder text when input is empty',
     },
     description: {
       control: 'text',
-      description: 'Helper text to show below the input'
+      description: 'Helper text to show below the input',
     },
     disabled: {
       control: 'boolean',
-      description: 'Whether the input is disabled'
+      description: 'Whether the input is disabled',
     },
     error: {
       control: 'boolean',
-      description: 'Whether the input has an error'
+      description: 'Whether the input has an error',
     },
     errorMessage: {
       control: 'text',
-      description: 'Error message to display'
+      description: 'Error message to display',
     },
     success: {
       control: 'boolean',
-      description: 'Whether the input is in a success state'
+      description: 'Whether the input is in a success state',
     },
     successMessage: {
       control: 'text',
-      description: 'Success message to display'
-    }
+      description: 'Success message to display',
+    },
   },
   parameters: {
     docs: {
@@ -84,10 +84,10 @@ A text input component based on Vuetify's VTextField with custom styling and fea
   </div>
 </template>
 \`\`\`
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -108,8 +108,8 @@ export const Default: Story = {
           placeholder="Your text here"
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 export const AllStates: Story = {
@@ -158,6 +158,6 @@ export const AllStates: Story = {
           />
         </div>
       </div>
-    `
-  })
-} 
+    `,
+  }),
+}

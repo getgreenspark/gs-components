@@ -11,20 +11,20 @@ const meta: Meta<typeof GsRadioButton> = {
   argTypes: {
     modelValue: {
       control: 'text',
-      description: 'The model value for the radio button'
+      description: 'The model value for the radio button',
     },
     value: {
       control: 'text',
-      description: 'The value of this radio button'
+      description: 'The value of this radio button',
     },
     label: {
       control: 'text',
-      description: 'Label text for the radio button'
+      description: 'Label text for the radio button',
     },
     disabled: {
       control: 'boolean',
-      description: 'Whether the radio button is disabled'
-    }
+      description: 'Whether the radio button is disabled',
+    },
   },
   parameters: {
     docs: {
@@ -45,10 +45,10 @@ A radio button component with custom styling and icons.
   />
 </template>
 \`\`\`
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -59,8 +59,8 @@ export const Deselected: Story = {
     modelValue: '',
     value: 'option1',
     label: 'Your text here',
-    disabled: false
-  }
+    disabled: false,
+  },
 }
 
 export const Selected: Story = {
@@ -68,8 +68,8 @@ export const Selected: Story = {
     modelValue: 'option1',
     value: 'option1',
     label: 'Your text here',
-    disabled: false
-  }
+    disabled: false,
+  },
 }
 
 export const AllStates: Story = {
@@ -101,6 +101,6 @@ export const AllStates: Story = {
           />
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }

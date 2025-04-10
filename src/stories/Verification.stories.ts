@@ -7,18 +7,18 @@ const meta: Meta<typeof GsVerification> = {
   tags: ['autodocs'],
   decorators: [
     () => ({
-      template: '<div style="width: 500px;"><story/></div>'
-    })
+      template: '<div style="width: 500px;"><story/></div>',
+    }),
   ],
   argTypes: {
     title: {
       control: 'text',
-      description: 'Title text to display at the top of the component'
+      description: 'Title text to display at the top of the component',
     },
     items: {
       control: 'object',
-      description: 'Array of verification items to display'
-    }
+      description: 'Array of verification items to display',
+    },
   },
   parameters: {
     docs: {
@@ -47,10 +47,10 @@ A component that displays a grid of verification items, each with an icon and te
   />
 </template>
 \`\`\`
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -62,34 +62,34 @@ export const Default: Story = {
     items: [
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Geospatial Data Layers'
+        text: 'Geospatial Data Layers',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Dendrometers'
+        text: 'Dendrometers',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Soil sensors'
+        text: 'Soil sensors',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Tree Vision'
+        text: 'Tree Vision',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Bioacoustic Sensors'
+        text: 'Bioacoustic Sensors',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Light Sensors'
+        text: 'Light Sensors',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Weather Station'
-      }
-    ]
-  }
+        text: 'Weather Station',
+      },
+    ],
+  },
 }
 
 export const CustomTitle: Story = {
@@ -98,14 +98,14 @@ export const CustomTitle: Story = {
     items: [
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Geospatial Data Layers'
+        text: 'Geospatial Data Layers',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Dendrometers'
-      }
-    ]
-  }
+        text: 'Dendrometers',
+      },
+    ],
+  },
 }
 
 export const WithHTMLContent: Story = {
@@ -114,14 +114,14 @@ export const WithHTMLContent: Story = {
     items: [
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Geospatial Data <strong>Layers</strong>'
+        text: 'Geospatial Data <strong>Layers</strong>',
       },
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Dendrometers with <a href="#">details</a>'
-      }
-    ]
-  }
+        text: 'Dendrometers with <a href="#">details</a>',
+      },
+    ],
+  },
 }
 
 export const SingleItem: Story = {
@@ -130,8 +130,8 @@ export const SingleItem: Story = {
     items: [
       {
         iconPath: '/geospatial-data-layers.svg',
-        text: 'Geospatial Data Layers'
-      }
-    ]
-  }
-} 
+        text: 'Geospatial Data Layers',
+      },
+    ],
+  },
+}

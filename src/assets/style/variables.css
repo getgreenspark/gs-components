@@ -24,16 +24,16 @@
     --ui-gold: #d9b479;
 
     /* Project Colors */
-    --project-blue: #1FAEF0;
-    --project-orange: #FFB339;
-    --project-green: #49E2A7;
-    --project-turquoise: #49A29F;
-    --project-purple: #6572ED;
-    --project-pastel-blue: #9CD2EB;
-    --project-pastel-orange: #FFE7C0;
-    --project-pastel-green: #CBEFE1;
-    --project-pastel-turquoise: #9BD3D3;
-    --project-pastel-purple: #93B1FF;
+    --project-blue: #1faef0;
+    --project-orange: #ffb339;
+    --project-green: #49e2a7;
+    --project-turquoise: #49a29f;
+    --project-purple: #6572ed;
+    --project-pastel-blue: #9cd2eb;
+    --project-pastel-orange: #ffe7c0;
+    --project-pastel-green: #cbefe1;
+    --project-pastel-turquoise: #9bd3d3;
+    --project-pastel-purple: #93b1ff;
 
     /* Gray Scale */
     --gray: #b0b0b0;
@@ -54,21 +54,21 @@
     --gray-light-C0: #c0c0c0;
     --gray-light-DB: #dbdbdb;
     --gray-light-CD: #cdcdcd;
-    --grey-scale-0: #FFFFFF;
-    --grey-scale-10: #FAFAFA;
-    --grey-scale-20: #F5F5F5;
-    --grey-scale-30: #EBEBEB;
-    --grey-scale-40: #DEDEDE;
-    --grey-scale-50: #BFBFBF;
-    --grey-scale-60: #A6A6A6;
-    --grey-scale-70: #8C8C8C;
+    --grey-scale-0: #ffffff;
+    --grey-scale-10: #fafafa;
+    --grey-scale-20: #f5f5f5;
+    --grey-scale-30: #ebebeb;
+    --grey-scale-40: #dedede;
+    --grey-scale-50: #bfbfbf;
+    --grey-scale-60: #a6a6a6;
+    --grey-scale-70: #8c8c8c;
     --grey-scale-80: #737373;
     --grey-scale-90: #595959;
     --grey-scale-100: #404040;
     --grey-scale-110: #262626;
-    --grey-scale-120: #0D0D0D;
-    --grey-scale-200: #CCCCCC;
-    --grey-scale-250: #DBDBDB;
+    --grey-scale-120: #0d0d0d;
+    --grey-scale-200: #cccccc;
+    --grey-scale-250: #dbdbdb;
     --grey-scale-800: #323232;
 
     /* Accent Colors */

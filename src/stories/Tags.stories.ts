@@ -17,7 +17,7 @@ const colorOptions = [
   'project-pastel-orange',
   'project-pastel-green',
   'project-pastel-turquoise',
-  'project-pastel-purple'
+  'project-pastel-purple',
 ]
 
 const meta: Meta<typeof GsTags> = {
@@ -27,43 +27,43 @@ const meta: Meta<typeof GsTags> = {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Text content of the tag'
+      description: 'Text content of the tag',
     },
     backgroundColor: {
       control: 'select',
       options: colorOptions,
-      description: 'Background color of the tag'
+      description: 'Background color of the tag',
     },
     borderColor: {
       control: 'select',
       options: colorOptions,
-      description: 'Border color of the tag'
+      description: 'Border color of the tag',
     },
     fontColor: {
       control: 'select',
       options: colorOptions,
-      description: 'Font color of the tag'
+      description: 'Font color of the tag',
     },
     icon: {
       control: 'text',
-      description: 'Optional path of icon (eg: /public/icons/impact_types/project_trees.svg)'
+      description: 'Optional path of icon (eg: /public/icons/impact_types/project_trees.svg)',
     },
     iconSize: {
       control: 'select',
       options: ['14', '16'],
       description: 'Size of the icon in pixels',
-      defaultValue: '14'
+      defaultValue: '14',
     },
     bold: {
       control: 'boolean',
-      description: 'Whether the text should be bold'
+      description: 'Whether the text should be bold',
     },
     fontSize: {
       control: 'select',
       options: ['caption', 'body', 'description'],
       description: 'Font size variant for the tag text',
-      defaultValue: 'caption'
-    }
+      defaultValue: 'caption',
+    },
   },
   parameters: {
     docs: {
@@ -105,10 +105,10 @@ A tag component that can display text with an optional icon.
   />
 </template>
 \`\`\`
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -117,115 +117,115 @@ type Story = StoryObj<typeof GsTags>
 export const MainGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-green'
-  }
+    backgroundColor: 'main-green',
+  },
 }
 
 export const MainLightGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-light-green'
-  }
+    backgroundColor: 'main-light-green',
+  },
 }
 
 export const MainBeige: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-beige'
-  }
+    backgroundColor: 'main-beige',
+  },
 }
 
 export const ProjectBlue: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-blue'
-  }
+    backgroundColor: 'project-blue',
+  },
 }
 
 export const ProjectOrange: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-orange'
-  }
+    backgroundColor: 'project-orange',
+  },
 }
 
 export const ProjectGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-green'
-  }
+    backgroundColor: 'project-green',
+  },
 }
 
 export const ProjectTurquoise: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-turquoise'
-  }
+    backgroundColor: 'project-turquoise',
+  },
 }
 
 export const ProjectPurple: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-purple'
-  }
+    backgroundColor: 'project-purple',
+  },
 }
 
 export const ProjectPastelBlue: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-pastel-blue'
-  }
+    backgroundColor: 'project-pastel-blue',
+  },
 }
 
 export const ProjectPastelOrange: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-pastel-orange'
-  }
+    backgroundColor: 'project-pastel-orange',
+  },
 }
 
 export const ProjectPastelGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-pastel-green'
-  }
+    backgroundColor: 'project-pastel-green',
+  },
 }
 
 export const ProjectPastelTurquoise: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-pastel-turquoise'
-  }
+    backgroundColor: 'project-pastel-turquoise',
+  },
 }
 
 export const ProjectPastelPurple: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'project-pastel-purple'
-  }
+    backgroundColor: 'project-pastel-purple',
+  },
 }
 
 export const WithBorder: Story = {
   args: {
     label: 'Tag text',
-    borderColor: 'main-green'
-  }
+    borderColor: 'main-green',
+  },
 }
 
 export const WithCustomFontColor: Story = {
   args: {
     label: 'Tag text',
     backgroundColor: 'main-green',
-    fontColor: 'main-beige'
-  }
+    fontColor: 'main-beige',
+  },
 }
 
 export const NoBorder: Story = {
   args: {
     label: 'Tag text',
     backgroundColor: 'main-green',
-    borderColor: 'none'
-  }
+    borderColor: 'none',
+  },
 }
 
 export const AllStates: Story = {
@@ -322,6 +322,6 @@ export const AllStates: Story = {
           </div>
         </div>
       </div>
-    `
-  })
-} 
+    `,
+  }),
+}

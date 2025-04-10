@@ -12,10 +12,10 @@ const meta: Meta = {
 ## Grey Scale
 
 This story showcases the grey scale colors used in our design system.
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -38,7 +38,7 @@ const greyScaleColors = [
   { name: 'Grey Scale 120', hex: '#0D0D0D', variable: '--grey-scale-120' },
   { name: 'Grey Scale 200', hex: '#CCCCCC', variable: '--grey-scale-200' },
   { name: 'Grey Scale 250', hex: '#DBDBDB', variable: '--grey-scale-250' },
-  { name: 'Grey Scale 800', hex: '#323232', variable: '--grey-scale-800' }
+  { name: 'Grey Scale 800', hex: '#323232', variable: '--grey-scale-800' },
 ]
 
 export const GreyScale: Story = {
@@ -60,7 +60,7 @@ export const GreyScale: Story = {
 
       return {
         greyScaleColors,
-        shouldUseWhiteText
+        shouldUseWhiteText,
       }
     },
     template: /* html */ `
@@ -100,6 +100,6 @@ export const GreyScale: Story = {
           opacity: 0.8;
         }
       </style>
-    `
-  })
+    `,
+  }),
 }

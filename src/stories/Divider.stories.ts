@@ -10,8 +10,8 @@ const meta: Meta<typeof GsDivider> = {
     color: {
       control: 'select',
       options: ['grey200', 'grey250', 'grey800'],
-      description: 'The color variant of the divider'
-    }
+      description: 'The color variant of the divider',
+    },
   },
   parameters: {
     docs: {
@@ -32,16 +32,16 @@ A horizontal divider component that adapts to its container width.
   <gs-divider color="grey800" />
 </template>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   decorators: [
     (story) => ({
       components: { story },
-      template: '<div style="width: 500px;"><story /></div>'
-    })
-  ]
+      template: '<div style="width: 500px;"><story /></div>',
+    }),
+  ],
 }
 
 export default meta
@@ -49,8 +49,8 @@ type Story = StoryObj<typeof GsDivider>
 
 export const Default: Story = {
   args: {
-    color: 'grey200'
-  }
+    color: 'grey200',
+  },
 }
 
 export const AllVariants: Story = {
@@ -81,6 +81,6 @@ export const AllVariants: Story = {
           </div>
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }

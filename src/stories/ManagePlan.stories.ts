@@ -32,51 +32,51 @@ A component for displaying plan information with an image, title, description, a
   />
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 const handleAction = () => {
   // Handle plan action
 }
 </script>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     imageUrl: {
       control: 'text',
-      description: 'URL of the plan image'
+      description: 'URL of the plan image',
     },
     imageAlt: {
       control: 'text',
-      description: 'Alt text for the plan image'
+      description: 'Alt text for the plan image',
     },
     title: {
       control: 'text',
-      description: 'Title of the plan'
+      description: 'Title of the plan',
     },
     description: {
       control: 'text',
-      description: 'Description of the plan'
+      description: 'Description of the plan',
     },
     buttonText: {
       control: 'text',
-      description: 'Text for the action button'
+      description: 'Text for the action button',
     },
     buttonIcon: {
       control: 'text',
-      description: 'Optional icon for the button'
+      description: 'Optional icon for the button',
     },
     hasTrial: {
       control: 'boolean',
-      description: 'Whether to show the trial tag'
+      description: 'Whether to show the trial tag',
     },
     tagText: {
       control: 'text',
       description: 'Text to show in the trial tag',
-      defaultValue: 'Free trial'
-    }
-  }
+      defaultValue: 'Free trial',
+    },
+  },
 }
 
 export default meta
@@ -91,8 +91,8 @@ export const StarterPlan: Story = {
     description: 'For companies just getting started on their positive impact journey.',
     buttonText: 'Manage',
     hasTrial: true,
-    tagText: 'Free trial'
-  }
+    tagText: 'Free trial',
+  },
 }
 
 // Plan without free trial
@@ -103,8 +103,8 @@ export const StandardPlan: Story = {
     title: 'Standard Plan - Monthly',
     description: 'For growing companies ready to scale their impact.',
     buttonText: 'Manage',
-    hasTrial: false
-  }
+    hasTrial: false,
+  },
 }
 
 // Custom tag text example
@@ -116,8 +116,8 @@ export const CustomTag: Story = {
     description: 'For companies just getting started on their positive impact journey.',
     buttonText: 'Manage',
     hasTrial: true,
-    tagText: 'Beta'
-  }
+    tagText: 'Beta',
+  },
 }
 
 // All variations
@@ -146,6 +146,6 @@ export const AllVariations: Story = {
           buttonText="Manage"
         />
       </div>
-    `
-  })
-} 
+    `,
+  }),
+}

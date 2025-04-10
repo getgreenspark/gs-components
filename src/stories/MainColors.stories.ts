@@ -46,15 +46,15 @@ export const MainColors: Story = {
         <div v-for="color in colors" :key="color.hex" class="color-swatch"
              :style="{ backgroundColor: color.hex }">
           <GsTypography variant="body" class="color-name"
-                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+          >
             {{ color.name }}
           </GsTypography>
           <GsTypography variant="caption" class="color-hex"
-                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+          >
             {{ color.hex }}
           </GsTypography>
           <GsTypography variant="caption" class="color-variable"
-                        :style="{ color: ['#336E6B', '#1B3352', '#393939'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
+          >
             var(--{{ color.variable }})
           </GsTypography>
         </div>

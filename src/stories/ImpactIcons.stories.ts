@@ -97,7 +97,7 @@ export const ImpactIcons: Story = {
               <img :src="icon.path" :alt="icon.name" width="24" height="24" />
             </div>
             <GsTypography variant="description"
-                          style="text-align: center; color: var(--ui-grey-60);">white:
+                          style="text-align: center; color: var(--grey-scale-60);">white:
               /public/icons/impact_types/{{ icon.name.toLowerCase() }}.svg
             </GsTypography>
 

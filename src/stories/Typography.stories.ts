@@ -31,9 +31,9 @@ Once you have installed and set up the GS Components library, you can use the ty
 \`\`\`
 
 No need to import the component manually when using it globally.
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     variant: {
@@ -51,12 +51,12 @@ No need to import the component manually when using it globally.
         'description',
         'body',
         'caption',
-        'minimum'
+        'minimum',
       ],
       description: 'The typography variant to use',
       table: {
-        defaultValue: { summary: 'body' }
-      }
+        defaultValue: { summary: 'body' },
+      },
     },
     bold: {
       control: 'boolean',
@@ -66,24 +66,18 @@ No need to import the component manually when using it globally.
       control: 'text',
       description: 'The HTML tag to use for the text',
       table: {
-        defaultValue: { summary: 'p' }
-      }
+        defaultValue: { summary: 'p' },
+      },
     },
     color: {
       control: 'select',
-      options: [
-        'main-green',
-        'main-light-green',
-        'main-red',
-        'main-black',
-        'main-white'
-      ],
+      options: ['main-green', 'main-light-green', 'main-red', 'main-black', 'main-white'],
       description: 'The color to apply to the typography text.',
       table: {
-        defaultValue: { summary: 'main-black' }
-      }
-    }
-  }
+        defaultValue: { summary: 'main-black' },
+      },
+    },
+  },
 }
 
 export default meta
@@ -93,7 +87,7 @@ export const Interactive: StoryObj<typeof meta> = {
     variant: 'body',
     bold: false,
     tag: 'p',
-    color: 'main-black'
+    color: 'main-black',
   },
   render: (args) => ({
     components: { GsTypography },
@@ -104,8 +98,8 @@ export const Interactive: StoryObj<typeof meta> = {
       <GsTypography :variant="args.variant" :bold="args.bold" :is="args.tag" :color="args.color">
         {{ args.default }}
       </GsTypography>
-    `
-  })
+    `,
+  }),
 }
 
 export const TypeScale: StoryObj<typeof meta> = {
@@ -125,11 +119,11 @@ export const TypeScale: StoryObj<typeof meta> = {
         { name: 'Description', variant: 'description', specs: '16px / 24px' },
         { name: 'Body', variant: 'body', specs: '14px / 22px' },
         { name: 'Caption', variant: 'caption', specs: '12px / 20px' },
-        { name: 'Minimum', variant: 'minimum', specs: '9px / 17px' }
+        { name: 'Minimum', variant: 'minimum', specs: '9px / 17px' },
       ]
       return {
         scale,
-        sample: 'The quick brown fox jumps over the lazy dog'
+        sample: 'The quick brown fox jumps over the lazy dog',
       }
     },
     template: /* html */ `
@@ -140,15 +134,15 @@ export const TypeScale: StoryObj<typeof meta> = {
           <GsTypography :variant="type.variant">{{ sample }}</GsTypography>
         </div>
       </div>
-    `
+    `,
   }),
   parameters: {
     docs: {
       source: {
-        code: '<GsTypography variant="h1">The quick brown fox jumps over the lazy dog</GsTypography>'
-      }
-    }
-  }
+        code: '<GsTypography variant="h1">The quick brown fox jumps over the lazy dog</GsTypography>',
+      },
+    },
+  },
 }
 
 export const Weights: StoryObj<typeof meta> = {
@@ -157,7 +151,7 @@ export const Weights: StoryObj<typeof meta> = {
     setup() {
       const samples = [
         { variant: 'h1', text: 'Regular & Bold Weights' },
-        { variant: 'description', text: 'The quick brown fox jumps over the lazy dog' }
+        { variant: 'description', text: 'The quick brown fox jumps over the lazy dog' },
       ]
       return { samples }
     },
@@ -168,8 +162,8 @@ export const Weights: StoryObj<typeof meta> = {
           <GsTypography :variant="sample.variant" bold>{{ sample.text }}</GsTypography>
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 export const Colors: StoryObj<typeof meta> = {
@@ -181,7 +175,7 @@ export const Colors: StoryObj<typeof meta> = {
         { name: 'Main Light Green', value: 'main-light-green' },
         { name: 'Main Red', value: 'main-red' },
         { name: 'Main Black', value: 'main-black' },
-        { name: 'Main White', value: 'main-white' }
+        { name: 'Main White', value: 'main-white' },
       ]
       return { colors }
     },
@@ -194,9 +188,6 @@ export const Colors: StoryObj<typeof meta> = {
           </GsTypography>
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }
-
-
-

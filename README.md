@@ -1,6 +1,7 @@
 # gs-components
 
-A reusable component library for Vue 3, built with TypeScript. Designed to provide a consistent UI/UX for Greenspark projects.
+A reusable component library for Vue 3, built with TypeScript. Designed to provide a consistent UI/UX for Greenspark
+projects.
 
 ## Installation
 
@@ -37,7 +38,7 @@ app.mount('#app')
 To reduce bundle size, import only the components you need:
 
 ```vue
-<script setup lang="ts">
+<script lang="ts">
 import { GsButton } from '@getgreenspark/gs-components'
 </script>
 
@@ -49,7 +50,7 @@ import { GsButton } from '@getgreenspark/gs-components'
 ## Components
 
 | Component  | Description                     |
-| ---------- | ------------------------------- |
+|------------|---------------------------------|
 | `GsButton` | A customizable button component |
 
 More components and documentation coming soon.
