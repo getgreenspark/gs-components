@@ -45,7 +45,7 @@ const emit = defineEmits<{
 
 const model = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value),
+  set: (value: boolean) => emit('update:modelValue', value),
 })
 
 const handleChange = (value: boolean) => {
