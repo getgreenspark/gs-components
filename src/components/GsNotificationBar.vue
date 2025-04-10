@@ -86,7 +86,7 @@ const handleButtonClick = () => {
 
 .gs-notification-bar {
   border-radius: 8px;
-  background-color: var(--main-black);
+  background-color: var(--ui-black);
   display: flex;
   padding: 16px;
   align-items: flex-start;
@@ -101,7 +101,7 @@ const handleButtonClick = () => {
   flex-wrap: wrap;
 
   :deep(a) {
-    color: var(--main-white);
+    color: var(--ui-white);
     text-decoration: underline;
     opacity: 0.8;
 

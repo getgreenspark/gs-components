@@ -21,7 +21,7 @@
           <li v-for="(feature, index) in features" :key="index">
             <GsIconWithText
               :text="feature"
-              iconColor="var(--main-green)"
+              iconColor="var(--ui-green)"
               mdiIcon="mdi-check"
               tag="p"
               textVariant="body"
@@ -138,7 +138,7 @@ const props = withDefaults(defineProps<Props>(), {
 <style scoped>
 .gs-plan-overview {
   border-radius: 8px;
-  background-color: var(--main-white);
+  background-color: var(--ui-white);
   padding: 32px;
 }
 

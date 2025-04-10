@@ -53,7 +53,7 @@ withDefaults(
     Roboto,
     Helvetica,
     sans-serif;
-  color: var(--main-black);
+  color: var(--ui-black);
 
   // H1 - 48px / 56px
   &--h1 {

@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const getTextColor = (value: number) => {
   // If progress is past the center point (where the text is), use white text
-  return value >= 50 ? 'var(--main-white)' : 'var(--main-black)'
+  return value >= 50 ? 'var(--ui-white)' : 'var(--ui-black)'
 }
 </script>
 

@@ -100,11 +100,11 @@ const handleCardClick = (event: MouseEvent) => {
 <style lang="scss" scoped>
 .gs-card-selector {
   border-radius: 12px;
-  border: 1px solid var(--grey-scale-250);
+  border: 1px solid var(--ui-green);
   padding: 16px;
   transition: all 0.2s ease;
   cursor: pointer;
-  background-color: var(--grey-scale-10);
+  background-color: var(--ui-green-20);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -112,13 +112,13 @@ const handleCardClick = (event: MouseEvent) => {
   min-width: 175px;
 
   &:hover:not(.gs-card-selector--disabled) {
-    border-color: var(--main-light-green);
-    background-color: var(--main-light-green-20);
+    border-color: var(--ui-green);
+    background-color: var(--ui-green-20);
   }
 
   &--selected {
-    border-color: var(--main-light-green);
-    background-color: var(--main-light-green-20);
+    border-color: var(--ui-green);
+    background-color: var(--ui-green-20);
   }
 
   &--disabled {
@@ -144,7 +144,7 @@ const handleCardClick = (event: MouseEvent) => {
   }
 
   &__text {
-    color: var(--grey-scale-900);
+    color: var(--ui-black);
     flex: 1;
   }
 
@@ -154,7 +154,7 @@ const handleCardClick = (event: MouseEvent) => {
     height: 120px;
     border-radius: 4px;
     overflow: hidden;
-    background-color: var(--grey-scale-50);
+    background-color: var(--ui-grey-50);
 
     img {
       width: 100%;
@@ -163,7 +163,7 @@ const handleCardClick = (event: MouseEvent) => {
     }
 
     &--placeholder {
-      background-color: var(--grey-scale-50);
+      background-color: var(--ui-grey-50);
     }
   }
 
@@ -173,10 +173,10 @@ const handleCardClick = (event: MouseEvent) => {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(45deg, var(--grey-scale-100) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--grey-scale-100) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--grey-scale-100) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--grey-scale-100) 75%);
+    background-image: linear-gradient(45deg, var(--ui-grey-100) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--ui-grey-100) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--ui-grey-100) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--ui-grey-100) 75%);
     background-size: 20px 20px;
     background-position:
       0 0,

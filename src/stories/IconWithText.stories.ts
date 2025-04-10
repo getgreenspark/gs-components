@@ -10,27 +10,27 @@ const meta: Meta<typeof GsIconWithText> = {
   argTypes: {
     mdiIcon: {
       control: 'text',
-      description: 'MDI icon name (e.g. "mdi-check")'
+      description: 'MDI icon name (e.g. "mdi-check")',
     },
     iconPath: {
       control: 'text',
-      description: 'Path to custom icon'
+      description: 'Path to custom icon',
     },
     iconAlt: {
       control: 'text',
-      description: 'Alt text for custom icon'
+      description: 'Alt text for custom icon',
     },
     iconSize: {
       control: 'number',
-      description: 'Icon size in pixels'
+      description: 'Icon size in pixels',
     },
     iconColor: {
       control: 'text',
-      description: 'Icon color using design system variables'
+      description: 'Icon color using design system variables',
     },
     text: {
       control: 'text',
-      description: 'Text content'
+      description: 'Text content',
     },
     textVariant: {
       control: 'select',
@@ -47,15 +47,15 @@ const meta: Meta<typeof GsIconWithText> = {
         'description',
         'body',
         'caption',
-        'minimum'
+        'minimum',
       ],
-      description: 'Typography variant for the text'
+      description: 'Typography variant for the text',
     },
     tag: {
       control: 'text',
-      description: 'HTML tag to use for the text'
-    }
-  }
+      description: 'HTML tag to use for the text',
+    },
+  },
 }
 
 export default meta
@@ -65,8 +65,8 @@ export const Default: StoryObj<typeof meta> = {
     mdiIcon: 'mdi-check',
     text: 'Feature included',
     textVariant: 'body',
-    tag: 'p'
-  }
+    tag: 'p',
+  },
 }
 
 export const CustomIcon: StoryObj<typeof meta> = {
@@ -75,8 +75,8 @@ export const CustomIcon: StoryObj<typeof meta> = {
     iconAlt: 'Custom icon',
     text: 'Custom icon example',
     textVariant: 'body',
-    tag: 'p'
-  }
+    tag: 'p',
+  },
 }
 
 export const IconColors: StoryObj<typeof meta> = {
@@ -86,28 +86,28 @@ export const IconColors: StoryObj<typeof meta> = {
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <GsIconWithText
           mdiIcon="mdi-check"
-          iconColor="var(--main-green)"
+          iconColor="var(--ui-green)"
           text="Green icon"
           textVariant="body"
           tag="p"
         />
         <GsIconWithText
           mdiIcon="mdi-check"
-          iconColor="var(--main-red)"
+          iconColor="var(--ui-red)"
           text="Red icon"
           textVariant="body"
           tag="p"
         />
         <GsIconWithText
           mdiIcon="mdi-check"
-          iconColor="var(--main-black)"
+          iconColor="var(--ui-black)"
           text="Black icon"
           textVariant="body"
           tag="p"
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 export const IconSizes: StoryObj<typeof meta> = {
@@ -137,8 +137,8 @@ export const IconSizes: StoryObj<typeof meta> = {
           tag="p"
         />
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 export const TextVariants: StoryObj<typeof meta> = {
@@ -242,8 +242,8 @@ export const TextVariants: StoryObj<typeof meta> = {
           </div>
         </div>
       </div>
-    `
-  })
+    `,
+  }),
 }
 
 export const HtmlTags: StoryObj<typeof meta> = {
@@ -276,6 +276,6 @@ export const HtmlTags: StoryObj<typeof meta> = {
           tag="article"
         />
       </div>
-    `
-  })
+    `,
+  }),
 }

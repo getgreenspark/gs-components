@@ -93,7 +93,7 @@ onUnmounted(() => {
 
 .gs-floating-action-menu__title,
 .gs-floating-action-menu__description {
-  color: var(--main-black);
+  color: var(--ui-black);
   margin: 0;
 }
 

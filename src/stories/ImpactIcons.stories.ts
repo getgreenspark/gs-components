@@ -93,16 +93,16 @@ export const ImpactIcons: Story = {
             </GsTypography>
 
             <div
-              style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--main-black); border-radius: 8px;">
+              style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--ui-black); border-radius: 8px;">
               <img :src="icon.path" :alt="icon.name" width="24" height="24" />
             </div>
             <GsTypography variant="description"
-                          style="text-align: center; color: var(--grey-scale-60);">white:
+                          style="text-align: center; color: var(--ui-grey-60);">white:
               /public/icons/impact_types/{{ icon.name.toLowerCase() }}.svg
             </GsTypography>
 
             <div
-              style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--main-white); border-radius: 8px; border: 1px solid var(--grey-scale-40);">
+              style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--ui-white); border-radius: 8px; border: 1px solid var(--grey-scale-40);">
               <img :src="icon.blackPath" :alt="icon.name + ' Black'" width="24" height="24" />
             </div>
             <GsTypography variant="description"

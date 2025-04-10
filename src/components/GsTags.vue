@@ -57,7 +57,7 @@ const textColor = computed(() => {
 
   // For grey scale colors, always use white text
   if (props.backgroundColor.startsWith('grey-scale-')) {
-    return 'var(--main-white)'
+    return 'var(--ui-white)'
   }
 
   const pastelColors = [
@@ -68,7 +68,7 @@ const textColor = computed(() => {
     'project-pastel-purple',
     'main-beige',
   ]
-  return pastelColors.includes(props.backgroundColor) ? 'var(--main-black)' : 'var(--main-white)'
+  return pastelColors.includes(props.backgroundColor) ? 'var(--ui-black)' : 'var(--ui-white)'
 })
 
 const borderStyle = computed(() => {
@@ -94,7 +94,7 @@ const backgroundStyle = computed(() => {
       v-if="icon"
       :height="iconSize"
       :src="icon"
-      :style="{ filter: textColor === 'var(--main-black)' ? 'none' : 'brightness(0) invert(1)' }"
+      :style="{ filter: textColor === 'var(--ui-black)' ? 'none' : 'brightness(0) invert(1)' }"
       :width="iconSize"
       alt=""
     />

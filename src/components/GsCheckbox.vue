@@ -102,7 +102,7 @@ const model = computed({
   :deep(.v-checkbox__label) {
     font-size: 14px;
     line-height: 22px;
-    color: var(--main-black);
+    color: var(--ui-black);
   }
 }
 </style>

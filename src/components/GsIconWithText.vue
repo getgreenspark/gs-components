@@ -58,7 +58,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), {
   iconSize: 20,
-  iconColor: 'var(--main-black)',
+  iconColor: 'var(--ui-black)',
   textVariant: 'body',
   tag: 'p',
 })

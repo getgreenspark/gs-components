@@ -78,7 +78,7 @@ const handleButtonClick = () => {
   justify-content: space-between;
   padding: 16px;
   border-radius: 8px;
-  background-color: var(--main-white);
+  background-color: var(--ui-white);
   border: 1px solid var(--gray-light-CD);
   gap: 16px;
 

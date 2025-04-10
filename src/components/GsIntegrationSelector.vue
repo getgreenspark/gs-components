@@ -99,11 +99,11 @@ const handleChange = (value: boolean) => {
 }
 
 .gs-integration-selector:hover:not(.gs-integration-selector--disabled) {
-  border-color: var(--main-green);
+  border-color: var(--ui-green);
 }
 
 .gs-integration-selector--selected {
-  border-color: var(--main-green);
+  border-color: var(--ui-green);
 }
 
 .gs-integration-selector--disabled {
