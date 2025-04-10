@@ -39,19 +39,6 @@ const alertBarClasses = computed(() => [
     'full-width': props.fullWidth,
   },
 ])
-
-const icon = computed(() => {
-  switch (props.type) {
-    case 'success':
-      return 'mdi-check-circle'
-    case 'warning':
-      return 'mdi-alert'
-    case 'error':
-      return 'mdi-close-circle'
-    default:
-      return 'mdi-information'
-  }
-})
 </script>
 
 <template>
@@ -59,7 +46,7 @@ const icon = computed(() => {
     <div class="d-flex">
       <div class="gs-alert-bar__content">
         <div class="gs-alert-bar__icon">
-          <v-icon :icon="icon" class="icon me-3" size="16" />
+          <v-icon class="icon me-3" icon="mdi-information-outline" size="16" />
         </div>
         <div class="d-flex flex-column">
           <GsTypography v-if="title" :class="'title'" bold variant="description">
