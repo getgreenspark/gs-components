@@ -15,4 +15,12 @@ export default defineConfigWithVueTs({
 }, pluginVue.configs['flat/essential'], vueTsConfigs.recommended, {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
-}, skipFormatting);
+}, skipFormatting, {
+    name: 'app/custom-rules',
+    rules: {
+        '@typescript-eslint/no-unused-vars': ['warn', {
+            argsIgnorePattern: '^_',
+            varsIgnorePattern: '^_',
+        }],
+    },
+});

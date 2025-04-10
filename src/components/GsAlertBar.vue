@@ -1,17 +1,34 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { VIcon } from 'vuetify/components'
+import GsTypography from './GsTypography.vue'
 
 type AlertBarType = 'info' | 'success' | 'error' | 'warning'
 
-type AlertBarProps = {
+interface Props {
+  /**
+   * The type of alert to display
+   */
   type?: AlertBarType
+  /**
+   * Optional title for the alert.
+   * Supports HTML content which will be safely rendered.
+   * @example "<strong>Important:</strong> Please note"
+   */
   title?: string
+  /**
+   * The main message to display.
+   * Supports HTML content which will be safely rendered.
+   * @example "Visit our <a href='#'>documentation</a> for more info"
+   */
   message: string
+  /**
+   * Makes the alert take the full width of its container
+   */
   fullWidth?: boolean
 }
 
-const props = withDefaults(defineProps<AlertBarProps>(), {
+const props = withDefaults(defineProps<Props>(), {
   type: 'info',
 })
 
@@ -27,10 +44,18 @@ const alertBarClasses = computed(() => [
 <template>
   <div :class="alertBarClasses" role="alert">
     <div class="d-flex">
-      <v-icon icon="mdi-information-outline" class="icon me-3" size="16" />
-      <div class="d-flex flex-column">
-        <span v-if="title" class="title font-weight-bold" v-html="title" />
-        <span class="message" v-html="message" />
+      <div class="gs-alert-bar__content">
+        <div class="gs-alert-bar__icon">
+          <v-icon class="icon me-3" icon="mdi-information-outline" size="16" />
+        </div>
+        <div class="d-flex flex-column">
+          <GsTypography v-if="title" :class="'title'" bold variant="description">
+            <slot name="title">{{ title }}</slot>
+          </GsTypography>
+          <GsTypography :class="'message'" variant="description">
+            <slot name="message">{{ message }}</slot>
+          </GsTypography>
+        </div>
       </div>
     </div>
   </div>
@@ -72,12 +97,41 @@ const alertBarClasses = computed(() => [
   }
 
   &.gs-error {
+    :deep(.gs-typography) {
+      color: var(--ui-white);
+    }
+
     color: var(--ui-white);
     background: var(--ui-red);
 
     .icon {
       color: var(--ui-white);
     }
+  }
+}
+
+.gs-alert-bar__content {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.gs-alert-bar__icon {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+
+.gs-alert-bar__text {
+  flex: 1;
+  min-width: 0;
+
+  .title {
+    margin-bottom: 4px;
+  }
+
+  .message {
+    opacity: 0.8;
   }
 }
 </style>

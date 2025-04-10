@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { VColorPicker } from 'vuetify/components'
 
@@ -33,41 +33,46 @@ const colorPickerClasses = computed(() => [
 const handleClear = () => {
   model.value = ''
 }
+
+const handleColorChange = (value: string) => {
+  model.value = value
+}
 </script>
 
 <template>
-  <v-menu location="top" offset="15" :close-on-content-click="false" close-on-back>
+  <v-menu :close-on-content-click="false" close-on-back location="top" offset="15">
     <template v-slot:activator="{ props: menuProps }">
       <div
+        :aria-label="`Open color picker. Current color: ${model || 'white'}`"
         :class="colorPickerClasses"
-        v-bind="menuProps"
         role="button"
         tabindex="0"
-        :aria-label="`Open color picker. Current color: ${model || 'white'}`"
+        v-bind="menuProps"
+        @click.stop
       >
-        <label class="gs-color-picker-label" v-if="label">{{ label }}</label>
+        <label v-if="label" class="gs-color-picker-label">{{ label }}</label>
         <v-text-field
           v-model="model"
-          flat
-          variant="outlined"
-          readonly
-          :disabled="disabled"
           :aria-label="label || placeholder"
+          :disabled="disabled"
           :placeholder="placeholder"
+          flat
+          readonly
+          variant="outlined"
         >
           <template v-slot:prepend>
-            <div class="gs-color-picker-swatch" :style="{ backgroundColor: model || '#FFFFFF' }">
+            <div :style="{ backgroundColor: model || '#FFFFFF' }" class="gs-color-picker-swatch">
               <span class="sr-only">{{ model || 'white' }}</span>
             </div>
           </template>
-          <template v-slot:append v-if="clearable && model && !disabled">
+          <template v-if="clearable && model && !disabled" v-slot:append>
             <v-icon
-              icon="mdi-close"
-              size="small"
-              @click.stop="handleClear"
-              role="button"
-              tabindex="0"
               aria-label="Clear color selection"
+              icon="mdi-close"
+              role="button"
+              size="small"
+              tabindex="0"
+              @click.stop="handleClear"
             />
           </template>
         </v-text-field>
@@ -78,8 +83,9 @@ const handleClear = () => {
       <v-card-text class="pa-0">
         <v-color-picker
           v-model="model"
-          :modes="allowedColorModes"
           :aria-label="`Color picker for ${label || 'color selection'}`"
+          :modes="allowedColorModes"
+          @update:model-value="handleColorChange"
         />
       </v-card-text>
     </v-card>
