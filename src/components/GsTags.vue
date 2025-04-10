@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import '../assets/style/colorVariables.css'
+import '../assets/style/variables.css'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
@@ -111,7 +111,7 @@ const backgroundStyle = computed(() => {
 </template>
 
 <style scoped>
-@import '../assets/style/colorVariables.css';
+@import '../assets/style/variables.css';
 
 .gs-tags {
   border-radius: 4px;

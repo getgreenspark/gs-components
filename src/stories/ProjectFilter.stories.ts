@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsProjectFilter from '@/components/GsProjectFilter.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 
 const meta: Meta<typeof GsProjectFilter> = {
   title: 'Components/Navigation/ProjectFilter',

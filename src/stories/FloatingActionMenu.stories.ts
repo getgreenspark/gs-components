@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsFloatingActionMenu from '../components/GsFloatingActionMenu.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 
 const meta: Meta<typeof GsFloatingActionMenu> = {
   title: 'Components/Navigation/FloatingActionMenu',
@@ -29,7 +29,7 @@ Features a title, description, and two action buttons.
   />
 </template>
 
-<script setup>
+<script>
 const handlePrimaryAction = () => {
   console.log('Primary action clicked')
 }
@@ -39,36 +39,28 @@ const handleSecondaryAction = () => {
 }
 </script>
 \`\`\`
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     title: {
       control: 'text',
-      description: 'The main title text'
+      description: 'The main title text',
     },
     description: {
       control: 'text',
-      description: 'The description text below the title'
+      description: 'The description text below the title',
     },
     primaryButtonText: {
       control: 'text',
-      description: 'Text for the primary (outline) button'
+      description: 'Text for the primary (outline) button',
     },
     secondaryButtonText: {
       control: 'text',
-      description: 'Text for the secondary (solid) button'
+      description: 'Text for the secondary (solid) button',
     },
-    onPrimaryAction: {
-      action: 'primary-action',
-      description: 'Event emitted when the primary button is clicked'
-    },
-    onSecondaryAction: {
-      action: 'secondary-action',
-      description: 'Event emitted when the secondary button is clicked'
-    }
-  }
+  },
 }
 
 export default meta
@@ -78,8 +70,8 @@ export const Default: StoryObj<typeof meta> = {
     title: 'Ready to take action and support this project?',
     description: 'Add a tailored impact or create an automation to help drive change!',
     primaryButtonText: 'Tailored impact',
-    secondaryButtonText: 'Add automation'
-  }
+    secondaryButtonText: 'Add automation',
+  },
 }
 
 export const CustomText: StoryObj<typeof meta> = {
@@ -87,8 +79,8 @@ export const CustomText: StoryObj<typeof meta> = {
     title: 'Want to make a difference?',
     description: 'Choose how you want to contribute to this initiative',
     primaryButtonText: 'Donate Now',
-    secondaryButtonText: 'Share Project'
-  }
+    secondaryButtonText: 'Share Project',
+  },
 }
 
 export const ShortText: StoryObj<typeof meta> = {
@@ -96,6 +88,6 @@ export const ShortText: StoryObj<typeof meta> = {
     title: 'Ready to begin?',
     description: 'Select your preferred action',
     primaryButtonText: 'Start',
-    secondaryButtonText: 'Learn More'
-  }
-} 
+    secondaryButtonText: 'Learn More',
+  },
+}

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsIconWithText from '@/components/GsIconWithText.vue'
 import GsTypography from '@/components/GsTypography.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 
 const meta: Meta<typeof GsIconWithText> = {
   title: 'Components/Core/IconWithText',
@@ -278,4 +278,4 @@ export const HtmlTags: StoryObj<typeof meta> = {
       </div>
     `
   })
-} 
+}

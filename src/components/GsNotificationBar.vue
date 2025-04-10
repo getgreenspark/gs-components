@@ -31,7 +31,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import GsButton from './GsButton.vue'
 import GsTypography from './GsTypography.vue'
-import '../assets/style/colorVariables.css'
+import '../assets/style/variables.css'
 
 defineOptions({
   name: 'GsNotificationBar',
@@ -82,7 +82,7 @@ const handleButtonClick = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/style/colorVariables.css';
+@import '../assets/style/variables.css';
 
 .gs-notification-bar {
   border-radius: 8px;

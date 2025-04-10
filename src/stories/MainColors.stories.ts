@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsTypography from '@/components/GsTypography.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 import '@/stories/colorPalette.css'
 
 const meta: Meta = {

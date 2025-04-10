@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsPlanOverview from '../components/GsPlanOverview.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 
 const meta: Meta<typeof GsPlanOverview> = {
   title: 'Sections/PlanOverview',
@@ -22,7 +22,7 @@ A comprehensive view of a user's plan details, including:
 
 \`\`\`vue
 <template>
-  <gs-plan-overview 
+  <gs-plan-overview
     title="Your Plan Name"
     description="Plan description"
     :features="['Feature 1', 'Feature 2']"
@@ -158,4 +158,4 @@ export const WithoutTag: StoryObj<typeof meta> = {
     ...Default.args,
     showTag: false
   }
-} 
+}

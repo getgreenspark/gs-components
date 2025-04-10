@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsTypography from '@/components/GsTypography.vue'
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 
 const meta: Meta = {
   title: 'Foundation/01-Colours/Grey Scale',
@@ -58,7 +58,7 @@ export const GreyScale: Story = {
         return luminance < 0.5
       }
 
-      return { 
+      return {
         greyScaleColors,
         shouldUseWhiteText
       }
@@ -80,7 +80,7 @@ export const GreyScale: Story = {
           gap: 16px;
           padding: 16px;
         }
-        
+
         .color-swatch {
           display: flex;
           flex-direction: column;
@@ -90,16 +90,16 @@ export const GreyScale: Story = {
           border-radius: 8px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .color-name {
           font-weight: 600;
           margin-bottom: 4px;
         }
-        
+
         .color-hex, .color-variable {
           opacity: 0.8;
         }
       </style>
     `
   })
-} 
+}

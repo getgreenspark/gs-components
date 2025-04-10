@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import '@/assets/style/colorVariables.css'
+import '@/assets/style/variables.css'
 import GsTypography from './GsTypography.vue'
 import GsTags from './GsTags.vue'
 import { computed } from 'vue'
