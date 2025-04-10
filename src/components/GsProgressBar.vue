@@ -6,8 +6,8 @@ defineOptions({
   name: 'GsProgressBar',
 })
 
-type ProgressColor = 'main-black' | 'main-light-green' | 'main-red'
-type BackgroundColor = 'main-white' | 'main-beige'
+type ProgressColor = 'ui-black' | 'ui-emerald-green' | 'ui-red'
+type BackgroundColor = 'ui-white' | 'ui-beige'
 
 interface Props {
   /**
@@ -16,12 +16,12 @@ interface Props {
   modelValue: number
   /**
    * The color of the progress bar fill
-   * @default 'main-light-green'
+   * @default 'ui-emerald-green'
    */
   color?: ProgressColor
   /**
    * The background color of the progress bar
-   * @default 'main-white'
+   * @default 'ui-white'
    */
   backgroundColor?: BackgroundColor
   /**
@@ -37,8 +37,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  color: 'main-light-green',
-  backgroundColor: 'main-white',
+  color: 'ui-emerald-green',
+  backgroundColor: 'ui-white',
   showPercentage: true,
   height: 8,
 })

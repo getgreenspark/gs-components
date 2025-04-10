@@ -97,6 +97,10 @@ const alertBarClasses = computed(() => [
   }
 
   &.gs-error {
+    :deep(.gs-typography) {
+      color: var(--ui-white);
+    }
+
     color: var(--ui-white);
     background: var(--ui-red);
 

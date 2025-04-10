@@ -75,7 +75,7 @@ const handleChange = (value: boolean) => {
     <GsTags
       v-if="tagLabel"
       :label="tagLabel"
-      background-color="main-green"
+      background-color="ui-green"
       bold
       class="gs-integration-selector__tag"
     />

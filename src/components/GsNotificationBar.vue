@@ -3,13 +3,13 @@
     <div class="gs-notification-content">
       <img v-if="icon" :alt="title" :src="icon" class="gs-notification-icon" />
       <div class="gs-notification-text">
-        <GsTypography v-if="title" bold color="main-white" tag="h2" variant="title-1">
+        <GsTypography v-if="title" bold color="ui-white" tag="h2" variant="title-1">
           {{ title }}
         </GsTypography>
         <GsTypography
           v-if="description"
           class="gs-notification-description"
-          color="main-white"
+          color="ui-white"
           variant="big-description"
         >
           <slot name="description">{{ description }}</slot>

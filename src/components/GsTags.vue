@@ -8,9 +8,21 @@ defineOptions({
 })
 
 type Color =
-  | 'main-green'
-  | 'main-light-green'
-  | 'main-beige'
+  | 'ui-green'
+  | 'ui-emerald-green'
+  | 'ui-beige'
+  | 'ui-black'
+  | 'ui-white'
+  | 'ui-red'
+  | 'ui-yellow'
+  | 'ui-blue'
+  | 'ui-blue-light'
+  | 'ui-purple-light'
+  | 'ui-sky-blue'
+  | 'ui-gold'
+  | 'ui-brown'
+  | 'ui-orange'
+  | 'ui-torquoise'
   | 'project-blue'
   | 'project-orange'
   | 'project-green'
@@ -21,8 +33,7 @@ type Color =
   | 'project-pastel-green'
   | 'project-pastel-turquoise'
   | 'project-pastel-purple'
-  | 'grey-scale-800'
-  | 'grey-scale-80'
+  | 'gray-light-7C'
   | 'none'
 
 interface Props {
@@ -31,23 +42,19 @@ interface Props {
   borderColor?: Color
   fontColor?: Color
   icon?: string
-  bold?: boolean
+  iconSize?: number
   fontSize?: 'caption' | 'body' | 'description'
-  /**
-   * Size of the icon in pixels
-   * @default '14'
-   */
-  iconSize?: '14' | '16'
+  bold?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  backgroundColor: 'main-green',
+  backgroundColor: 'ui-green',
   borderColor: 'none',
-  fontColor: undefined,
+  fontColor: 'ui-white',
   icon: undefined,
+  iconSize: 14,
+  fontSize: 'body',
   bold: false,
-  fontSize: 'caption',
-  iconSize: '14',
 })
 
 const textColor = computed(() => {
@@ -66,7 +73,7 @@ const textColor = computed(() => {
     'project-pastel-green',
     'project-pastel-turquoise',
     'project-pastel-purple',
-    'main-beige',
+    'ui-beige',
   ]
   return pastelColors.includes(props.backgroundColor) ? 'var(--ui-black)' : 'var(--ui-white)'
 })

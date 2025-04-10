@@ -8,21 +8,24 @@ defineOptions({
   name: 'GsProjectCardSelector',
 })
 
+type TagBackgroundColor = 'ui-green' | 'ui-emerald-green' | 'ui-beige'
+
 type Color =
-  | 'main-green'
-  | 'main-light-green'
-  | 'main-beige'
-  | 'project-blue'
-  | 'project-orange'
-  | 'project-green'
-  | 'project-turquoise'
-  | 'project-purple'
-  | 'project-pastel-blue'
-  | 'project-pastel-orange'
-  | 'project-pastel-green'
-  | 'project-pastel-turquoise'
-  | 'project-pastel-purple'
-  | 'none'
+  | 'ui-green'
+  | 'ui-emerald-green'
+  | 'ui-beige'
+  | 'ui-black'
+  | 'ui-white'
+  | 'ui-red'
+  | 'ui-yellow'
+  | 'ui-blue'
+  | 'ui-blue-light'
+  | 'ui-purple-light'
+  | 'ui-sky-blue'
+  | 'ui-gold'
+  | 'ui-brown'
+  | 'ui-orange'
+  | 'ui-torquoise'
 
 interface Props {
   title: string
@@ -41,7 +44,7 @@ interface Props {
   location: string
   imageUrl: string
   imageAlt?: string
-  tagBackgroundColor?: Color
+  tagBackgroundColor?: TagBackgroundColor
   tagFontColor?: Color
   tagText?: string
   cardBackgroundColor?: 'grey-scale-10' | 'grey-scale-20'
@@ -53,7 +56,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   imageAlt: '',
-  tagBackgroundColor: 'main-green',
+  tagBackgroundColor: 'ui-green',
   tagFontColor: undefined,
   tagText: 'XXX impact created',
   cardBackgroundColor: 'grey-scale-10',

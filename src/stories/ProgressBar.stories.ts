@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import GsProgressBar from '../components/GsProgressBar.vue'
+import GsProgressBar from '@/components/GsProgressBar.vue'
 
 const meta: Meta<typeof GsProgressBar> = {
-  title: 'Components/Feedback/ProgressBar',
+  title: 'Components/ProgressBar',
   component: GsProgressBar,
   tags: ['autodocs'],
   parameters: {
@@ -19,8 +19,8 @@ A customizable progress bar component with support for different colors, backgro
 <template>
   <gs-progress-bar
     v-model="progress"
-    color="main-light-green"
-    background-color="main-white"
+    color="ui-emerald-green"
+    background-color="ui-beige"
     :show-percentage="true"
     :height="8"
   />
@@ -41,12 +41,12 @@ const progress = ref(75)
     },
     color: {
       control: 'select',
-      options: ['main-black', 'main-light-green', 'main-red'],
+      options: ['ui-black', 'ui-emerald-green', 'ui-red'],
       description: 'Color of the progress bar fill',
     },
     backgroundColor: {
       control: 'select',
-      options: ['main-white', 'main-beige'],
+      options: ['ui-white', 'ui-beige'],
       description: 'Background color of the progress bar',
     },
     showPercentage: {
@@ -66,32 +66,34 @@ type Story = StoryObj<typeof meta>
 // Basic progress bar with default settings
 export const Default: Story = {
   args: {
-    modelValue: 45,
+    modelValue: 50,
+    color: 'ui-emerald-green',
+    backgroundColor: 'ui-white',
   },
 }
 
 // Progress bar with different colors
-export const Colors: Story = {
+export const DifferentColors: Story = {
   render: () => ({
     components: { GsProgressBar },
-    template: `
-      <div style="width: 500px; display: flex; flex-direction: column; gap: 24px;">
-        <GsProgressBar :model-value="75" color="main-light-green" />
-        <GsProgressBar :model-value="50" color="main-black" />
-        <GsProgressBar :model-value="25" color="main-red" />
+    template: /* html */ `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <GsProgressBar :model-value="75" color="ui-emerald-green" />
+        <GsProgressBar :model-value="50" color="ui-black" />
+        <GsProgressBar :model-value="25" color="ui-red" />
       </div>
     `,
   }),
 }
 
 // Progress bar with different backgrounds
-export const Backgrounds: Story = {
+export const DifferentBackgrounds: Story = {
   render: () => ({
     components: { GsProgressBar },
-    template: `
-      <div style="width: 500px; display: flex; flex-direction: column; gap: 24px;">
-        <GsProgressBar :model-value="60" background-color="main-white" />
-        <GsProgressBar :model-value="60" background-color="main-beige" />
+    template: /* html */ `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <GsProgressBar :model-value="60" background-color="ui-white" />
+        <GsProgressBar :model-value="60" background-color="ui-beige" />
       </div>
     `,
   }),
@@ -101,11 +103,11 @@ export const Backgrounds: Story = {
 export const ColorCombinations: Story = {
   render: () => ({
     components: { GsProgressBar },
-    template: `
-      <div style="width: 500px; display: flex; flex-direction: column; gap: 24px;">
-        <GsProgressBar :model-value="70" color="main-light-green" background-color="main-beige" />
-        <GsProgressBar :model-value="70" color="main-black" background-color="main-white" />
-        <GsProgressBar :model-value="70" color="main-red" background-color="main-beige" />
+    template: /* html */ `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <GsProgressBar :model-value="70" color="ui-emerald-green" background-color="ui-beige" />
+        <GsProgressBar :model-value="70" color="ui-black" background-color="ui-white" />
+        <GsProgressBar :model-value="70" color="ui-red" background-color="ui-beige" />
       </div>
     `,
   }),

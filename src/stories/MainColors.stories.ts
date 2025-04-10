@@ -4,15 +4,15 @@ import '@/assets/style/variables.css'
 import '@/stories/colorPalette.css'
 
 const meta: Meta = {
-  title: 'Foundation/01-Colours/Main Colors',
+  title: 'Design System/Colors/UI Colors',
   tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
         component: `
-## Main Colors
+## UI Colors
 
-This story showcases the main colors used in our design system.
+This story showcases the UI colors used in our design system.
         `,
       },
     },
@@ -24,18 +24,21 @@ export default meta
 type Story = StoryObj
 
 const colors = [
-  { name: 'Green', hex: '#336E6B', variable: 'main-green' },
-  { name: 'Light Green', hex: '#47D18F', variable: 'main-light-green' },
-  { name: 'Blue', hex: '#1B3352', variable: 'main-blue' },
-  { name: 'Light Blue', hex: '#A6CFE2', variable: 'main-light-blue' },
-  { name: 'Red', hex: '#E57066', variable: 'main-red' },
-  { name: 'Yellow', hex: '#F5C26F', variable: 'main-yellow' },
-  { name: 'Beige', hex: '#F2EBDB', variable: 'main-beige' },
-  { name: 'Black', hex: '#393939', variable: 'main-black' },
-  { name: 'White', hex: '#FDFDFD', variable: 'main-white' },
+  { name: 'Green', hex: '#3b755f', variable: 'ui-green' },
+  { name: 'Green Light', hex: '#afc6bd', variable: 'ui-green-light' },
+  { name: 'Blue', hex: '#2e3a8c', variable: 'ui-blue' },
+  { name: 'Blue Light', hex: '#4e8dd6', variable: 'ui-blue-light' },
+  { name: 'Red', hex: '#e57066', variable: 'ui-red' },
+  { name: 'Yellow', hex: '#f5c26f', variable: 'ui-yellow' },
+  { name: 'Beige', hex: '#f2ebdb', variable: 'ui-beige' },
+  { name: 'Black', hex: '#212121', variable: 'ui-black' },
+  { name: 'White', hex: '#f9f9f9', variable: 'ui-white' },
+  { name: 'Emerald Green', hex: '#47d18f', variable: 'ui-emerald-green' },
+  { name: 'Sky Blue', hex: '#3cafe5', variable: 'ui-sky-blue' },
+  { name: 'Gold', hex: '#d9b479', variable: 'ui-gold' },
 ]
 
-export const MainColors: Story = {
+export const Default: Story = {
   render: () => ({
     components: { GsTypography },
     setup() {
@@ -46,15 +49,15 @@ export const MainColors: Story = {
         <div v-for="color in colors" :key="color.hex" class="color-swatch"
              :style="{ backgroundColor: color.hex }">
           <GsTypography variant="body" class="color-name"
-          >
+                        :style="{ color: ['#3b755f', '#2e3a8c', '#212121'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
             {{ color.name }}
           </GsTypography>
           <GsTypography variant="caption" class="color-hex"
-          >
+                        :style="{ color: ['#3b755f', '#2e3a8c', '#212121'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
             {{ color.hex }}
           </GsTypography>
           <GsTypography variant="caption" class="color-variable"
-          >
+                        :style="{ color: ['#3b755f', '#2e3a8c', '#212121'].includes(color.hex) ? '#FFFFFF' : '#000000' }">
             var(--{{ color.variable }})
           </GsTypography>
         </div>

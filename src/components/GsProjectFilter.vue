@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 import GsTags from './GsTags.vue'
+import GsTypography from './GsTypography.vue'
 
 defineOptions({
   name: 'GsProjectFilter',
@@ -14,6 +15,7 @@ interface MenuItem {
 
 interface Props {
   items: MenuItem[]
+  label: string
 }
 
 const props = defineProps<Props>()
@@ -48,6 +50,9 @@ const handleItemClick = (item: MenuItem, index: number) => {
 
 <template>
   <div class="gs-project-filter">
+    <GsTypography font-color="ui-white" variant="body">
+      {{ label }}
+    </GsTypography>
     <div
       v-for="(item, index) in localItems"
       :key="index"
@@ -55,13 +60,13 @@ const handleItemClick = (item: MenuItem, index: number) => {
       @click="handleItemClick(item, index)"
     >
       <GsTags
-        :background-color="item.selected ? 'grey-scale-800' : 'grey-scale-80'"
+        :background-color="item.selected ? 'ui-black' : 'gray-light-7C'"
         :icon="item.icon"
+        :icon-size="16"
         :label="item.text"
         border-color="none"
-        font-color="main-green"
+        font-color="ui-white"
         font-size="description"
-        icon-size="16"
       />
     </div>
   </div>

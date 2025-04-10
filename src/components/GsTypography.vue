@@ -38,7 +38,7 @@ withDefaults(
   {
     bold: false,
     tag: 'p',
-    color: 'main-black',
+    color: 'ui-black',
   },
 )
 </script>

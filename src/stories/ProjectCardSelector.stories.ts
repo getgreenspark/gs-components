@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import GsProjectCardSelector from '../components/GsProjectCardSelector.vue'
+import GsProjectCardSelector from '@/components/GsProjectCardSelector.vue'
 
 const meta = {
   title: 'Components/Selectors/ProjectCardSelector',
@@ -68,29 +68,14 @@ const handleReadMore = () => {
     },
     tagBackgroundColor: {
       control: 'select',
-      options: [
-        'main-green',
-        'main-light-green',
-        'main-beige',
-        'project-blue',
-        'project-orange',
-        'project-green',
-        'project-turquoise',
-        'project-purple',
-        'project-pastel-blue',
-        'project-pastel-orange',
-        'project-pastel-green',
-        'project-pastel-turquoise',
-        'project-pastel-purple',
-        'none',
-      ],
+      options: ['ui-green', 'ui-emerald-green', 'ui-beige'],
     },
     tagFontColor: {
       control: 'select',
       options: [
-        'main-green',
-        'main-light-green',
-        'main-beige',
+        'ui-green',
+        'ui-light-green',
+        'ui-beige',
         'project-blue',
         'project-orange',
         'project-green',
@@ -123,7 +108,7 @@ export const Horizontal: Story = {
     location: 'Location, Country',
     imageUrl: 'https://picsum.photos/300/140',
     imageAlt: 'Project image',
-    tagBackgroundColor: 'main-green',
+    tagBackgroundColor: 'ui-green',
     tagText: 'XXX impact created',
   },
 }
@@ -140,7 +125,36 @@ export const Compact: Story = {
     location: 'Location, Country',
     imageUrl: 'https://picsum.photos/300/140',
     imageAlt: 'Project image',
-    tagBackgroundColor: 'main-green',
+    tagBackgroundColor: 'ui-green',
     tagText: 'XXX impact created',
   },
+}
+
+export const Default: Story = {
+  args: {
+    imageUrl: 'https://example.com/image.jpg',
+    tagBackgroundColor: 'ui-green',
+  },
+}
+
+export const DifferentTagColors: Story = {
+  render: () => ({
+    components: { GsProjectCardSelector },
+    template: /* html */ `
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <GsProjectCardSelector
+          image-url="https://example.com/image.jpg"
+          tag-background-color="ui-green"
+        />
+        <GsProjectCardSelector
+          image-url="https://example.com/image.jpg"
+          tag-background-color="ui-emerald-green"
+        />
+        <GsProjectCardSelector
+          image-url="https://example.com/image.jpg"
+          tag-background-color="ui-beige"
+        />
+      </div>
+    `,
+  }),
 }

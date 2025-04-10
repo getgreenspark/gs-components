@@ -5,9 +5,9 @@ import GsDivider from '@/components/GsDivider.vue'
 
 const colorOptions = [
   'none',
-  'main-green',
-  'main-light-green',
-  'main-beige',
+  'ui-green',
+  'ui-emerald-green',
+  'ui-beige',
   'project-blue',
   'project-orange',
   'project-green',
@@ -78,28 +78,28 @@ A tag component that can display text with an optional icon.
 \`\`\`vue
 <template>
   <!-- Basic usage -->
-  <gs-tags 
+  <gs-tags
     label="Tag text"
-    background-color="main-green"
+    background-color="ui-green"
   />
 
   <!-- With border -->
-  <gs-tags 
+  <gs-tags
     label="Tag text"
-    border-color="main-green"
+    border-color="ui-green"
   />
 
   <!-- With custom font color -->
-  <gs-tags 
+  <gs-tags
     label="Tag text"
-    background-color="main-green"
-    font-color="main-beige"
+    background-color="ui-green"
+    font-color="ui-beige"
   />
 
   <!-- With icon -->
-  <gs-tags 
+  <gs-tags
     label="Tag text"
-    background-color="main-green"
+    background-color="ui-green"
     icon="/public/icons/impact_types/project_trees.svg"
     icon-size="14"
   />
@@ -117,21 +117,21 @@ type Story = StoryObj<typeof GsTags>
 export const MainGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-green',
+    backgroundColor: 'ui-green',
   },
 }
 
 export const MainLightGreen: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-light-green',
+    backgroundColor: 'ui-emerald-green',
   },
 }
 
 export const MainBeige: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-beige',
+    backgroundColor: 'ui-beige',
   },
 }
 
@@ -208,22 +208,22 @@ export const ProjectPastelPurple: Story = {
 export const WithBorder: Story = {
   args: {
     label: 'Tag text',
-    borderColor: 'main-green',
+    borderColor: 'ui-green',
   },
 }
 
 export const WithCustomFontColor: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-green',
-    fontColor: 'main-beige',
+    backgroundColor: 'ui-green',
+    fontColor: 'ui-beige',
   },
 }
 
 export const NoBorder: Story = {
   args: {
     label: 'Tag text',
-    backgroundColor: 'main-green',
+    backgroundColor: 'ui-green',
     borderColor: 'none',
   },
 }
@@ -236,9 +236,9 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">Font Sizes</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="Caption size" background-color="main-green" fontSize="caption" />
-            <GsTags label="Body size" background-color="main-green" fontSize="body" />
-            <GsTags label="Description size" background-color="main-green" fontSize="description" />
+            <GsTags label="Caption size" background-color="ui-green" fontSize="caption" />
+            <GsTags label="Body size" background-color="ui-green" fontSize="body" />
+            <GsTags label="Description size" background-color="ui-green" fontSize="description" />
           </div>
         </div>
 
@@ -247,9 +247,9 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">Main Colors</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="Main Green" background-color="main-green" border-color="none" />
-            <GsTags label="Main Light Green" background-color="main-light-green" border-color="none" />
-            <GsTags label="Main Beige" background-color="main-beige" border-color="none" />
+            <GsTags label="Main Green" background-color="ui-green" border-color="none" />
+            <GsTags label="Main Light Green" background-color="ui-emerald-green" border-color="none" />
+            <GsTags label="Main Beige" background-color="ui-beige" border-color="none" />
           </div>
         </div>
 
@@ -284,7 +284,7 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">With Border</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="Main Green" border-color="main-green" />
+            <GsTags label="Main Green" border-color="ui-green" />
             <GsTags label="Project Blue" border-color="project-blue" />
             <GsTags label="Pastel Blue" border-color="project-pastel-blue" />
           </div>
@@ -295,9 +295,9 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">With Custom Font Color</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="Green with Beige text" background-color="main-green" font-color="main-beige" />
+            <GsTags label="Green with Beige text" background-color="ui-green" font-color="ui-beige" />
             <GsTags label="Blue with Orange text" background-color="project-blue" font-color="project-orange" />
-            <GsTags label="Pastel with Main text" background-color="project-pastel-blue" font-color="main-green" />
+            <GsTags label="Pastel with Main text" background-color="project-pastel-blue" font-color="ui-green" />
           </div>
         </div>
 
@@ -306,7 +306,7 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">With Icon</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="With icon" background-color="main-green" icon="/public/icons/impact_types/project_trees.svg" />
+            <GsTags label="With icon" background-color="ui-green" icon="/public/icons/impact_types/project_trees.svg" />
             <GsTags label="With icon" background-color="project-blue" icon="/public/icons/impact_types/project_trees.svg" />
             <GsTags label="With icon" background-color="project-pastel-blue" icon="/public/icons/impact_types/project_trees.svg" />
           </div>
@@ -317,8 +317,8 @@ export const AllStates: Story = {
         <div>
           <GsTypography variant="description" style="margin-bottom: 16px;">Text Weight</GsTypography>
           <div style="display: flex; gap: 16px;">
-            <GsTags label="Regular weight" background-color="main-green" />
-            <GsTags label="Bold weight" background-color="main-green" :bold="true" />
+            <GsTags label="Regular weight" background-color="ui-green" />
+            <GsTags label="Bold weight" background-color="ui-green" :bold="true" />
           </div>
         </div>
       </div>

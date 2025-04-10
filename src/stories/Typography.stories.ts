@@ -26,7 +26,7 @@ Once you have installed and set up the GS Components library, you can use the ty
 <template>
   <gs-typography variant="h1" bold>Main Heading</gs-typography>
   <gs-typography variant="body">Regular text content</gs-typography>
-  <gs-typography variant="caption" color="main-green">Small green text</gs-typography>
+  <gs-typography variant="caption" color="ui-green">Small green text</gs-typography>
 </template>
 \`\`\`
 
@@ -71,11 +71,8 @@ No need to import the component manually when using it globally.
     },
     color: {
       control: 'select',
-      options: ['main-green', 'main-light-green', 'main-red', 'main-black', 'main-white'],
-      description: 'The color to apply to the typography text.',
-      table: {
-        defaultValue: { summary: 'main-black' },
-      },
+      options: ['ui-green', 'ui-emerald-green', 'ui-red', 'ui-black', 'ui-white'],
+      description: 'Text color',
     },
   },
 }
@@ -87,7 +84,7 @@ export const Interactive: StoryObj<typeof meta> = {
     variant: 'body',
     bold: false,
     tag: 'p',
-    color: 'main-black',
+    color: 'ui-black',
   },
   render: (args) => ({
     components: { GsTypography },
@@ -171,18 +168,20 @@ export const Colors: StoryObj<typeof meta> = {
     components: { GsTypography },
     setup() {
       const colors = [
-        { name: 'Main Green', value: 'main-green' },
-        { name: 'Main Light Green', value: 'main-light-green' },
-        { name: 'Main Red', value: 'main-red' },
-        { name: 'Main Black', value: 'main-black' },
-        { name: 'Main White', value: 'main-white' },
+        { name: 'Main Green', value: 'ui-green' },
+        { name: 'Main Light Green', value: 'ui-light-green' },
+        { name: 'Main Red', value: 'ui-red' },
+        { name: 'Main Black', value: 'ui-black' },
+        { name: 'Main White', value: 'ui-white' },
       ]
       return { colors }
     },
     template: /* html */ `
       <div class="colors" style="display: flex; flex-direction: column; gap: 16px;">
-        <div v-for="color in colors" :key="color.value" style="display: flex; align-items: center; gap: 8px;">
-          <GsTypography variant="caption" bold style="width: 120px;">{{ color.name }}:</GsTypography>
+        <div v-for="color in colors" :key="color.value"
+             style="display: flex; align-items: center; gap: 8px;">
+          <GsTypography variant="caption" bold style="width: 120px;">{{ color.name }}:
+          </GsTypography>
           <GsTypography variant="body" :color="color.value">
             The quick brown fox jumps over the lazy dog
           </GsTypography>
