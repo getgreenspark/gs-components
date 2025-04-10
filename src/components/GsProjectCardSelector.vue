@@ -178,12 +178,30 @@ const handleReadMore = () => {
   cursor: pointer;
 }
 
+.hover-enabled:hover {
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--main-light-green);
+  transform: translateY(-2px);
+}
+
+.variant-compact {
+  flex-direction: column;
+}
+
 .variant-horizontal .image-wrapper {
   order: 2;
 }
 
 .variant-compact .image-wrapper {
   order: -1;
+}
+
+.background-grey-scale-10 {
+  background-color: var(--grey-scale-10);
+}
+
+.background-grey-scale-20 {
+  background-color: var(--grey-scale-20);
 }
 
 .content-wrapper {
