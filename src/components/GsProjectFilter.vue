@@ -60,7 +60,7 @@ const handleItemClick = (item: MenuItem, index: number) => {
         :icon="item.icon"
         :label="item.text"
         border-color="none"
-        font-color="main-white"
+        font-color="main-green"
         font-size="description"
         icon-size="16"
       />

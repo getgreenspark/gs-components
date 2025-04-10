@@ -1,7 +1,6 @@
 <!-- GsProgressBar.vue -->
 <script lang="ts" setup>
 import { VProgressLinear } from 'vuetify/components'
-import { computed } from 'vue'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
@@ -45,9 +44,6 @@ const props = withDefaults(defineProps<Props>(), {
   height: 8,
 })
 
-const progressBarColor = computed(() => `var(--${props.color})`)
-const progressBarBackground = computed(() => `var(--${props.backgroundColor})`)
-
 const getTextColor = (value: number) => {
   // If progress is past the center point (where the text is), use white text
   return value >= 50 ? 'var(--main-white)' : 'var(--main-black)'
@@ -57,14 +53,11 @@ const getTextColor = (value: number) => {
 <template>
   <div class="gs-progress-bar-wrapper">
     <VProgressLinear
+      :bg-color="backgroundColor"
+      :color="color"
       :height="height"
       :model-value="modelValue"
-      :style="{
-        '--progress-color': progressBarColor,
-        '--background-color': progressBarBackground,
-      }"
       class="gs-progress-bar"
-      color="transparent"
       rounded
     >
       <template v-if="showPercentage" #default="{ value }">
@@ -91,23 +84,11 @@ const getTextColor = (value: number) => {
   overflow: hidden;
 }
 
-.gs-progress-bar :deep(.v-progress-linear__determinate) {
-  background-color: var(--progress-color) !important;
-}
-
-.gs-progress-bar :deep(.v-progress-linear__background) {
-  border-radius: 100px;
-  background-color: var(--background-color) !important;
-  opacity: 1 !important;
-}
-
 .gs-progress-bar__text {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-weight: 500;
-  line-height: 1;
-  transition: color 0.2s ease;
+  z-index: 1;
 }
 </style>
