@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsProjectCardSelector from '@/components/GsProjectCardSelector.vue'
 
-const meta = {
+const meta: Meta<typeof GsProjectCardSelector> = {
   title: 'Components/Selectors/ProjectCardSelector',
   component: GsProjectCardSelector,
   tags: ['autodocs'],
@@ -91,12 +91,11 @@ const handleReadMore = () => {
     },
     tagText: { control: 'text' },
   },
-} satisfies Meta<typeof GsProjectCardSelector>
+}
 
 export default meta
-type Story = StoryObj<typeof meta>
 
-export const Horizontal: Story = {
+export const Horizontal: StoryObj<typeof meta> = {
   args: {
     variant: 'horizontal',
     readMoreVariant: 'text',
@@ -113,7 +112,7 @@ export const Horizontal: Story = {
   },
 }
 
-export const Compact: Story = {
+export const Compact: StoryObj<typeof meta> = {
   args: {
     variant: 'compact',
     readMoreVariant: 'chevron',
@@ -130,28 +129,54 @@ export const Compact: Story = {
   },
 }
 
-export const Default: Story = {
+export const Default: StoryObj<typeof meta> = {
   args: {
-    imageUrl: 'https://example.com/image.jpg',
+    variant: 'compact',
+    readMoreVariant: 'chevron',
+    enableHover: true,
+    title: 'Project Title',
+    subtitle: 'Project Subtitle',
+    description:
+      'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
+    location: 'Location, Country',
+    imageUrl: 'https://picsum.photos/300/140',
+    imageAlt: 'Project image',
     tagBackgroundColor: 'ui-green',
+    tagText: 'XXX impact created',
   },
 }
 
-export const DifferentTagColors: Story = {
-  render: () => ({
+export const DifferentTagColors: StoryObj<typeof meta> = {
+  args: {
+    variant: 'horizontal',
+    readMoreVariant: 'text',
+    enableHover: true,
+    title: 'Project Title',
+    subtitle: 'Project Subtitle',
+    description:
+      'This is a description of the project. It can be quite long and will wrap to multiple lines if needed.',
+    location: 'Location, Country',
+    imageUrl: 'https://picsum.photos/300/140',
+    imageAlt: 'Project image',
+    tagText: 'XXX impact created',
+  },
+  render: (args) => ({
     components: { GsProjectCardSelector },
+    setup() {
+      return { args }
+    },
     template: /* html */ `
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <GsProjectCardSelector
-          image-url="https://example.com/image.jpg"
+          v-bind="args"
           tag-background-color="ui-green"
         />
         <GsProjectCardSelector
-          image-url="https://example.com/image.jpg"
+          v-bind="args"
           tag-background-color="ui-emerald-green"
         />
         <GsProjectCardSelector
-          image-url="https://example.com/image.jpg"
+          v-bind="args"
           tag-background-color="ui-beige"
         />
       </div>

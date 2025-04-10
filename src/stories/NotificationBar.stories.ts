@@ -75,9 +75,6 @@ No need to import the component manually when using it globally.
       description:
         'The icon to display in the button (e.g., "mdi-check"). Leave empty for no icon.',
     },
-    'button-click': {
-      description: 'Event emitted when the button is clicked.',
-    },
   },
 }
 

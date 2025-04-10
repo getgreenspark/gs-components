@@ -43,14 +43,6 @@ const handleAction = () => {
     },
   },
   argTypes: {
-    imageUrl: {
-      control: 'text',
-      description: 'URL of the plan image',
-    },
-    imageAlt: {
-      control: 'text',
-      description: 'Alt text for the plan image',
-    },
     title: {
       control: 'text',
       description: 'Title of the plan',
@@ -59,22 +51,9 @@ const handleAction = () => {
       control: 'text',
       description: 'Description of the plan',
     },
-    buttonText: {
-      control: 'text',
-      description: 'Text for the action button',
-    },
     buttonIcon: {
       control: 'text',
       description: 'Optional icon for the button',
-    },
-    hasTrial: {
-      control: 'boolean',
-      description: 'Whether to show the trial tag',
-    },
-    tagText: {
-      control: 'text',
-      description: 'Text to show in the trial tag',
-      defaultValue: 'Free trial',
     },
   },
 }
@@ -85,38 +64,24 @@ type Story = StoryObj<typeof GsManagePlan>
 // Default story with free trial
 export const StarterPlan: Story = {
   args: {
-    imageUrl: placeholderImage,
-    imageAlt: 'Green plant sprouting from soil',
     title: 'Starter Plan - Monthly',
     description: 'For companies just getting started on their positive impact journey.',
-    buttonText: 'Manage',
-    hasTrial: true,
-    tagText: 'Free trial',
   },
 }
 
 // Plan without free trial
 export const StandardPlan: Story = {
   args: {
-    imageUrl: placeholderImage,
-    imageAlt: 'Mature forest canopy',
     title: 'Standard Plan - Monthly',
     description: 'For growing companies ready to scale their impact.',
-    buttonText: 'Manage',
-    hasTrial: false,
   },
 }
 
 // Custom tag text example
 export const CustomTag: Story = {
   args: {
-    imageUrl: placeholderImage,
-    imageAlt: 'Green plant sprouting from soil',
     title: 'Starter Plan - Monthly',
     description: 'For companies just getting started on their positive impact journey.',
-    buttonText: 'Manage',
-    hasTrial: true,
-    tagText: 'Beta',
   },
 }
 

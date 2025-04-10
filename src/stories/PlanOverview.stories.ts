@@ -58,7 +58,7 @@ A comprehensive view of a user's plan details, including:
       description: 'Whether to show the plan tag',
     },
     features: {
-      control: 'array',
+      control: undefined,
       description: 'Array of feature descriptions',
     },
     priceText: {

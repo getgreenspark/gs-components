@@ -91,8 +91,8 @@ export const TwoItems: StoryObj<typeof meta> = {
 }
 
 // Interactive example with v-model
-export const Interactive = {
-  render: () => ({
+export const Interactive: StoryObj<typeof meta> = {
+  render: (args) => ({
     components: { GsSubmenu },
     setup() {
       const items = ref([
@@ -101,10 +101,11 @@ export const Interactive = {
         { text: 'Verification', selected: false },
       ])
 
-      return { items }
+      return { items, args }
     },
     template: `
       <gs-submenu
+        v-bind="args"
         v-model:items="items"
         @item-click="(item) => console.log('Clicked:', item)"
       />
