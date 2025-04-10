@@ -26,12 +26,10 @@ interface Props {
    * Makes the alert take the full width of its container
    */
   fullWidth?: boolean
-  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'info',
-  disabled: false,
 })
 
 const alertBarClasses = computed(() => [
@@ -39,7 +37,6 @@ const alertBarClasses = computed(() => [
   `gs-${props.type}`,
   {
     'full-width': props.fullWidth,
-    'gs-alert-bar--disabled': props.disabled,
   },
 ])
 
@@ -73,9 +70,6 @@ const icon = computed(() => {
           </GsTypography>
         </div>
       </div>
-    </div>
-    <div v-if="!disabled" class="gs-alert-bar__actions">
-      <slot name="actions" />
     </div>
   </div>
 </template>
@@ -123,11 +117,6 @@ const icon = computed(() => {
       color: var(--ui-white);
     }
   }
-
-  &--disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
 }
 
 .gs-alert-bar__content {
@@ -153,11 +142,5 @@ const icon = computed(() => {
   .message {
     opacity: 0.8;
   }
-}
-
-.gs-alert-bar__actions {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
 }
 </style>

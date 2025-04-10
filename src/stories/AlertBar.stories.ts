@@ -40,9 +40,9 @@ Once you have installed and set up the GS Components library, you can use the al
 \`\`\`
 
 No need to import the component manually when using it globally.
-        `
-      }
-    }
+        `,
+      },
+    },
   },
   argTypes: {
     type: {
@@ -50,8 +50,8 @@ No need to import the component manually when using it globally.
       options: ['info', 'success', 'error', 'warning'],
       description: 'The type of alert to display.',
       table: {
-        defaultValue: { summary: 'info' }
-      }
+        defaultValue: { summary: 'info' },
+      },
     },
     title: {
       control: 'text',
@@ -64,16 +64,6 @@ No need to import the component manually when using it globally.
     fullWidth: {
       control: 'boolean',
       description: 'Makes the alert take the full width of its container.',
-      table: {
-        defaultValue: { summary: false }
-      }
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Disables the alert if set to true.',
-      table: {
-        defaultValue: { summary: false }
-      }
     },
   },
 }
@@ -86,9 +76,9 @@ export const Playground: Story = {
   args: {
     type: 'info',
     title: 'Alert Title',
-    message: 'This is an alert message. Try changing the props in the controls panel to see how the component updates in real-time!',
+    message:
+      'This is an alert message. Try changing the props in the controls panel to see how the component updates in real-time!',
     fullWidth: false,
-    disabled: false
   },
   render: (args) => ({
     components: { GsAlertBar },
@@ -122,7 +112,8 @@ export const Success: Story = {
 
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">With Title</h3>
-          <GsAlertBar type="success" title="Success" message="Your changes have been saved successfully" />
+          <GsAlertBar type="success" title="Success"
+                      message="Your changes have been saved successfully" />
         </div>
 
         <div class="d-flex flex-column ga-2">
@@ -149,7 +140,8 @@ export const Info: Story = {
 
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">With Title</h3>
-          <GsAlertBar type="info" title="Information" message="Please review the updated terms of service" />
+          <GsAlertBar type="info" title="Information"
+                      message="Please review the updated terms of service" />
         </div>
 
         <div class="d-flex flex-column ga-2">
@@ -203,7 +195,8 @@ export const Error: Story = {
 
         <div class="d-flex flex-column ga-2">
           <h3 class="text-h6">With Title</h3>
-          <GsAlertBar type="error" title="Error" message="An unexpected error occurred. Please contact support." />
+          <GsAlertBar type="error" title="Error"
+                      message="An unexpected error occurred. Please contact support." />
         </div>
 
         <div class="d-flex flex-column ga-2">
