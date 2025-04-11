@@ -21,7 +21,7 @@ const colorOptions = [
 ]
 
 const meta: Meta<typeof GsTags> = {
-  title: 'Components/Navigation/Tags',
+  title: 'Components/Core/Tags',
   component: GsTags,
   tags: ['autodocs'],
   argTypes: {

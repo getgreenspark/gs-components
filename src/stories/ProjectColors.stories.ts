@@ -4,7 +4,7 @@ import '@/assets/style/variables.css'
 import '@/stories/colorPalette.css'
 
 const meta: Meta = {
-  title: 'Foundation/01-Colours/Project Colors',
+  title: 'Foundation/Colours/Project Colors',
   tags: ['autodocs'],
   parameters: {
     docs: {

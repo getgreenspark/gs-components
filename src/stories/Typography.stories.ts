@@ -3,7 +3,7 @@ import GsTypography from '@/components/GsTypography.vue'
 import '@/assets/style/variables.css'
 
 const meta: Meta<typeof GsTypography> = {
-  title: 'Foundation/02-Typography',
+  title: 'Foundation/Typography',
   component: GsTypography,
   tags: ['autodocs'],
   parameters: {

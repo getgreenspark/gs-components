@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import GsProgressBar from '@/components/GsProgressBar.vue'
 
 const meta: Meta<typeof GsProgressBar> = {
-  title: 'Components/ProgressBar',
+  title: 'Components/Feedback/ProgressBar',
   component: GsProgressBar,
   tags: ['autodocs'],
   parameters: {

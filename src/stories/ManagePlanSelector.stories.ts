@@ -4,7 +4,7 @@ import GsManagePlan from '../components/GsManagePlan.vue'
 const placeholderImage = '/placeholder-image.png'
 
 const meta: Meta<typeof GsManagePlan> = {
-  title: 'Components/ManagePlan',
+  title: 'Components/Selectors/ManagePlanSelector',
   component: GsManagePlan,
   tags: ['autodocs'],
   parameters: {

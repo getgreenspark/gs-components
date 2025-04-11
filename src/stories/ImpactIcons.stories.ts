@@ -3,7 +3,7 @@ import GsTypography from '../components/GsTypography.vue'
 import GsDivider from '../components/GsDivider.vue'
 
 const meta = {
-  title: 'Foundation/03-Icons/ImpactIcons',
+  title: 'Foundation/Icons/ImpactIcons',
   tags: ['autodocs'],
   parameters: {
     docs: {
