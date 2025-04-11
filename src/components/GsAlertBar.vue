@@ -49,10 +49,10 @@ const alertBarClasses = computed(() => [
           <v-icon class="icon me-3" icon="mdi-information-outline" size="16" />
         </div>
         <div class="d-flex flex-column">
-          <GsTypography v-if="title" :class="'title'" bold variant="description">
+          <GsTypography v-if="title" :class="'title'" :color="type === 'error' ? 'ui-white' : 'ui-black'" bold variant="description">
             <slot name="title">{{ title }}</slot>
           </GsTypography>
-          <GsTypography :class="'message'" variant="description">
+          <GsTypography :class="'message'" :color="type === 'error' ? 'ui-white' : 'ui-black'" variant="description">
             <slot name="message">{{ message }}</slot>
           </GsTypography>
         </div>
@@ -112,7 +112,7 @@ const alertBarClasses = computed(() => [
 
 .gs-alert-bar__content {
   display: flex;
-  gap: 12px;
+  gap: 0px;
   flex: 1;
 }
 
