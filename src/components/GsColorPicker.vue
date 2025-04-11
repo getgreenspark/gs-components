@@ -1,49 +1,70 @@
-<script lang="ts" setup>
-import { computed } from 'vue'
+<script lang="ts">
+import { defineComponent, type PropType } from 'vue'
 import { VColorPicker } from 'vuetify/components'
-
-interface Props {
-  label?: string
-  placeholder?: string
-  disabled?: boolean
-  colorModes?: ColorModes[]
-  clearable?: boolean
-}
 
 type ColorModes = 'rgb' | 'rgba' | 'hsl' | 'hsla' | 'hex' | 'hexa'
 
-const props = withDefaults(defineProps<Props>(), {
-  placeholder: 'Select a color',
-  clearable: false,
-})
-
-const model = defineModel<string>({ default: '' })
-
-const allowedColorModes = computed<ColorModes[]>(() =>
-  props.colorModes?.length ? props.colorModes : ['hex'],
-)
-
-const colorPickerClasses = computed(() => [
-  'gs-color-picker',
-  {
-    'gs-color-picker-disabled': props.disabled,
+export default defineComponent({
+  name: 'GsColorPicker',
+  components: {
+    VColorPicker,
   },
-])
-
-const handleClear = () => {
-  model.value = ''
-}
-
-const handleColorChange = (value: string) => {
-  model.value = value
-}
+  props: {
+    label: {
+      type: String,
+      default: '',
+    },
+    placeholder: {
+      type: String,
+      default: 'Select a color',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    colorModes: {
+      type: Array as PropType<ColorModes[]>,
+      default: () => ['hex'],
+    },
+    clearable: {
+      type: Boolean,
+      default: false,
+    },
+    modelValue: {
+      type: String,
+      default: '',
+    },
+  },
+  emits: ['update:modelValue'],
+  computed: {
+    allowedColorModes(): ColorModes[] {
+      return this.colorModes?.length ? this.colorModes : ['hex']
+    },
+    colorPickerClasses() {
+      return [
+        'gs-color-picker',
+        {
+          'gs-color-picker-disabled': this.disabled,
+        },
+      ]
+    },
+  },
+  methods: {
+    handleClear() {
+      this.$emit('update:modelValue', '')
+    },
+    handleColorChange(value: string) {
+      this.$emit('update:modelValue', value)
+    },
+  },
+})
 </script>
 
 <template>
   <v-menu :close-on-content-click="false" close-on-back location="top" offset="15">
     <template v-slot:activator="{ props: menuProps }">
       <div
-        :aria-label="`Open color picker. Current color: ${model || 'white'}`"
+        :aria-label="`Open color picker. Current color: ${modelValue || 'white'}`"
         :class="colorPickerClasses"
         role="button"
         tabindex="0"
@@ -52,20 +73,24 @@ const handleColorChange = (value: string) => {
       >
         <label v-if="label" class="gs-color-picker-label">{{ label }}</label>
         <v-text-field
-          v-model="model"
+          :model-value="modelValue"
           :aria-label="label || placeholder"
           :disabled="disabled"
           :placeholder="placeholder"
           flat
           readonly
           variant="outlined"
+          @update:model-value="$emit('update:modelValue', $event)"
         >
           <template v-slot:prepend>
-            <div :style="{ backgroundColor: model || '#FFFFFF' }" class="gs-color-picker-swatch">
-              <span class="sr-only">{{ model || 'white' }}</span>
+            <div
+              :style="{ backgroundColor: modelValue || '#FFFFFF' }"
+              class="gs-color-picker-swatch"
+            >
+              <span class="sr-only">{{ modelValue || 'white' }}</span>
             </div>
           </template>
-          <template v-if="clearable && model && !disabled" v-slot:append>
+          <template v-if="clearable && modelValue && !disabled" v-slot:append>
             <v-icon
               aria-label="Clear color selection"
               icon="mdi-close"
@@ -82,7 +107,7 @@ const handleColorChange = (value: string) => {
     <v-card>
       <v-card-text class="pa-0">
         <v-color-picker
-          v-model="model"
+          :model-value="modelValue"
           :aria-label="`Color picker for ${label || 'color selection'}`"
           :modes="allowedColorModes"
           @update:model-value="handleColorChange"
