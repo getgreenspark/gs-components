@@ -25,6 +25,10 @@ const meta: Meta<typeof GsRadioButton> = {
       control: 'boolean',
       description: 'Whether the radio button is disabled',
     },
+    bold: {
+      control: 'boolean',
+      description: 'Whether the label text should be bold',
+    },
   },
   parameters: {
     docs: {
@@ -60,6 +64,7 @@ export const Deselected: Story = {
     value: 'option1',
     label: 'Your text here',
     disabled: false,
+    bold: false,
   },
 }
 
@@ -69,6 +74,17 @@ export const Selected: Story = {
     value: 'option1',
     label: 'Your text here',
     disabled: false,
+    bold: false,
+  },
+}
+
+export const Bold: Story = {
+  args: {
+    modelValue: 'option1',
+    value: 'option1',
+    label: 'Your text here',
+    disabled: false,
+    bold: true,
   },
 }
 
@@ -98,6 +114,18 @@ export const AllStates: Story = {
             v-model="value"
             value="selected"
             label="Your text here"
+          />
+        </div>
+
+        <GsDivider color="grey200" />
+
+        <div>
+          <GsTypography variant="description" style="margin-bottom: 16px;">Bold</GsTypography>
+          <GsRadioButton
+            v-model="value"
+            value="selected"
+            label="Your text here"
+            bold
           />
         </div>
       </div>
