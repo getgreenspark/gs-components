@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import GsManagePlan from '../components/GsManagePlan.vue'
+import GsManagePlanSelector from '../components/GsManagePlanSelector.vue'
+import '@/assets/style/variables.css'
 
 const placeholderImage = '/placeholder-image.png'
 
-const meta: Meta<typeof GsManagePlan> = {
+const meta: Meta<typeof GsManagePlanSelector> = {
   title: 'Components/Selectors/ManagePlanSelector',
-  component: GsManagePlan,
+  component: GsManagePlanSelector,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -77,7 +78,7 @@ const handleAction = () => {
 }
 
 export default meta
-type Story = StoryObj<typeof GsManagePlan>
+type Story = StoryObj<typeof GsManagePlanSelector>
 
 // Default story with free trial
 export const StarterPlan: Story = {
@@ -116,13 +117,13 @@ export const CustomTag: Story = {
 // All variations
 export const AllVariations: Story = {
   render: () => ({
-    components: { GsManagePlan },
+    components: { GsManagePlanSelector },
     setup() {
       return { placeholderImage }
     },
     template: `
       <div style="display: flex; gap: 24px; flex-wrap: wrap;">
-        <gs-manage-plan
+        <gs-manage-plan-selector
           :image-url="placeholderImage"
           image-alt="Green plant sprouting from soil"
           title="Starter Plan - Monthly"
@@ -131,7 +132,7 @@ export const AllVariations: Story = {
           :show-tag="true"
           tag-text="Free trial"
         />
-        <gs-manage-plan
+        <gs-manage-plan-selector
           :image-url="placeholderImage"
           image-alt="Mature forest canopy"
           title="Standard Plan - Monthly"

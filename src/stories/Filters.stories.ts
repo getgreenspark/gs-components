@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import GsProjectFilter from '@/components/GsProjectFilter.vue'
+import GsFilters from '@/components/GsFilters.vue'
 import '@/assets/style/variables.css'
 
-const meta: Meta<typeof GsProjectFilter> = {
-  title: 'Components/Navigation/ProjectFilter',
-  component: GsProjectFilter,
+const meta: Meta<typeof GsFilters> = {
+  title: 'Components/Navigation/Filters',
+  component: GsFilters,
   tags: ['autodocs'],
   parameters: {
     docs: {
       description: {
         component: `
-## Project Filter Component
+## Filters Component
 
 A filter component that displays a list of selectable tags. Each tag can be selected
 independently and shows a different style when selected.
@@ -19,7 +19,7 @@ independently and shows a different style when selected.
 
 \`\`\`vue
 <template>
-  <gs-project-filter
+  <gs-filters
     v-model:items="filterItems"
     @item-click="handleItemClick"
   />
@@ -46,6 +46,11 @@ const handleItemClick = (item) => {
       control: 'object',
       description: 'Array of filter items with text and selected state',
     },
+    size: {
+      control: 'select',
+      options: ['small', 'large'],
+      description: 'Size variant of the filter items',
+    },
     onItemClick: {
       action: 'item-click',
       description: 'Event emitted when a filter item is clicked',
@@ -66,6 +71,18 @@ export const Default: StoryObj<typeof meta> = {
       { text: 'Water', selected: false, icon: '/icons/impact_types/project_water.svg' },
       { text: 'Trees', selected: false, icon: '/icons/impact_types/project_trees.svg' },
     ],
+    size: 'small',
+  },
+}
+
+export const Large: StoryObj<typeof meta> = {
+  args: {
+    items: [
+      { text: 'All Projects', selected: true, icon: '' },
+      { text: 'Water', selected: false, icon: '/icons/impact_types/project_water.svg' },
+      { text: 'Trees', selected: false, icon: '/icons/impact_types/project_trees.svg' },
+    ],
+    size: 'large',
   },
 }
 
@@ -83,6 +100,25 @@ export const WithIcons: StoryObj<typeof meta> = {
       { text: 'Water', selected: false, icon: '/icons/impact_types/project_water.svg' },
       { text: 'Bees', selected: false, icon: '/icons/impact_types/project_bees.svg' },
     ],
+    size: 'small',
+  },
+}
+
+export const WithIconsLarge: StoryObj<typeof meta> = {
+  args: {
+    items: [
+      { text: 'Trees', selected: true, icon: '/icons/impact_types/project_trees.svg' },
+      { text: 'CO2', selected: false, icon: '/icons/impact_types/project_co2.svg' },
+      { text: 'Plastic', selected: false, icon: '/icons/impact_types/project_plastic.svg' },
+      {
+        text: 'Seaforestation',
+        selected: false,
+        icon: '/icons/impact_types/project_seaforestation.svg',
+      },
+      { text: 'Water', selected: false, icon: '/icons/impact_types/project_water.svg' },
+      { text: 'Bees', selected: false, icon: '/icons/impact_types/project_bees.svg' },
+    ],
+    size: 'large',
   },
 }
 

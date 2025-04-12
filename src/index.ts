@@ -11,7 +11,7 @@ import GsDivider from './components/GsDivider.vue'
 import GsFloatingActionMenu from './components/GsFloatingActionMenu.vue'
 import GsIconWithText from './components/GsIconWithText.vue'
 import GsIntegrationSelector from './components/GsIntegrationSelector.vue'
-import GsManagePlan from './components/GsManagePlan.vue'
+import GsManagePlanSelector from './components/GsManagePlanSelector.vue'
 import GsNotificationBar from './components/GsNotificationBar.vue'
 import GsPlanOverview from './components/GsPlanOverview.vue'
 import GsProgressBar from './components/GsProgressBar.vue'
@@ -23,6 +23,7 @@ import GsTags from './components/GsTags.vue'
 import GsTextField from './components/GsTextField.vue'
 import GsTypography from './components/GsTypography.vue'
 import GsVerification from './components/GsVerification.vue'
+import GsFilters from './components/GsFilters.vue'
 import { registerPlugins } from './plugins'
 
 declare module 'vue' {
@@ -36,7 +37,7 @@ declare module 'vue' {
     GsFloatingActionMenu: (typeof import('./components/GsFloatingActionMenu.vue'))['default']
     GsIconWithText: (typeof import('./components/GsIconWithText.vue'))['default']
     GsIntegrationSelector: (typeof import('./components/GsIntegrationSelector.vue'))['default']
-    GsManagePlan: (typeof import('./components/GsManagePlan.vue'))['default']
+    GsManagePlanSelector: (typeof import('./components/GsManagePlanSelector.vue'))['default']
     GsNotificationBar: (typeof import('./components/GsNotificationBar.vue'))['default']
     GsPlanOverview: (typeof import('./components/GsPlanOverview.vue'))['default']
     GsProgressBar: (typeof import('./components/GsProgressBar.vue'))['default']
@@ -48,6 +49,7 @@ declare module 'vue' {
     GsTextField: (typeof import('./components/GsTextField.vue'))['default']
     GsTypography: (typeof import('./components/GsTypography.vue'))['default']
     GsVerification: (typeof import('./components/GsVerification.vue'))['default']
+    GsFilters: (typeof import('./components/GsFilters.vue'))['default']
   }
 }
 
@@ -61,7 +63,7 @@ export {
   GsFloatingActionMenu,
   GsIconWithText,
   GsIntegrationSelector,
-  GsManagePlan,
+  GsManagePlanSelector,
   GsNotificationBar,
   GsPlanOverview,
   GsProgressBar,
@@ -73,6 +75,7 @@ export {
   GsTextField,
   GsTypography,
   GsVerification,
+  GsFilters
 }
 
 const components = {
@@ -85,7 +88,7 @@ const components = {
   GsFloatingActionMenu,
   GsIconWithText,
   GsIntegrationSelector,
-  GsManagePlan,
+  GsManagePlanSelector,
   GsNotificationBar,
   GsPlanOverview,
   GsProgressBar,
@@ -97,6 +100,7 @@ const components = {
   GsTextField,
   GsTypography,
   GsVerification,
+  GsFilters
 }
 
 const GsComponents = {

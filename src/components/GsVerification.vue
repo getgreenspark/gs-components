@@ -31,7 +31,7 @@ interface Props {
   items: VerificationItem[]
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   title: 'Verification',
 })
 
@@ -61,7 +61,12 @@ const textVariant = computed(() => (isMobile.value ? 'body' : 'description'))
 
     <div class="gs-verification__grid">
       <div v-for="(item, index) in items" :key="index" class="gs-verification__item">
-        <GsIconWithText :icon-path="item.iconPath" :text="item.text" :text-variant="textVariant" />
+        <GsIconWithText
+          :icon-path="item.iconPath"
+          :text="item.text"
+          :text-variant="textVariant"
+          :icon-size="32"
+        />
       </div>
     </div>
   </section>

@@ -6,7 +6,7 @@
     </div>
     <div class="text-wrapper">
       <GsTypography :tag="tag" :variant="textVariant" class="text-content">
-        <slot name="text">{{ text }}</slot>
+        <div v-html="text"></div>
       </GsTypography>
     </div>
   </article>
@@ -80,8 +80,8 @@ withDefaults(defineProps<Props>(), {
 }
 
 .custom-icon {
-  width: 14px;
-  height: 14px;
+  width: v-bind(iconSize + 'px');
+  height: v-bind(iconSize + 'px');
 }
 
 .text-wrapper {

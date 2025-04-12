@@ -48,7 +48,7 @@ import GsTags from './GsTags.vue'
 import { computed } from 'vue'
 
 defineOptions({
-  name: 'GsManagePlan'
+  name: 'GsManagePlanSelector'
 })
 
 const props = defineProps({

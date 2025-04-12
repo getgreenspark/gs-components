@@ -64,6 +64,12 @@ const meta: Meta<typeof GsTags> = {
       description: 'Font size variant for the tag text',
       defaultValue: 'caption',
     },
+    borderRadius: {
+      control: 'select',
+      options: ['4px', '8px'],
+      description: 'Border radius of the tag',
+      defaultValue: '4px',
+    },
   },
   parameters: {
     docs: {

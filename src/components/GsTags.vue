@@ -45,6 +45,7 @@ interface Props {
   iconSize?: number
   fontSize?: 'caption' | 'body' | 'description'
   bold?: boolean
+  borderRadius?: '4px' | '8px'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -55,6 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
   iconSize: 14,
   fontSize: 'body',
   bold: false,
+  borderRadius: '4px',
 })
 
 const textColor = computed(() => {
@@ -94,23 +96,22 @@ const backgroundStyle = computed(() => {
     :style="{
       backgroundColor: backgroundStyle,
       border: borderStyle,
+      borderRadius: props.borderRadius,
     }"
     class="gs-tags"
   >
     <img
       v-if="icon"
-      :height="iconSize"
       :src="icon"
-      :style="{ filter: textColor === 'var(--ui-black)' ? 'none' : 'brightness(0) invert(1)' }"
-      :width="iconSize"
+      :style="{ width: `${iconSize}px`, height: `${iconSize}px` }"
+      class="gs-tags__icon"
       alt=""
     />
     <GsTypography
-      :style="{
-        color: textColor,
-        fontWeight: bold ? '700' : '400',
-      }"
       :variant="fontSize"
+      :bold="bold"
+      :style="{ color: textColor }"
+      class="gs-tags__label"
     >
       {{ label }}
     </GsTypography>
@@ -121,12 +122,19 @@ const backgroundStyle = computed(() => {
 @import '../assets/style/variables.css';
 
 .gs-tags {
-  border-radius: 4px;
   display: inline-flex;
-  padding: 4px 8px;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.gs-tags__icon {
+  flex-shrink: 0;
+}
+
+.gs-tags__label {
+  margin: 0;
+  white-space: nowrap;
 }
 </style>
