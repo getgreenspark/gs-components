@@ -111,14 +111,9 @@ const handleCardClick = (event: MouseEvent) => {
   max-width: 306px;
   min-width: 175px;
 
-  &:hover:not(.gs-card-selector--disabled) {
-    border-color: var(--ui-green);
-    background-color: var(--ui-green-20);
-  }
-
   &--selected {
-    border-color: var(--ui-green);
-    background-color: var(--ui-green-20);
+    border-color: var(--ui-emerald-green);
+    background-color: var(--ui-opaque-green);
   }
 
   &--disabled {
@@ -129,32 +124,17 @@ const handleCardClick = (event: MouseEvent) => {
   &__content {
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 16px;
     margin-left: -10px;
   }
 
-  &__radio {
-    flex: 0 0 auto;
-
-    :deep(.v-selection-control) {
-      flex: 0 0 auto;
-    }
-  }
-
   &__text {
-    color: var(--ui-black);
     flex: 1;
   }
 
   &__image {
-    position: relative;
     width: 100%;
     height: 120px;
-    border-radius: 4px;
     overflow: hidden;
-    background-color: var(--ui-grey-50);
 
     img {
       width: 100%;
@@ -163,27 +143,19 @@ const handleCardClick = (event: MouseEvent) => {
     }
 
     &--placeholder {
-      background-color: var(--ui-grey-50);
+      background-color: var(--gray-light-F5);
     }
   }
 
   &__pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(45deg, var(--ui-grey-100) 25%, transparent 25%),
-      linear-gradient(-45deg, var(--ui-grey-100) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, var(--ui-grey-100) 75%),
-      linear-gradient(-45deg, transparent 75%, var(--ui-grey-100) 75%);
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, var(--gray-light-ED) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--gray-light-ED) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--gray-light-ED) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--gray-light-ED) 75%);
     background-size: 20px 20px;
-    background-position:
-      0 0,
-      0 10px,
-      10px -10px,
-      -10px 0px;
-    opacity: 0.5;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   }
 }
 </style>
