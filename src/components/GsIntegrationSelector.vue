@@ -20,9 +20,6 @@ interface Props {
   icon?: string
   tagLabel?: string
   errorMessages?: string | string[]
-  hideDetails?: boolean
-  density?: 'default' | 'comfortable' | 'compact'
-  color?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -32,9 +29,6 @@ const props = withDefaults(defineProps<Props>(), {
   icon: '',
   tagLabel: undefined,
   errorMessages: '',
-  hideDetails: false,
-  density: 'default',
-  color: 'primary',
 })
 
 const emit = defineEmits<{
