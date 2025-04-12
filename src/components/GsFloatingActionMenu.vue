@@ -46,7 +46,7 @@ interface Props {
   secondaryButtonText: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   title: 'Ready to take action and support this project?',
   description: 'Add a tailored impact or create an automation to help drive change!',
   primaryButtonText: 'Tailored impact',

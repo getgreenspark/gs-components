@@ -25,8 +25,7 @@ A component for displaying plan information with an image, title, description, a
     title="Starter Plan"
     description="Plan description goes here"
     button-text="Manage"
-    button-icon="mdi-cog"
-    :has-trial="true"
+    :show-tag="true"
     tag-text="Free trial"
     @action="handleAction"
   />
@@ -43,6 +42,14 @@ const handleAction = () => {
     },
   },
   argTypes: {
+    imageUrl: {
+      control: 'text',
+      description: 'URL of the plan image',
+    },
+    imageAlt: {
+      control: 'text',
+      description: 'Alt text for the plan image',
+    },
     title: {
       control: 'text',
       description: 'Title of the plan',
@@ -51,9 +58,20 @@ const handleAction = () => {
       control: 'text',
       description: 'Description of the plan',
     },
-    buttonIcon: {
+    buttonText: {
       control: 'text',
-      description: 'Optional icon for the button',
+      description: 'Text to display on the button',
+      defaultValue: 'Manage',
+    },
+    showTag: {
+      control: 'boolean',
+      description: 'Whether to show the tag',
+      defaultValue: false,
+    },
+    tagText: {
+      control: 'text',
+      description: 'Text to display in the tag',
+      defaultValue: 'Free trial',
     },
   },
 }
@@ -64,14 +82,20 @@ type Story = StoryObj<typeof GsManagePlan>
 // Default story with free trial
 export const StarterPlan: Story = {
   args: {
+    imageUrl: placeholderImage,
+    imageAlt: 'Green plant sprouting from soil',
     title: 'Starter Plan - Monthly',
     description: 'For companies just getting started on their positive impact journey.',
+    showTag: true,
+    tagText: 'Free trial',
   },
 }
 
 // Plan without free trial
 export const StandardPlan: Story = {
   args: {
+    imageUrl: placeholderImage,
+    imageAlt: 'Mature forest canopy',
     title: 'Standard Plan - Monthly',
     description: 'For growing companies ready to scale their impact.',
   },
@@ -80,8 +104,12 @@ export const StandardPlan: Story = {
 // Custom tag text example
 export const CustomTag: Story = {
   args: {
+    imageUrl: placeholderImage,
+    imageAlt: 'Green plant sprouting from soil',
     title: 'Starter Plan - Monthly',
     description: 'For companies just getting started on their positive impact journey.',
+    showTag: true,
+    tagText: 'Custom Tag',
   },
 }
 
@@ -95,20 +123,20 @@ export const AllVariations: Story = {
     template: `
       <div style="display: flex; gap: 24px; flex-wrap: wrap;">
         <gs-manage-plan
-          :imageUrl="placeholderImage"
-          imageAlt="Green plant sprouting from soil"
+          :image-url="placeholderImage"
+          image-alt="Green plant sprouting from soil"
           title="Starter Plan - Monthly"
           description="For companies just getting started on their positive impact journey."
-          buttonText="Manage"
-          hasTrial
-          tagText="Free trial"
+          button-text="Manage"
+          :show-tag="true"
+          tag-text="Free trial"
         />
         <gs-manage-plan
-          :imageUrl="placeholderImage"
-          imageAlt="Mature forest canopy"
+          :image-url="placeholderImage"
+          image-alt="Mature forest canopy"
           title="Standard Plan - Monthly"
           description="For growing companies ready to scale their impact."
-          buttonText="Manage"
+          button-text="Manage"
         />
       </div>
     `,
