@@ -85,6 +85,7 @@ export const Interactive: StoryObj<typeof meta> = {
     bold: false,
     tag: 'p',
     color: 'ui-black',
+    default: 'Interactive text content',
   },
   render: (args) => ({
     components: { GsTypography },
@@ -92,7 +93,7 @@ export const Interactive: StoryObj<typeof meta> = {
       return { args }
     },
     template: /* html */ `
-      <GsTypography :variant="args.variant" :bold="args.bold" :is="args.tag" :color="args.color">
+      <GsTypography :variant="args.variant" :bold="args.bold" :tag="args.tag" :color="args.color">
         {{ args.default }}
       </GsTypography>
     `,
