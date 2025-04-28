@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { VIcon } from 'vuetify/components'
-import GsTypography from './GsTypography.vue'
 
 type AlertBarType = 'info' | 'success' | 'error' | 'warning'
 
@@ -49,12 +48,8 @@ const alertBarClasses = computed(() => [
           <v-icon class="icon me-3" icon="mdi-information-outline" size="16" />
         </div>
         <div class="d-flex flex-column">
-          <GsTypography v-if="title" :class="'title'" bold variant="description">
-            <slot name="title">{{ title }}</slot>
-          </GsTypography>
-          <GsTypography :class="'message'" variant="description">
-            <slot name="message">{{ message }}</slot>
-          </GsTypography>
+          <span v-if="title" class="title" v-html="title" />
+          <span class="message" v-html="message" />
         </div>
       </div>
     </div>
