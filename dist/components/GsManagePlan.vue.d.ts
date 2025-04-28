@@ -20,8 +20,8 @@ declare const __VLS_component: import('vue').DefineComponent<Props, {}, {}, {}, 
 }, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
     "onButton-click"?: (() => any) | undefined;
 }>, {
-    description: string;
     disabled: boolean;
+    description: string;
     buttonLabel: string;
     buttonIcon: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLDivElement>;

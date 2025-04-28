@@ -44,8 +44,8 @@ declare const _default: import('vue').DefineComponent<Props, {}, {}, {}, {}, imp
 }, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
 }>, {
-    error: boolean;
     success: boolean;
+    error: boolean;
     disabled: boolean;
     modelValue: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;

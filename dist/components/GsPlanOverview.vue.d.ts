@@ -24,8 +24,8 @@ interface Props {
     onManagePlanClick?: () => void;
 }
 declare const _default: import('vue').DefineComponent<Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{}>, {
-    description: string;
     title: string;
+    description: string;
     imageUrl: string;
     tagText: string;
     showTag: boolean;

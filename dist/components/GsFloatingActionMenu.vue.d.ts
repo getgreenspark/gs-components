@@ -11,8 +11,8 @@ declare const _default: import('vue').DefineComponent<Props, {}, {}, {}, {}, imp
     "onPrimary-action"?: ((...args: any[]) => any) | undefined;
     "onSecondary-action"?: ((...args: any[]) => any) | undefined;
 }>, {
-    description: string;
     title: string;
+    description: string;
     primaryButtonText: string;
     secondaryButtonText: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLElement>;

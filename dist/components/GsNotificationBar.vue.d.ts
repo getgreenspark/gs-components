@@ -23,9 +23,9 @@ declare const __VLS_component: import('vue').DefineComponent<NotificationBarProp
 }, string, import('vue').PublicProps, Readonly<NotificationBarProps> & Readonly<{
     "onButton-click"?: (() => any) | undefined;
 }>, {
-    description: string;
     title: string;
     icon: string;
+    description: string;
     buttonLabel: string;
     buttonIcon: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, HTMLElement>;
