@@ -24,12 +24,18 @@ interface Props {
    * @default false
    */
   disabled?: boolean
+  /**
+   * Whether the label text should be bold
+   * @default false
+   */
+  bold?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   modelValue: undefined,
   value: undefined,
   disabled: false,
+  bold: false,
 })
 
 defineEmits<{
@@ -42,11 +48,12 @@ defineEmits<{
     :disabled="disabled"
     :model-value="modelValue"
     :value="value"
+    color="ui-black"
     class="gs-radio"
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <template #label>
-      <GsTypography variant="description">{{ label }}</GsTypography>
+      <GsTypography variant="description" :bold="bold">{{ label }}</GsTypography>
     </template>
   </VRadio>
 </template>

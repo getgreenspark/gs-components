@@ -3,7 +3,7 @@ import GsTypography from '@/components/GsTypography.vue'
 import '@/assets/style/variables.css'
 
 const meta: Meta = {
-  title: 'Foundation/01-Colours/Grey Scale',
+  title: 'Foundation/Colours/Grey Scale',
   tags: ['autodocs'],
   parameters: {
     docs: {

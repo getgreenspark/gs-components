@@ -36,7 +36,7 @@ interface Props {
   height?: number
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   color: 'ui-emerald-green',
   backgroundColor: 'ui-white',
   showPercentage: true,

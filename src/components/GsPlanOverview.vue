@@ -5,14 +5,15 @@
     </header>
 
     <div class="gs-plan-overview__content">
-      <GsManagePlan
-        :description="description"
-        :has-trial="showTag"
-        :icon="''"
+      <GsManagePlanSelector
         :image-url="imageUrl"
-        :tag-text="tagText"
+        :image-alt="imageAlt"
         :title="title"
-        @manage-click="onManagePlanClick"
+        :description="description"
+        :button-text="buttonText"
+        :show-tag="showTag"
+        :tag-text="tagText"
+        @action="onManagePlanClick"
       />
 
       <section class="gs-plan-overview__features">
@@ -73,7 +74,7 @@
 </template>
 
 <script lang="ts" setup>
-import GsManagePlan from './GsManagePlan.vue'
+import GsManagePlanSelector from './GsManagePlanSelector.vue'
 import GsTypography from './GsTypography.vue'
 import GsIconWithText from './GsIconWithText.vue'
 import GsAlertBar from './GsAlertBar.vue'

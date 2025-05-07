@@ -4,7 +4,7 @@ import GsTags from './GsTags.vue'
 import GsTypography from './GsTypography.vue'
 
 defineOptions({
-  name: 'GsProjectFilter',
+  name: 'GsFilters'
 })
 
 interface MenuItem {
@@ -88,7 +88,7 @@ const handleItemClick = (item: MenuItem, index: number) => {
 }
 
 .gs-project-filter--large {
-  gap: 20px;
+  gap: 24px;
 }
 
 .gs-project-filter__item {

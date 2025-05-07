@@ -21,7 +21,7 @@ const colorOptions = [
 ]
 
 const meta: Meta<typeof GsTags> = {
-  title: 'Components/Navigation/Tags',
+  title: 'Components/Core/Tags',
   component: GsTags,
   tags: ['autodocs'],
   argTypes: {
@@ -63,6 +63,12 @@ const meta: Meta<typeof GsTags> = {
       options: ['caption', 'body', 'description'],
       description: 'Font size variant for the tag text',
       defaultValue: 'caption',
+    },
+    borderRadius: {
+      control: 'select',
+      options: ['4px', '8px'],
+      description: 'Border radius of the tag',
+      defaultValue: '4px',
     },
   },
   parameters: {

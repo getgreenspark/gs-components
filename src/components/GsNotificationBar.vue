@@ -12,7 +12,7 @@
           color="ui-white"
           variant="big-description"
         >
-          <slot name="description">{{ description }}</slot>
+          <div v-html="sanitizedDescription"></div>
         </GsTypography>
       </div>
     </div>
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, computed } from 'vue'
 import GsButton from './GsButton.vue'
 import GsTypography from './GsTypography.vue'
 import '../assets/style/variables.css'
@@ -43,6 +43,8 @@ type NotificationBarProps = {
   /**
    * The description text to display below the title.
    * This prop is used as a fallback when no description slot is provided.
+   * Supports HTML content which will be safely rendered.
+   * @example "Get started with our <a href='#'>premium features</a>"
    */
   description?: string
   buttonLabel?: string
@@ -55,6 +57,37 @@ const props = withDefaults(defineProps<NotificationBarProps>(), {
   description: '',
   buttonLabel: 'Action',
   buttonIcon: '',
+})
+
+// Sanitize HTML by only allowing safe tags and attributes
+const sanitizedDescription = computed(() => {
+  const div = document.createElement('div')
+  div.innerHTML = props.description
+  
+  // Only allow specific tags and attributes
+  const allowedTags = ['a', 'strong', 'em', 'b', 'i', 'span', 'br']
+  const allowedAttributes = ['href', 'target', 'class', 'style']
+  
+  // Remove any tags that aren't in the allowed list
+  const elements = div.getElementsByTagName('*')
+  for (let i = elements.length - 1; i >= 0; i--) {
+    if (!allowedTags.includes(elements[i].tagName.toLowerCase())) {
+      elements[i].parentNode?.replaceChild(
+        document.createTextNode(elements[i].textContent || ''),
+        elements[i]
+      )
+    } else {
+      // Remove any attributes that aren't in the allowed list
+      const attributes = elements[i].attributes
+      for (let j = attributes.length - 1; j >= 0; j--) {
+        if (!allowedAttributes.includes(attributes[j].name.toLowerCase())) {
+          elements[i].removeAttribute(attributes[j].name)
+        }
+      }
+    }
+  }
+  
+  return div.innerHTML
 })
 
 const emit = defineEmits<{
@@ -91,6 +124,7 @@ const handleButtonClick = () => {
   padding: 16px;
   align-items: flex-start;
   gap: 16px;
+  align-items: center;
   font-family:
     Cabin,
     -apple-system,
@@ -99,16 +133,6 @@ const handleButtonClick = () => {
     sans-serif;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  :deep(a) {
-    color: var(--ui-white);
-    text-decoration: underline;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
 
   @media (max-width: 767px) {
     padding: 16px;
@@ -123,7 +147,6 @@ const handleButtonClick = () => {
 
   @media (min-width: 768px) and (max-width: 991px) {
     padding: 16px;
-    align-items: center;
   }
 }
 
@@ -136,8 +159,8 @@ const handleButtonClick = () => {
 }
 
 .gs-notification-icon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   margin-top: 2px; // Align with text
 }
@@ -150,5 +173,31 @@ const handleButtonClick = () => {
 .gs-notification-description {
   margin-top: 4px;
   opacity: 0.8;
+}
+
+.gs-notification-description :deep(a) {
+  color: var(--ui-white);
+  text-decoration: underline;
+  opacity: 1;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.gs-notification-description :deep(strong),
+.gs-notification-description :deep(b) {
+  font-weight: bold;
+}
+
+.gs-notification-description :deep(em),
+.gs-notification-description :deep(i) {
+  font-style: italic;
+}
+
+.gs-notification-description :deep(br) {
+  display: block;
+  content: '';
+  margin-top: 8px;
 }
 </style>

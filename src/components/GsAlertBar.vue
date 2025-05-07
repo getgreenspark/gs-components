@@ -107,7 +107,7 @@ const alertBarClasses = computed(() => [
 
 .gs-alert-bar__content {
   display: flex;
-  gap: 12px;
+  gap: 0px;
   flex: 1;
 }
 
