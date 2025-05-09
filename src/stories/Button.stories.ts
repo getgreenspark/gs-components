@@ -8,32 +8,9 @@ import '@mdi/font/css/materialdesignicons.min.css'
 import GsButton from '@/components/GsButton.vue'
 
 const meta: Meta<typeof GsButton> = {
-  title: 'Components/Core/Button',
+  title: 'Components/Button',
   component: GsButton,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: `
-## Button Component
-
-A versatile button component that supports various styles, sizes, and states.
-
-### Global Usage
-
-Once you have installed and set up the GS Components library, you can use the button component globally in your Vue application:
-
-\`\`\`vue
-<template>
-  <gs-button type="primary">Click Me</gs-button>
-</template>
-\`\`\`
-
-No need to import the component manually when using it globally.
-        `,
-      },
-    },
-  },
   argTypes: {
     tag: {
       control: 'select',
