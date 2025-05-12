@@ -161,8 +161,7 @@ const loaderSize = computed(() => {
     width: 100%;
   }
 
-  &.small,
-  &.gs-link {
+  &.small {
     height: 28px;
     font-size: 14px;
     line-height: 16px;
@@ -257,11 +256,7 @@ const loaderSize = computed(() => {
   &.gs-link {
     color: var(--ui-green);
     background-color: transparent;
-    padding: 0;
-    width: auto;
-    height: auto;
     text-decoration: none;
-    gap: 0;
 
     &:hover,
     &:active,

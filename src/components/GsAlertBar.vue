@@ -5,25 +5,9 @@ import { VIcon } from 'vuetify/components'
 type AlertBarType = 'info' | 'success' | 'error' | 'warning'
 
 interface Props {
-  /**
-   * The type of alert to display
-   */
   type?: AlertBarType
-  /**
-   * Optional title for the alert.
-   * Supports HTML content which will be safely rendered.
-   * @example "<strong>Important:</strong> Please note"
-   */
   title?: string
-  /**
-   * The main message to display.
-   * Supports HTML content which will be safely rendered.
-   * @example "Visit our <a href='#'>documentation</a> for more info"
-   */
   message: string
-  /**
-   * Makes the alert take the full width of its container
-   */
   fullWidth?: boolean
 }
 
@@ -107,7 +91,6 @@ const alertBarClasses = computed(() => [
 
 .gs-alert-bar__content {
   display: flex;
-  gap: 12px;
   flex: 1;
 }
 
