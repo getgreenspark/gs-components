@@ -5,7 +5,7 @@ import './assets/style/variables.css'
 import GsAlertBar from './components/GsAlertBar.vue'
 import GsButton from './components/GsButton.vue'
 import GsFilter from './components/GsFilter.vue'
-import GsTabs from './components/GsTabs.vue'
+import GsTabs, { type TabItem } from './components/GsTabs.vue'
 
 import { registerPlugins } from './plugins'
 
@@ -18,7 +18,7 @@ declare module 'vue' {
   }
 }
 
-export { GsButton, GsAlertBar, GsFilter, GsTabs }
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem }
 
 const components = {
   GsButton,
