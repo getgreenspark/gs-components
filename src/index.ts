@@ -4,20 +4,27 @@ import './assets/style/variables.css'
 
 import GsAlertBar from './components/GsAlertBar.vue'
 import GsButton from './components/GsButton.vue'
+import GsFilter from './components/GsFilter.vue'
+import GsTabs from './components/GsTabs.vue'
+
 import { registerPlugins } from './plugins'
 
 declare module 'vue' {
   export interface GlobalComponents {
     GsButton: (typeof import('./components/GsButton.vue'))['default']
     GsAlertBar: (typeof import('./components/GsAlertBar.vue'))['default']
+    GsFilter: (typeof import('./components/GsFilter.vue'))['default']
+    GsTabs: (typeof import('./components/GsTabs.vue'))['default']
   }
 }
 
-export { GsButton, GsAlertBar }
+export { GsButton, GsAlertBar, GsFilter, GsTabs }
 
 const components = {
   GsButton,
   GsAlertBar,
+  GsFilter,
+  GsTabs,
 }
 
 const GsComponents = {
