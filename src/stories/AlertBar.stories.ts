@@ -44,7 +44,7 @@ export const Default: Story = {
     type: 'info',
     title: 'Alert Title',
     message:
-      'This is an alert message. Try changing the props in the controls panel to see how the component updates in real-time!',
+      'This is an alert message. Try changing the props in the controls panel to see how the component updates in real-time! <a href="http://getgreenspark.com" target="_blank" class="link">Click here.</a>',
     fullWidth: false,
   },
   render: (args) => ({

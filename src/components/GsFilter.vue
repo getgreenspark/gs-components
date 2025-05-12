@@ -1,8 +1,8 @@
 <template>
   <div class="filter-button-list">
     <button
-      v-for="(category, index) in categories"
-      :key="index"
+      v-for="category in categories"
+      :key="category"
       :class="['filter-button', { 'is-active': category === modelValue }]"
       @click.prevent="searchByCategory(category)"
     >
