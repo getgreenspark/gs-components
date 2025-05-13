@@ -40,33 +40,34 @@ export default defineComponent({
 .filter-button-list {
   display: flex;
   flex-wrap: nowrap;
+  align-items: flex-start;
   gap: 8px;
-  width: calc(50% - 12px);
   overflow-y: scroll;
   width: 100%;
-  align-items: flex-start;
 
   @media (min-width: 600px) {
-    gap: 16px;
     overflow: hidden;
   }
 }
 
 .filter-button {
-  border-radius: var(--border-radius-big);
-  padding: 5px 8px;
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--gray-light-FF);
-  background-color: #7c7c7c;
   display: flex;
   align-items: center;
-  gap: 6px;
-  cursor: pointer;
+  justify-content: center;
   flex-shrink: 0;
-}
+  gap: 6px;
+  height: 28px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--ui-white);
+  background-color: #7c7c7c;
+  cursor: pointer;
 
-.filter-button.is-active {
-  background-color: var(--ui-black);
+  &.is-active {
+    background-color: var(--ui-black);
+  }
 }
 </style>
