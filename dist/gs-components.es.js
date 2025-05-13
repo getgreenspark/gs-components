@@ -1092,7 +1092,7 @@ function Cn(e, t, n, s, r, i) {
     ], 10, bn))), 128))
   ]);
 }
-const wn = /* @__PURE__ */ j(hn, [["render", Cn], ["__scopeId", "data-v-132fb07a"]]), kn = L({
+const wn = /* @__PURE__ */ j(hn, [["render", Cn], ["__scopeId", "data-v-0e26ed44"]]), kn = L({
   name: "GsTabs",
   props: {
     tabs: {
