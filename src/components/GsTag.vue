@@ -81,6 +81,7 @@ const computedBackgroundColor = computed(() => {
 
 <style scoped>
 .gs-tag {
+  font-family: 'Cabin', sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;

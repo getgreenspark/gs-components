@@ -1182,7 +1182,7 @@ const En = /* @__PURE__ */ O(kn, [["render", $n], ["__scopeId", "data-v-b020e60d
       }, Y(i.label), 5)
     ], 4));
   }
-}), Fn = /* @__PURE__ */ O(Bn, [["__scopeId", "data-v-b9c2c926"]]), In = {
+}), Fn = /* @__PURE__ */ O(Bn, [["__scopeId", "data-v-1761664f"]]), In = {
   dark: !1,
   colors: {
     primary: "#3B755F",
