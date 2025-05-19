@@ -1,0 +1,1 @@
+{"version":3,"file":"GsTag.vue.d.ts","sourceRoot":"","sources":["../../src/components/GsTag.vue"],"names":[],"mappings":"AAgHA,KAAK,KAAK,GAAG,OAAO,GAAG,OAAO,GAAG,cAAc,GAAG,MAAM,GAAG,eAAe,CAAA;AAE1E,UAAU,KAAK;IACb,KAAK,EAAE,MAAM,CAAA;IACb,eAAe,CAAC,EAAE,KAAK,CAAA;IACvB,IAAI,CAAC,EAAE,MAAM,CAAA;IACb,IAAI,CAAC,EAAE,OAAO,CAAA;CACf;;UADQ,OAAO;UADP,MAAM;qBADK,KAAK;;AA+HzB,wBAQG"}
