@@ -87,6 +87,7 @@ const computedBackgroundColor = computed(() => {
   padding: 4px 8px;
   border-radius: 8px;
   height: 25px;
+  width: fit-content;
 }
 
 .gs-tag__icon {
