@@ -45,42 +45,27 @@ export const Variants: Story = {
   render: (args) => ({
     components: { GsTag },
     setup() {
-      return { args }
+      const iconVariants = [
+        null,
+        'mdi-check',
+        'https://storage.googleapis.com/integration-logos/shopify-logo.png',
+      ]
+      return { args, colorOptions, iconVariants }
     },
     template: `
       <div class="d-flex ga-4">
-        <div class="d-flex flex-column ga-4">
-          <GsTag :background-color="'beige'" v-bind="args" />
-          <GsTag :background-color="'beige'" icon="mdi-check" v-bind="args" />
-          <GsTag :background-color="'beige'" icon="https://storage.googleapis.com/integration-logos/shopify-logo.png"
-                 v-bind="args" />
-        </div>
-        <div class="d-flex flex-column ga-4">
-          <GsTag :background-color="'black'" v-bind="args" />
-          <GsTag :background-color="'black'" icon="mdi-check" v-bind="args" />
-          <GsTag :background-color="'black'" icon="https://storage.googleapis.com/integration-logos/shopify-logo.png"
-                 v-bind="args" />
-        </div>
-        <div class="d-flex flex-column ga-4">
-          <GsTag :background-color="'pastel-green'" v-bind="args" />
-          <GsTag :background-color="'pastel-green'" icon="mdi-check" v-bind="args" />
-          <GsTag :background-color="'pastel-green'"
-                 icon="https://storage.googleapis.com/integration-logos/shopify-logo.png"
-                 v-bind="args" />
-        </div>
-        <div class="d-flex flex-column ga-4">
-
-          <GsTag :background-color="'emerald-green'" v-bind="args" />
-          <GsTag :background-color="'emerald-green'" icon="mdi-check" v-bind="args" />
-          <GsTag :background-color="'emerald-green'"
-                 icon="https://storage.googleapis.com/integration-logos/shopify-logo.png"
-                 v-bind="args" />
-        </div>
-        <div class="d-flex flex-column ga-4">
-          <GsTag :background-color="'grey'" v-bind="args" />
-          <GsTag :background-color="'grey'" icon="mdi-check" v-bind="args" />
-          <GsTag :background-color="'grey'" icon="https://storage.googleapis.com/integration-logos/shopify-logo.png"
-                 v-bind="args" />
+        <div
+          v-for="color in colorOptions"
+          :key="color"
+          class="d-flex flex-column ga-4"
+        >
+          <GsTag
+            v-for="icon in iconVariants"
+            :key="icon || 'no-icon'"
+            :background-color="color"
+            :icon="icon"
+            v-bind="args"
+          />
         </div>
       </div>
     `,
