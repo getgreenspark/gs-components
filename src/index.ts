@@ -6,6 +6,7 @@ import GsAlertBar from './components/GsAlertBar.vue'
 import GsButton from './components/GsButton.vue'
 import GsFilter from './components/GsFilter.vue'
 import GsTabs, { type TabItem } from './components/GsTabs.vue'
+import GsTag from './components/GsTag.vue'
 
 import { registerPlugins } from './plugins'
 
@@ -15,16 +16,18 @@ declare module 'vue' {
     GsAlertBar: (typeof import('./components/GsAlertBar.vue'))['default']
     GsFilter: (typeof import('./components/GsFilter.vue'))['default']
     GsTabs: (typeof import('./components/GsTabs.vue'))['default']
+    GsTag: (typeof import('./components/GsTag.vue'))['default']
   }
 }
 
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem }
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag }
 
 const components = {
   GsButton,
   GsAlertBar,
   GsFilter,
   GsTabs,
+  GsTag,
 }
 
 const GsComponents = {
