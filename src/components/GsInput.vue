@@ -60,7 +60,6 @@ export default defineComponent({
       font-weight: 700;
       line-height: normal;
       font-family: 'Cabin', sans-serif;
-      color: var(--ui-black);
       opacity: 1;
     }
   }
