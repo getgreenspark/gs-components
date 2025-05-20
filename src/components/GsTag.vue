@@ -54,7 +54,6 @@ const computedBackgroundColor = computed(() => {
   <div
     :style="{
       backgroundColor: `${computedBackgroundColor}`,
-      borderRadius: '8px',
       gap: label ? '4px' : '0',
     }"
     class="gs-tag"
@@ -67,7 +66,7 @@ const computedBackgroundColor = computed(() => {
       class="gs-tag__icon"
     />
     <img
-      v-if="icon && !icon.startsWith('mdi')"
+      v-else-if="icon && !icon.startsWith('mdi')"
       :src="icon"
       :style="{ width: '16px' }"
       alt=""
@@ -79,7 +78,7 @@ const computedBackgroundColor = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .gs-tag {
   font-family: 'Cabin', sans-serif;
   display: inline-flex;

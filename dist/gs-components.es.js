@@ -1,4 +1,4 @@
-import { reactive as et, computed as d, watchEffect as se, toRefs as tt, shallowRef as re, Fragment as ie, warn as nt, getCurrentInstance as st, inject as ae, provide as Ee, defineComponent as E, ref as H, onBeforeUnmount as xe, watch as Be, readonly as rt, isRef as it, h as at, unref as G, createVNode as m, mergeProps as ot, toRef as Z, Text as lt, createElementBlock as y, openBlock as p, normalizeClass as j, createElementVNode as C, createCommentVNode as S, withDirectives as ut, createBlock as D, resolveDynamicComponent as ct, normalizeStyle as M, withCtx as de, createTextVNode as dt, toDisplayString as Y, renderSlot as ft, renderList as Fe, withModifiers as mt } from "vue";
+import { reactive as et, computed as d, watchEffect as se, toRefs as tt, shallowRef as re, Fragment as ie, warn as nt, getCurrentInstance as st, inject as ae, provide as Ee, defineComponent as $, ref as H, onBeforeUnmount as xe, watch as Be, readonly as rt, isRef as it, h as at, unref as G, createVNode as m, mergeProps as ot, toRef as Z, Text as lt, createElementBlock as y, openBlock as p, normalizeClass as j, createElementVNode as C, createCommentVNode as F, withDirectives as ut, createBlock as D, resolveDynamicComponent as ct, normalizeStyle as M, withCtx as de, createTextVNode as dt, toDisplayString as Y, renderSlot as ft, renderList as Fe, withModifiers as mt } from "vue";
 import { createVuetify as pt } from "vuetify";
 function _(e, t) {
   return (n) => Object.keys(e).reduce((s, r) => {
@@ -18,7 +18,7 @@ const Ie = _({
     default: null
   }
 }, "component"), Re = typeof window < "u", gt = Re && "IntersectionObserver" in window;
-function T(e) {
+function S(e) {
   let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "px";
   if (!(e == null || e === ""))
     return isNaN(+e) ? String(e) : isFinite(+e) ? `${Number(e)}${t}` : void 0;
@@ -99,13 +99,13 @@ function ze() {
 function Le(e) {
   return e.map((t) => t.type === ie ? Le(t.children) : t).flat();
 }
-function $() {
+function T() {
   let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "";
-  if ($.cache.has(e)) return $.cache.get(e);
+  if (T.cache.has(e)) return T.cache.get(e);
   const t = e.replace(/[^a-z]/gi, "-").replace(/\B([A-Z])/g, "-$1").toLowerCase();
-  return $.cache.set(e, t), t;
+  return T.cache.set(e, t), t;
 }
-$.cache = /* @__PURE__ */ new Map();
+T.cache = /* @__PURE__ */ new Map();
 function Ve(e) {
   const t = et({}), n = d(e);
   return se(() => {
@@ -193,7 +193,7 @@ const Ce = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, Rt = {
     a: s
   })
 };
-function F(e) {
+function B(e) {
   if (typeof e == "number")
     return (isNaN(e) || e < 0 || e > 16777215) && I(`'${e}' is not a valid hex color`), {
       r: (e & 16711680) >> 16,
@@ -272,8 +272,8 @@ function Lt(e) {
   return e.startsWith("#") && (e = e.slice(1)), e = e.replace(/([^0-9a-f])/gi, "F"), (e.length === 3 || e.length === 4) && (e = e.split("").map((t) => t + t).join("")), e.length !== 6 && (e = pe(pe(e, 6), 8, "F")), e;
 }
 function Vt(e) {
-  const t = Math.abs(_e(F(0), F(e)));
-  return Math.abs(_e(F(16777215), F(e))) > Math.min(t, 50) ? "#fff" : "#000";
+  const t = Math.abs(_e(B(0), B(e)));
+  return Math.abs(_e(B(16777215), B(e))) > Math.min(t, 50) ? "#fff" : "#000";
 }
 function V(e, t) {
   const n = st();
@@ -284,7 +284,7 @@ function V(e, t) {
 function Ot() {
   let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "composables";
   const t = V(e).type;
-  return $((t == null ? void 0 : t.aliasName) || (t == null ? void 0 : t.name));
+  return T((t == null ? void 0 : t.aliasName) || (t == null ? void 0 : t.name));
 }
 function Nt(e) {
   let t = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : V("injectSelf");
@@ -302,7 +302,7 @@ function Ne() {
 }
 function At(e, t) {
   var n, s;
-  return typeof ((n = e.props) == null ? void 0 : n[t]) < "u" || typeof ((s = e.props) == null ? void 0 : s[$(t)]) < "u";
+  return typeof ((n = e.props) == null ? void 0 : n[t]) < "u" || typeof ((s = e.props) == null ? void 0 : s[T(t)]) < "u";
 }
 function Pt() {
   let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, t = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Ne();
@@ -314,9 +314,9 @@ function Pt() {
     return (o = n.value) == null ? void 0 : o[e._as ?? t];
   }), i = new Proxy(e, {
     get(o, l) {
-      var c, g, v, b, N, x, w;
+      var c, g, v, b, N, E, w;
       const f = Reflect.get(o, l);
-      return l === "class" || l === "style" ? [(c = r.value) == null ? void 0 : c[l], f].filter((B) => B != null) : typeof l == "string" && !At(s.vnode, l) ? ((g = r.value) == null ? void 0 : g[l]) !== void 0 ? (v = r.value) == null ? void 0 : v[l] : ((N = (b = n.value) == null ? void 0 : b.global) == null ? void 0 : N[l]) !== void 0 ? (w = (x = n.value) == null ? void 0 : x.global) == null ? void 0 : w[l] : f : f;
+      return l === "class" || l === "style" ? [(c = r.value) == null ? void 0 : c[l], f].filter((x) => x != null) : typeof l == "string" && !At(s.vnode, l) ? ((g = r.value) == null ? void 0 : g[l]) !== void 0 ? (v = r.value) == null ? void 0 : v[l] : ((N = (b = n.value) == null ? void 0 : b.global) == null ? void 0 : N[l]) !== void 0 ? (w = (E = n.value) == null ? void 0 : E.global) == null ? void 0 : w[l] : f : f;
     }
   }), a = re();
   se(() => {
@@ -360,7 +360,7 @@ function q(e) {
 }
 function oe() {
   let e = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !0;
-  return (t) => (e ? q : E)(t);
+  return (t) => (e ? q : $)(t);
 }
 function Ae(e) {
   const t = V("useRender");
@@ -413,7 +413,7 @@ function Mt(e) {
     if (e.value.background)
       if (J(e.value.background)) {
         if (n.backgroundColor = e.value.background, !e.value.text && It(e.value.background)) {
-          const s = F(e.value.background);
+          const s = B(e.value.background);
           if (s.a == null || s.a === 1) {
             const r = Vt(s);
             n.color = r, n.caretColor = r;
@@ -598,8 +598,8 @@ function He(e) {
   return Ve(() => {
     let n, s;
     return _t(Ut, e.size) ? n = `${t}--size-${e.size}` : e.size && (s = {
-      width: T(e.size),
-      height: T(e.size)
+      width: S(e.size),
+      height: S(e.size)
     }), {
       sizeClasses: n,
       sizeStyles: s
@@ -651,9 +651,9 @@ const Xt = _({
           "v-icon--end": e.end
         }, e.class],
         style: [u.value ? void 0 : {
-          fontSize: T(e.size),
-          height: T(e.size),
-          width: T(e.size)
+          fontSize: S(e.size),
+          height: S(e.size),
+          width: S(e.size)
         }, l.value, e.style],
         role: c ? "button" : void 0,
         "aria-hidden": !c,
@@ -728,8 +728,8 @@ const Zt = _({
       isIntersecting: b
     } = Kt(), {
       resizeRef: N,
-      contentRect: x
-    } = Dt(), w = d(() => Math.max(0, Math.min(100, parseFloat(e.modelValue)))), B = d(() => Number(e.width)), ue = d(() => o.value ? Number(e.size) : x.value ? x.value.width : Math.max(B.value, 32)), X = d(() => s / (1 - B.value / ue.value) * 2), ce = d(() => B.value / ue.value * X.value), Qe = d(() => T((100 - w.value) / 100 * r));
+      contentRect: E
+    } = Dt(), w = d(() => Math.max(0, Math.min(100, parseFloat(e.modelValue)))), x = d(() => Number(e.width)), ue = d(() => o.value ? Number(e.size) : E.value ? E.value.width : Math.max(x.value, 32)), X = d(() => s / (1 - x.value / ue.value) * 2), ce = d(() => x.value / ue.value * X.value), Qe = d(() => S((100 - w.value) / 100 * r));
     return se(() => {
       v.value = i.value, N.value = i.value;
     }), Ae(() => m(e.tag, {
@@ -941,7 +941,7 @@ const rn = {
   mounted: tn,
   unmounted: nn,
   updated: sn
-}, an = { class: "d-flex" }, on = { class: "gs-alert-bar__content" }, ln = { class: "gs-alert-bar__icon" }, un = { class: "d-flex flex-column" }, cn = ["innerHTML"], dn = ["innerHTML"], fn = /* @__PURE__ */ E({
+}, an = { class: "d-flex" }, on = { class: "gs-alert-bar__content" }, ln = { class: "gs-alert-bar__icon" }, un = { class: "d-flex flex-column" }, cn = ["innerHTML"], dn = ["innerHTML"], fn = /* @__PURE__ */ $({
   __name: "GsAlertBar",
   props: {
     type: { default: "info" },
@@ -975,7 +975,7 @@ const rn = {
               key: 0,
               class: "title",
               innerHTML: s.title
-            }, null, 8, cn)) : S("", !0),
+            }, null, 8, cn)) : F("", !0),
             C("span", {
               class: "message",
               innerHTML: s.message
@@ -993,7 +993,7 @@ const rn = {
 }, mn = /* @__PURE__ */ O(fn, [["__scopeId", "data-v-5fb92636"]]), pn = {
   key: 1,
   class: "text"
-}, gn = /* @__PURE__ */ E({
+}, gn = /* @__PURE__ */ $({
   __name: "GsButton",
   props: {
     tag: { default: "button" },
@@ -1046,24 +1046,24 @@ const rn = {
             dt(Y(t.icon), 1)
           ]),
           _: 1
-        })) : S("", !0),
+        })) : F("", !0),
         a.$slots.default ? (p(), y("span", pn, [
           ft(a.$slots, "default", {}, void 0, !0)
-        ])) : S("", !0),
+        ])) : F("", !0),
         t.loading ? (p(), D(G(Jt), {
           key: 2,
           size: i.value,
           class: "loader",
           color: "gray",
           indeterminate: ""
-        }, null, 8, ["size"])) : S("", !0)
+        }, null, 8, ["size"])) : F("", !0)
       ]),
       _: 3
     }, 8, ["class", "disabled", "href", "style", "target"])), [
       [rn, s.value]
     ]);
   }
-}), vn = /* @__PURE__ */ O(gn, [["__scopeId", "data-v-c76db002"]]), hn = E({
+}), vn = /* @__PURE__ */ O(gn, [["__scopeId", "data-v-c76db002"]]), hn = $({
   name: "GsFilter",
   emits: ["update:modelValue"],
   methods: {
@@ -1092,7 +1092,7 @@ function Cn(e, t, n, s, r, i) {
     ], 10, bn))), 128))
   ]);
 }
-const wn = /* @__PURE__ */ O(hn, [["render", Cn], ["__scopeId", "data-v-0e26ed44"]]), kn = E({
+const wn = /* @__PURE__ */ O(hn, [["render", Cn], ["__scopeId", "data-v-0e26ed44"]]), kn = $({
   name: "GsTabs",
   props: {
     tabs: {
@@ -1121,7 +1121,7 @@ function $n(e, t, n, s, r, i) {
     }, Y(a.label), 11, Tn))), 128))
   ]);
 }
-const En = /* @__PURE__ */ O(kn, [["render", $n], ["__scopeId", "data-v-b020e60d"]]), xn = ["src"], Bn = /* @__PURE__ */ E({
+const En = /* @__PURE__ */ O(kn, [["render", $n], ["__scopeId", "data-v-b020e60d"]]), xn = ["src"], Bn = /* @__PURE__ */ $({
   name: "GsTag",
   __name: "GsTag",
   props: {
@@ -1157,7 +1157,6 @@ const En = /* @__PURE__ */ O(kn, [["render", $n], ["__scopeId", "data-v-b020e60d
     return (i, a) => (p(), y("div", {
       style: M({
         backgroundColor: `${r.value}`,
-        borderRadius: "8px",
         gap: i.label ? "4px" : "0"
       }),
       class: "gs-tag"
@@ -1168,21 +1167,20 @@ const En = /* @__PURE__ */ O(kn, [["render", $n], ["__scopeId", "data-v-b020e60d
         size: "16px",
         style: M({ color: s.value }),
         class: "gs-tag__icon"
-      }, null, 8, ["icon", "style"])) : S("", !0),
-      i.icon && !i.icon.startsWith("mdi") ? (p(), y("img", {
+      }, null, 8, ["icon", "style"])) : i.icon && !i.icon.startsWith("mdi") ? (p(), y("img", {
         key: 1,
         src: i.icon,
         style: { width: "16px" },
         alt: "",
         class: "gs-tag__icon"
-      }, null, 8, xn)) : S("", !0),
+      }, null, 8, xn)) : F("", !0),
       C("span", {
         style: M({ color: n.value, fontWeight: i.bold ? "bold" : "normal" }),
         class: "gs-tag__label"
       }, Y(i.label), 5)
     ], 4));
   }
-}), Fn = /* @__PURE__ */ O(Bn, [["__scopeId", "data-v-1761664f"]]), In = {
+}), Fn = /* @__PURE__ */ O(Bn, [["__scopeId", "data-v-6b4861a9"]]), In = {
   dark: !1,
   colors: {
     primary: "#3B755F",
