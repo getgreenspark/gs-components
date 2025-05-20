@@ -16,8 +16,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import { RulesMixin } from '@/helpers/RulesMixin'
+
 export default defineComponent({
   name: 'GsInput',
+  mixins: [RulesMixin],
   emits: ['update:modelValue', 'blur', 'update:error'],
   methods: {
     input(v: string): void {
@@ -57,6 +60,8 @@ export default defineComponent({
       font-weight: 700;
       line-height: normal;
       font-family: 'Cabin', sans-serif;
+      color: var(--ui-black);
+      opacity: 1;
     }
   }
 }

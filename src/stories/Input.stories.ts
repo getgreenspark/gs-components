@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { action } from '@storybook/addon-actions'
 
 import 'vuetify/styles'
 import '@/assets/style/fonts.css'
@@ -69,11 +68,49 @@ export const Prefilled: Story = {
   }),
 }
 
+export const WithHelperText: Story = {
+  args: {
+    modelValue: '',
+    hideDetails: false,
+    label: 'Your Name',
+  },
+  render: (args) => ({
+    components: { GsInput },
+    setup() {
+      return { args }
+    },
+    template: `
+    <div style="width: 335px;">
+      <GsInput v-bind="args" v-model="args.modelValue" persistent-hint hint="Your name should include a last name." />
+    </div>
+    `,
+  }),
+}
+
+export const Disabled: Story = {
+  args: {
+    modelValue: 'John Doe',
+    hideDetails: true,
+    label: 'Your Name',
+  },
+  render: (args) => ({
+    components: { GsInput },
+    setup() {
+      return { args }
+    },
+    template: `
+    <div style="width: 335px;">
+      <GsInput v-bind="args" v-model="args.modelValue" disabled />
+    </div>
+    `,
+  }),
+}
+
 export const ErrorState: Story = {
   args: {
     modelValue: '',
     hideDetails: false,
-    label: 'Username',
+    label: 'Username*',
   },
   render: (args) => ({
     components: { GsInput },
