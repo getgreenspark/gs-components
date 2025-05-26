@@ -5,6 +5,8 @@ import '@/assets/style/fonts.css'
 import '@/assets/style/variables.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
+import { required } from '@/helpers/validation'
+
 import GsInput from '@/components/GsInput.vue'
 
 const meta: Meta<typeof GsInput> = {
@@ -115,16 +117,17 @@ export const ErrorState: Story = {
   render: (args) => ({
     components: { GsInput },
     setup() {
-      return { args }
+      return {
+        args,
+        rules: [required],
+      }
     },
     template: `
     <div style="width: 335px;">
-      <GsInput
+     <GsInput
         v-bind="args"
         v-model="args.modelValue"
-        error-messages="Username is required."
-        error
-        :rules="[(v) => !!v || 'Username is required.']"
+        :rules="rules"
       />
     </div>
     `,
