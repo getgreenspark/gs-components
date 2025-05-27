@@ -1,8 +1,6 @@
 import { Decimal } from 'decimal.js'
-import type { TranslateResult } from 'vue-i18n'
-import i18n from '@/i18n'
-
-const { t } = i18n.global
+import type { TranslationValue } from '@tolgee/vue'
+import tolgee from '@/plugins/tolgee'
 
 export const maxTwoDecimal = (value: number): boolean => {
   // when an input is cleared, the value is null
@@ -23,26 +21,26 @@ export const positiveInteger = (value: number): boolean => {
 
 export const maxlength =
   (maxLength: number = 240) =>
-  <Type>(value: string | Array<Type>): boolean | TranslateResult =>
-    (value || '').length <= maxLength || t(`rules.max_length`, { limit: maxLength })
+  <Type>(value: string | Array<Type>): boolean | TranslationValue =>
+    (value || '').length <= maxLength || tolgee.t(`rules.max_length`, { limit: maxLength })
 
 export const minlength =
   (minLength: number) =>
-  <Type>(value: string | Array<Type>): boolean | TranslateResult =>
+  <Type>(value: string | Array<Type>): boolean | TranslationValue =>
     !((value || '').length > 0 && (value || '').length < minLength) ||
-    t(`rules.min_length`, { limit: minLength })
+    tolgee.t(`rules.min_length`, { limit: minLength })
 
 export const maxValue =
   (maxValue: number = Number.MAX_SAFE_INTEGER) =>
-  (v: number | string): boolean | TranslateResult =>
-    Number(v) <= maxValue || t(`rules.max_value`, { limit: maxValue })
+  (v: number | string): boolean | TranslationValue =>
+    Number(v) <= maxValue || tolgee.t(`rules.max_value`, { limit: maxValue })
 
 export const minValue =
   (minValue = 0, validationText?: string) =>
-  (v: number | string): boolean | TranslateResult =>
-    Number(v) >= minValue || validationText || t(`rules.min_value`, { limit: minValue })
+  (v: number | string): boolean | TranslationValue =>
+    Number(v) >= minValue || validationText || tolgee.t(`rules.min_value`, { limit: minValue })
 
-export const url = (value: string): boolean | TranslateResult => {
+export const url = (value: string): boolean | TranslationValue => {
   const pattern = new RegExp(
     '^(https?:\\/\\/)?' + // protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
@@ -54,9 +52,9 @@ export const url = (value: string): boolean | TranslateResult => {
   ) // fragment locator
   if (value) {
     const normalizedValue = value.startsWith('https://') ? value : 'https://' + value
-    return pattern.test(normalizedValue) || t(`rules.url`)
+    return pattern.test(normalizedValue) || tolgee.t(`rules.url`)
   }
-  return !value || t(`rules.required`)
+  return !value || tolgee.t(`rules.required`)
 }
 
 export const domain = (value: string): boolean => {
@@ -67,13 +65,13 @@ export const domain = (value: string): boolean => {
   return !value
 }
 
-export const required = (value: number | string): boolean | TranslateResult =>
-  !!value || t(`rules.required`)
+export const required = (value: number | string): boolean | TranslationValue =>
+  !!value || tolgee.t(`rules.required`)
 
-export const email = (value: string): boolean | TranslateResult => {
+export const email = (value: string): boolean | TranslationValue => {
   const pattern =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return pattern.test(value) || t(`rules.email`)
+  return pattern.test(value) || tolgee.t(`rules.email`)
 }
 
 export const emailName = (value: string): boolean => {
@@ -87,9 +85,9 @@ export const emailName = (value: string): boolean => {
   return !value
 }
 
-export const password = (value: string): boolean | TranslateResult => {
+export const password = (value: string): boolean | TranslationValue => {
   const pattern = /^(?=.{6,}$)(?=.*[a-z])(?=.*[A-Z])((?=.*\W)).*$/
-  return pattern.test(value) || t(`form_hint_password_complexity`)
+  return pattern.test(value) || tolgee.t(`form_hint_password_complexity`)
 }
 
 export const repeated =
@@ -107,5 +105,5 @@ export const unique =
 
 export const arrayMinLength =
   (minLength: number) =>
-  (value: Array<unknown>): boolean | TranslateResult =>
-    value?.length >= minLength || t(`rules.array_min_length`, { limit: minLength })
+  (value: Array<unknown>): boolean | TranslationValue =>
+    value?.length >= minLength || tolgee.t(`rules.array_min_length`, { limit: minLength })
