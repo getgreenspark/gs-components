@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import GsDivider from '@/components/GsDivider.vue'
 
+import 'vuetify/styles'
+import '@/assets/style/fonts.css'
+import '@/assets/style/variables.css'
+import '@mdi/font/css/materialdesignicons.min.css'
+
 const meta: Meta<typeof GsDivider> = {
   title: 'Components/Divider',
   component: GsDivider,
