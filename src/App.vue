@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TolgeeProvider } from '@tolgee/vue'
+</script>
 
 <template>
-  <section class="page">
-    <h1>Greenspark Component Library</h1>
-  </section>
+  <TolgeeProvider>
+    <section class="page">
+      <h1>Greenspark Component Library</h1>
+    </section>
+  </TolgeeProvider>
 </template>
 
 <style lang="scss">
