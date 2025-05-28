@@ -16,6 +16,19 @@ const meta: Meta<typeof GsDivider> = {
       options: ['grey200', 'grey250', 'grey800', 'green'],
       description: 'The color variant of the divider',
     },
+    thickness: {
+      control: 'select',
+      options: ['thin', 'thick'],
+      description: 'The thickness of the divider',
+    },
+    length: {
+      control: 'text',
+      description: 'The length of the divider.',
+    },
+    margin: {
+      control: 'text',
+      description: 'The margin top and bottom of the divider.',
+    },
   },
   parameters: {},
   decorators: [
