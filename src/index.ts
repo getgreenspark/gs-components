@@ -20,7 +20,7 @@ declare module 'vue' {
     GsTabs: (typeof import('./components/GsTabs.vue'))['default']
     GsTag: (typeof import('./components/GsTag.vue'))['default']
     GsDivider: (typeof import('./components/GsDivider.vue'))['default']
-    GsActionCard: (typeof import('./components/GsDivider.vue'))['default']
+    GsActionCard: (typeof import('./components/GsActionCard.vue'))['default']
   }
 }
 
