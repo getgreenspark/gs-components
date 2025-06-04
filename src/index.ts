@@ -8,6 +8,7 @@ import GsFilter from './components/GsFilter.vue'
 import GsTabs, { type TabItem } from './components/GsTabs.vue'
 import GsTag from './components/GsTag.vue'
 import GsDivider from './components/GsDivider.vue'
+import GsActionCard from './components/GsActionCard.vue'
 
 import { registerPlugins } from './plugins'
 
@@ -19,10 +20,11 @@ declare module 'vue' {
     GsTabs: (typeof import('./components/GsTabs.vue'))['default']
     GsTag: (typeof import('./components/GsTag.vue'))['default']
     GsDivider: (typeof import('./components/GsDivider.vue'))['default']
+    GsActionCard: (typeof import('./components/GsDivider.vue'))['default']
   }
 }
 
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider }
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsActionCard }
 
 const components = {
   GsButton,
@@ -31,6 +33,7 @@ const components = {
   GsTabs,
   GsTag,
   GsDivider,
+  GsActionCard,
 }
 
 const GsComponents = {
