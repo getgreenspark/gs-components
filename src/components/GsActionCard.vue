@@ -56,6 +56,7 @@ const handleClick = (event: MouseEvent) => {
 
 <style lang="scss" scoped>
 .gs-action-card {
+  font-family: 'Cabin', sans-serif;
   border-radius: 8px;
   border: 1px solid var(--gray-light-CC);
   transition: all 0.2s ease-in-out;
