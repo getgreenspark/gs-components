@@ -47,7 +47,6 @@ const handleClick = (event: MouseEvent) => {
       height,
     }"
     role="button"
-    tabindex="0"
     @click="handleClick"
   >
     <slot />
