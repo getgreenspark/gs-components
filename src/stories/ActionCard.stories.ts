@@ -137,6 +137,25 @@ export const Disabled: Story = {
   }),
 }
 
+export const Selected: Story = {
+  args: {
+    padding: '16px',
+    selected: true,
+    ariaLabel: 'Selected action card',
+  },
+  render: (args) => ({
+    components: { GsActionCard },
+    setup() {
+      return { args }
+    },
+    template: `
+      <GsActionCard v-bind="args">
+        <div>Selected Card</div>
+      </GsActionCard>
+    `,
+  }),
+}
+
 export const WithComplexContent: Story = {
   args: {
     padding: '24px',

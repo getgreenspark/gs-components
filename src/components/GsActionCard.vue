@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean
   fullWidth?: boolean
   ariaLabel?: string
+  selected?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -15,6 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
   height: 'auto',
   disabled: false,
   fullWidth: false,
+  selected: false,
 })
 
 const emit = defineEmits<{
@@ -26,6 +28,7 @@ const classes = computed(() => [
   {
     'gs-action-card--disabled': props.disabled,
     'gs-action-card--full-width': props.fullWidth,
+    'gs-action-card--selected': props.selected,
   },
 ])
 
@@ -79,6 +82,11 @@ const handleClick = (event: MouseEvent) => {
 
   &--full-width {
     width: 100%;
+  }
+
+  &--selected {
+    border-color: var(--ui-green);
+    color: var(--ui-green);
   }
 }
 </style>
