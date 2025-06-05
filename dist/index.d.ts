@@ -6,6 +6,7 @@ import { default as GsTabs, TabItem } from './components/GsTabs.vue';
 import { default as GsTag } from './components/GsTag.vue';
 import { default as GsDivider } from './components/GsDivider.vue';
 import { default as GsInput } from './components/GsInput.vue';
+import { RulesMixin } from './helpers/RulesMixin';
 declare module 'vue' {
     interface GlobalComponents {
         GsButton: (typeof import('./components/GsButton.vue'))['default'];
@@ -15,9 +16,10 @@ declare module 'vue' {
         GsTag: (typeof import('./components/GsTag.vue'))['default'];
         GsDivider: (typeof import('./components/GsDivider.vue'))['default'];
         GsInput: (typeof import('./components/GsInput.vue'))['default'];
+        RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin'];
     }
 }
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput };
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, };
 declare const GsComponents: {
     install(app: App): void;
 };
