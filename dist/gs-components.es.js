@@ -2729,7 +2729,7 @@ function yo(e, t, n, r, i, s) {
     ], 10, po))), 128))
   ]);
 }
-const Eo = /* @__PURE__ */ Ae(mo, [["render", yo], ["__scopeId", "data-v-0e26ed44"]]), wo = oe({
+const Eo = /* @__PURE__ */ Ae(mo, [["render", yo], ["__scopeId", "data-v-5a3f1ca3"]]), wo = oe({
   name: "GsTabs",
   props: {
     tabs: {
