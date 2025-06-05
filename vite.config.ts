@@ -45,6 +45,9 @@ export default defineConfig({
           vue: 'Vue',
           vuetify: 'Vuetify',
         },
+        manualChunks: {
+          helpers: ['./src/helpers/*.ts'],
+        },
       },
     },
   },
