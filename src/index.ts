@@ -38,7 +38,7 @@ export {
   GsDivider,
   GsInput,
   RulesMixin,
-  GsActionCard
+  GsActionCard,
 }
 
 const components = {
