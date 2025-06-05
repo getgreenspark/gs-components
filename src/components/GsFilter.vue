@@ -70,4 +70,8 @@ export default defineComponent({
     background-color: var(--ui-black);
   }
 }
+
+.filter-button-title {
+  text-transform: capitalize;
+}
 </style>
