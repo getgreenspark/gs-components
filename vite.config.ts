@@ -21,7 +21,13 @@ export default defineConfig({
       outDir: 'dist',
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.app.json',
-      include: ['src/components/*.vue', 'src/components/**/*.vue', 'src/*.ts', 'src/plugins/*.ts'],
+      include: [
+        'src/components/*.vue',
+        'src/components/**/*.vue',
+        'src/*.ts',
+        'src/plugins/*.ts',
+        'src/helpers/*.ts',
+      ],
     }),
   ],
   build: {
@@ -38,6 +44,9 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
           vuetify: 'Vuetify',
+        },
+        manualChunks: {
+          helpers: ['./src/helpers/*.ts'],
         },
       },
     },
