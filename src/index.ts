@@ -9,6 +9,7 @@ import GsTabs, { type TabItem } from './components/GsTabs.vue'
 import GsTag from './components/GsTag.vue'
 import GsDivider from './components/GsDivider.vue'
 import GsInput from './components/GsInput.vue'
+import { RulesMixin } from './helpers/RulesMixin'
 
 import { registerPlugins } from './plugins'
 
@@ -21,10 +22,21 @@ declare module 'vue' {
     GsTag: (typeof import('./components/GsTag.vue'))['default']
     GsDivider: (typeof import('./components/GsDivider.vue'))['default']
     GsInput: (typeof import('./components/GsInput.vue'))['default']
+    RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin']
   }
 }
 
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput }
+export {
+  GsButton,
+  GsAlertBar,
+  GsFilter,
+  GsTabs,
+  type TabItem,
+  GsTag,
+  GsDivider,
+  GsInput,
+  RulesMixin,
+}
 
 const components = {
   GsButton,
@@ -34,6 +46,7 @@ const components = {
   GsTag,
   GsDivider,
   GsInput,
+  RulesMixin,
 }
 
 const GsComponents = {
