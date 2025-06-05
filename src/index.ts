@@ -10,6 +10,7 @@ import GsTag from './components/GsTag.vue'
 import GsDivider from './components/GsDivider.vue'
 import GsInput from './components/GsInput.vue'
 import { RulesMixin } from './helpers/RulesMixin'
+import GsActionCard from './components/GsActionCard.vue'
 
 import { registerPlugins } from './plugins'
 
@@ -23,6 +24,7 @@ declare module 'vue' {
     GsDivider: (typeof import('./components/GsDivider.vue'))['default']
     GsInput: (typeof import('./components/GsInput.vue'))['default']
     RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin']
+    GsActionCard: (typeof import('./components/GsActionCard.vue'))['default']
   }
 }
 
@@ -36,6 +38,7 @@ export {
   GsDivider,
   GsInput,
   RulesMixin,
+  GsActionCard
 }
 
 const components = {
@@ -47,6 +50,7 @@ const components = {
   GsDivider,
   GsInput,
   RulesMixin,
+  GsActionCard,
 }
 
 const GsComponents = {
