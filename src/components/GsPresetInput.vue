@@ -2,7 +2,7 @@
 import GsActionCard from './GsActionCard.vue'
 import GsInput from './GsInput.vue'
 import GsTooltip from './GsTooltip.vue'
-import { onMounted, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Preset {
   label: string
@@ -23,57 +23,29 @@ const props = defineProps<{
   inputHideDetails?: boolean
 }>()
 
-const customValue = ref(false)
-const localValue = ref(0)
-const values = ref([] as (Preset & { selected: boolean })[])
-
-onMounted(() => {
-  customValue.value = values.value.every((value) => !value.selected) && localValue.value > 0
-  localValue.value = props.modelValue || 0
-  values.value = props.presets.map((preset) => ({
-    ...preset,
-    selected: preset.value === localValue.value,
-  }))
+const selectedIndex = computed(() => {
+  return props.presets.findIndex((preset) => preset.value === props.modelValue)
 })
+
+const isCustom = ref<boolean>(false)
 
 const emit = defineEmits<{
   (e: 'update:model-value', value: number): void
 }>()
-
-watch(
-  () => props.modelValue,
-  () => {
-    onValueChange()
-  },
-)
-
-function onValueChange() {
-  console.log('onValueChange', props.modelValue)
-  localValue.value = props.modelValue ?? 0
-}
 
 function onCustomInput(val: string | number) {
   const num = typeof val === 'number' ? val : Number(val)
   emit('update:model-value', num)
 }
 
-function updateSelected(item: Preset) {
-  console.log('updateSelected', item)
-  if (localValue.value === item.value && !customValue.value) {
-    localValue.value = 0
-    values.value.forEach((i) => (i.selected = false))
-  } else {
-    localValue.value = item.value
-    values.value.forEach((i) => (i.selected = i.value === item.value))
-  }
-  customValue.value = false
-  emit('update:model-value', localValue.value)
+function selectPreset(idx: number) {
+  isCustom.value = false
+  emit('update:model-value', props.presets[idx].value)
 }
 
 function setCustomValue() {
-  customValue.value = true
-  values.value.forEach((i) => (i.selected = false))
-  emit('update:model-value', localValue.value)
+  isCustom.value = true
+  emit('update:model-value', 0)
 }
 </script>
 
@@ -81,27 +53,32 @@ function setCustomValue() {
   <div class="gs-preset-input">
     <div class="gs-preset-input__cards" role="radiogroup">
       <GsActionCard
-        v-for="item in values"
-        :key="item.value"
-        :aria-label="item.label"
-        :selected="item.selected"
+        v-for="(preset, idx) in props.presets"
+        :key="preset.value"
+        :aria-label="preset.label"
+        :selected="selectedIndex === idx"
         class="gs-preset-input__card"
         full-width
         padding="16px 24px"
         role="radio"
-        @click="() => updateSelected(item)"
+        @click="() => selectPreset(idx)"
       >
         <div class="gs-preset-input__card-content">
           <div class="gs-preset-input__card-label">
-            {{ item.label }}
-            <GsTooltip v-if="item.info" :text="item.info" class="gs-preset-input__info"></GsTooltip>
+            {{ preset.label }}
+            <GsTooltip
+              v-if="preset.info"
+              :text="preset.info"
+              class="gs-preset-input__info"
+            ></GsTooltip>
           </div>
           <div class="gs-preset-input__card-value">
-            {{ props.prefix || '' }}{{ item.value }}{{ props.postfix || '' }}
+            {{ props.prefix || '' }}{{ preset.value }}{{ props.postfix || '' }}
           </div>
         </div>
       </GsActionCard>
       <GsActionCard
+        :selected="isCustom"
         aria-label="Set your own"
         class="gs-preset-input__card"
         padding="16px 24px"
@@ -114,10 +91,11 @@ function setCustomValue() {
         </div>
       </GsActionCard>
     </div>
-    <div v-if="customValue" class="gs-preset-input__input-wrapper">
+    <div v-if="isCustom" class="gs-preset-input__input-wrapper">
       <GsInput
         :hide-details="props.inputHideDetails ?? true"
         :label="props.inputLabel || ''"
+        :model-value="props.modelValue"
         :placeholder="props.inputPlaceholder"
         :rules="props.inputRules"
         :type="'number'"
