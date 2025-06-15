@@ -87,15 +87,15 @@ function setCustomValue() {
         </div>
       </GsActionCard>
       <GsActionCard
+        :aria-label="$t('set_your_own')"
         :selected="isCustom"
-        aria-label="Set your own"
         class="gs-preset-input__card"
         padding="16px 24px"
         @click="setCustomValue"
       >
         <div class="gs-preset-input__card-content gs-preset-input__card-content--custom">
           <div class="gs-preset-input__card-label gs-preset-input__card-label--custom">
-            Set your own
+            {{ $t('set_your_own') }}
           </div>
         </div>
       </GsActionCard>

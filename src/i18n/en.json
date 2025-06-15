@@ -8,5 +8,6 @@
     "max_value": "Please provide a value less than or equal to {limit}!",
     "min_value": "Please provide a value more than or equal to {limit}!",
     "array_min_length": "Please select at least {limit} items!"
-  }
+  },
+  "set_your_own": "Set your own"
 }
