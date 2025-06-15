@@ -2,7 +2,7 @@
 import GsActionCard from './GsActionCard.vue'
 import GsInput from './GsInput.vue'
 import GsTooltip from './GsTooltip.vue'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 interface Preset {
   label: string
@@ -28,6 +28,15 @@ const selectedIndex = computed(() => {
 })
 
 const isCustom = ref<boolean>(false)
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    // If the value is not in the presets, set isCustom to true
+    isCustom.value = props.presets.findIndex((preset) => preset.value === newVal) === -1
+  },
+  { immediate: true },
+)
 
 const emit = defineEmits<{
   (e: 'update:model-value', value: number): void

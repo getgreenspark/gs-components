@@ -31,7 +31,9 @@ export const Default: Story = {
       { label: 'Recommended', value: 25, info: 'Best for most users' },
       { label: 'High impact', value: 50 },
     ],
-    modelValue: 25,
+    modelValue: 0,
+    prefix: '$',
+    postfix: ' order',
     inputLabel: 'Order value',
     inputPlaceholder: 'Enter value',
     inputRules: [],
@@ -41,14 +43,14 @@ export const Default: Story = {
     setup() {
       const value = ref(args.modelValue)
       const displayValue = computed(() => {
-        return typeof value.value === 'number' && !isNaN(value.value) ? value.value : 0
+        return value.value !== undefined && value.value !== null ? value.value : ''
       })
       return { args, value, displayValue }
     },
     template: `
       <div style="max-width: 700px;">
-        <GsPresetInput v-bind="args" v-model="value.value" />
-        <div style="margin-top: 16px; font-size: 16px;">Selected value: <b>{{ value.value }}</b></div>
+        <GsPresetInput v-bind="args" v-model="value" />
+        <div style="margin-top: 16px; font-size: 16px;">Selected value: <b>{{ displayValue }}</b></div>
       </div>
     `,
   }),
