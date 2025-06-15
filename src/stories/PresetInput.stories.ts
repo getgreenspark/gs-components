@@ -1,0 +1,55 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { computed, ref } from 'vue'
+
+import 'vuetify/styles'
+import '@/assets/style/fonts.css'
+import '@/assets/style/variables.css'
+import '@mdi/font/css/materialdesignicons.min.css'
+
+import GsPresetInput from '@/components/GsPresetInput.vue'
+
+const meta: Meta<typeof GsPresetInput> = {
+  title: 'Components/PresetInput',
+  component: GsPresetInput,
+  tags: ['autodocs'],
+  argTypes: {
+    inputLabel: {
+      control: 'text',
+      description: 'Label for the input field',
+    },
+  },
+}
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    presets: [
+      { label: 'Low impact', value: 10, info: 'Lowest recommended value' },
+      { label: 'Recommended', value: 25, info: 'Best for most users' },
+      { label: 'High impact', value: 50 },
+    ],
+    modelValue: 25,
+    inputLabel: 'Order value',
+    inputPlaceholder: 'Enter value',
+    inputRules: [],
+  },
+  render: (args) => ({
+    components: { GsPresetInput },
+    setup() {
+      const value = ref(args.modelValue)
+      const displayValue = computed(() => {
+        return typeof value.value === 'number' && !isNaN(value.value) ? value.value : 0
+      })
+      return { args, value, displayValue }
+    },
+    template: `
+      <div style="max-width: 700px;">
+        <GsPresetInput v-bind="args" v-model="value.value" />
+        <div style="margin-top: 16px; font-size: 16px;">Selected value: <b>{{ value.value }}</b></div>
+      </div>
+    `,
+  }),
+}
