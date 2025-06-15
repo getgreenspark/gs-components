@@ -21,6 +21,7 @@ const props = defineProps<{
   inputPlaceholder?: string
   inputRules?: ((...args: unknown[]) => unknown)[]
   inputHideDetails?: boolean
+  prependInner?: string
 }>()
 
 const selectedIndex = computed(() => {
@@ -110,7 +111,11 @@ function setCustomValue() {
         :type="'number'"
         autofocus
         @update:model-value="onCustomInput"
-      />
+      >
+        <template v-if="prependInner" #prepend-inner>
+          <strong>{{ prependInner }}</strong>
+        </template>
+      </GsInput>
     </div>
   </div>
 </template>

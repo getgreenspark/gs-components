@@ -42,6 +42,10 @@ const meta: Meta<typeof GsPresetInput> = {
       control: 'boolean',
       description: 'Hides the details below the input field',
     },
+    prependInner: {
+      control: 'text',
+      description: 'Text to prepend inside the input field',
+    },
   },
 }
 
@@ -57,11 +61,12 @@ export const Default: Story = {
       { label: 'High impact', value: 50 },
     ],
     modelValue: 0,
-    prefix: '$',
+    prefix: '€',
     postfix: ' order',
     inputLabel: 'Order value',
-    inputPlaceholder: 'Enter value',
+    inputPlaceholder: 'Input order value',
     inputRules: [],
+    prependInner: '€',
   },
   render: (args) => ({
     components: { GsPresetInput },

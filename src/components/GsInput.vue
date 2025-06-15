@@ -1,16 +1,20 @@
 <template>
   <v-text-field
-    v-bind="$attrs"
-    variant="outlined"
-    color="green"
-    flat
-    class="gs-input"
     :hide-details="hideDetails"
     :label="label"
     :model-value="modelValue"
-    @update:model-value="input"
+    class="gs-input"
+    color="green"
+    flat
+    v-bind="$attrs"
+    variant="outlined"
     @blur="blur"
-  />
+    @update:model-value="input"
+  >
+    <template v-if="$slots['prepend-inner']" v-slot:prepend-inner>
+      <slot name="prepend-inner" />
+    </template>
+  </v-text-field>
 </template>
 
 <script lang="ts">
