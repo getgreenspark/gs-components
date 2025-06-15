@@ -102,23 +102,15 @@ function setCustomValue() {
     </div>
     <div v-if="isCustom" class="gs-preset-input__input-wrapper">
       <GsInput
-        :hide-details="props.inputHideDetails ?? true"
+        :hide-details="props.inputHideDetails ?? false"
         :label="props.inputLabel || ''"
         :model-value="props.modelValue"
         :placeholder="props.inputPlaceholder"
         :rules="props.inputRules"
         :type="'number'"
+        autofocus
         @update:model-value="onCustomInput"
-      >
-        <template #prepend-inner>
-          <span v-if="props.prefix" class="gs-preset-input__input-prefix">{{ props.prefix }}</span>
-        </template>
-        <template #append-inner>
-          <span v-if="props.postfix" class="gs-preset-input__input-postfix">{{
-            props.postfix
-          }}</span>
-        </template>
-      </GsInput>
+      />
     </div>
   </div>
 </template>

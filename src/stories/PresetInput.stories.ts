@@ -13,9 +13,34 @@ const meta: Meta<typeof GsPresetInput> = {
   component: GsPresetInput,
   tags: ['autodocs'],
   argTypes: {
+    presets: {
+      control: 'object',
+      description:
+        'An array of preset options for the input, each with a label, value, and optional info text',
+    },
+    modelValue: {
+      control: 'number',
+      description: 'The current value of the input, bound to the model',
+    },
+    prefix: {
+      control: 'text',
+      description: 'Prefix text to display before the input value',
+    },
+    postfix: {
+      control: 'text',
+      description: 'Postfix text to display after the input value',
+    },
     inputLabel: {
       control: 'text',
       description: 'Label for the input field',
+    },
+    inputPlaceholder: {
+      control: 'text',
+      description: 'Placeholder text for the input field',
+    },
+    inputHideDetails: {
+      control: 'boolean',
+      description: 'Hides the details below the input field',
     },
   },
 }
