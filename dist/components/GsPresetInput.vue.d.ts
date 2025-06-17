@@ -10,7 +10,7 @@ type __VLS_Props = {
     postfix?: string;
     inputLabel?: string;
     inputPlaceholder?: string;
-    inputRules?: ((...args: unknown[]) => unknown)[];
+    inputRules?: ((...args: (string | number)[]) => unknown)[];
     inputHideDetails?: boolean;
     prependInner?: string;
 };
