@@ -1,6 +1,7 @@
 declare const vuetify: {
     install: (app: import('vue').App) => void;
-    defaults: import('vue').Ref<import('vuetify').DefaultsInstance>;
+    unmount: () => void;
+    defaults: import('vue').Ref<import('vuetify').DefaultsInstance, import('vuetify').DefaultsInstance>;
     display: import('vuetify').DisplayInstance;
     theme: import('vuetify').ThemeInstance & {
         install: (app: import('vue').App) => void;
@@ -65,6 +66,7 @@ declare const vuetify: {
             getDiff: (date: unknown, comparing: unknown, unit?: string) => number;
             getWeekArray: (date: unknown, firstDayOfWeek?: number | string) => unknown[][];
             getWeekdays: (firstDayOfWeek?: number | string) => string[];
+            getWeek: (date: unknown, firstDayOfWeek?: number | string, firstWeekMinSize?: number) => number;
             getMonth: (date: unknown) => number;
             setMonth: (date: unknown, month: number) => unknown;
             getDate: (date: unknown) => number;
