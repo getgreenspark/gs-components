@@ -11,6 +11,8 @@ import GsDivider from './components/GsDivider.vue'
 import GsInput from './components/GsInput.vue'
 import { RulesMixin } from './helpers/RulesMixin'
 import GsActionCard from './components/GsActionCard.vue'
+import GsTooltip from './components/GsTooltip.vue'
+import GsPresetInput from './components/GsPresetInput.vue'
 
 import { registerPlugins } from './plugins'
 
@@ -25,6 +27,8 @@ declare module 'vue' {
     GsInput: (typeof import('./components/GsInput.vue'))['default']
     RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin']
     GsActionCard: (typeof import('./components/GsActionCard.vue'))['default']
+    GsTooltip: (typeof import('./components/GsTooltip.vue'))['default']
+    GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default']
   }
 }
 
@@ -39,6 +43,8 @@ export {
   GsInput,
   RulesMixin,
   GsActionCard,
+  GsTooltip,
+  GsPresetInput,
 }
 
 const components = {
@@ -51,6 +57,8 @@ const components = {
   GsInput,
   RulesMixin,
   GsActionCard,
+  GsTooltip,
+  GsPresetInput,
 }
 
 const GsComponents = {
