@@ -78,7 +78,7 @@ export const Default: Story = {
       return { args, value, displayValue }
     },
     template: `
-      <div style="max-width: 700px;">
+      <div>
         <GsPresetInput v-bind="args" v-model="value" />
         <div style="margin-top: 16px; font-size: 16px;">Selected value: <b>{{ displayValue }}</b></div>
       </div>

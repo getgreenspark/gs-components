@@ -141,7 +141,7 @@ function setCustomValue() {
   &__card {
     flex: 1 1 0;
     min-width: 160px;
-    max-width: 240px;
+    min-height: 92px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,11 +150,11 @@ function setCustomValue() {
   &__card-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 4px;
     font-family: 'Cabin', sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
 
     &--custom {
       align-items: center;
@@ -166,8 +166,11 @@ function setCustomValue() {
   &__card-label {
     display: flex;
     align-items: center;
+    font-family: 'Cabin', sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
 
     &--custom {
       justify-content: center;
@@ -181,8 +184,11 @@ function setCustomValue() {
   }
 
   &__card-value {
+    font-family: 'Cabin', sans-serif;
     font-size: 24px;
     font-weight: 700;
+    font-style: normal;
+    line-height: normal;
   }
 
   &__input-wrapper {
@@ -190,14 +196,11 @@ function setCustomValue() {
     width: 100%;
   }
 
-  &__input-prefix {
+  &__input-prefix,
+  &__input-postfix {
+    font-family: 'Cabin', sans-serif;
     font-size: 20px;
     margin-right: 4px;
-  }
-
-  &__input-postfix {
-    font-size: 20px;
-    margin-left: 4px;
   }
 }
 </style>
