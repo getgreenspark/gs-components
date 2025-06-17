@@ -12,6 +12,7 @@ import {
   password,
   positiveInteger,
   required,
+  type Rule,
   unique,
   url,
 } from '@/helpers/validation'
@@ -34,7 +35,7 @@ export const RulesMixin = defineComponent({
         required,
         unique,
         url,
-      },
+      } satisfies Record<string, Rule>,
     }
   },
 })

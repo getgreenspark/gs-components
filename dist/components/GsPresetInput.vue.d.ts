@@ -1,3 +1,4 @@
+import { Rule } from '../helpers/validation.ts';
 interface Preset {
     label: string;
     value: number;
@@ -10,7 +11,7 @@ type __VLS_Props = {
     postfix?: string;
     inputLabel?: string;
     inputPlaceholder?: string;
-    inputRules?: ((...args: (string | number)[]) => unknown)[];
+    inputRules?: Rule[];
     inputHideDetails?: boolean;
     prependInner?: string;
 };
