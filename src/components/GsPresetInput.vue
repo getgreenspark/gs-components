@@ -19,7 +19,7 @@ const props = defineProps<{
   postfix?: string
   inputLabel?: string
   inputPlaceholder?: string
-  inputRules?: ((...args: unknown[]) => unknown)[]
+  inputRules?: ((...args: (string | number)[]) => unknown)[]
   inputHideDetails?: boolean
   prependInner?: string
 }>()
@@ -71,7 +71,7 @@ function setCustomValue() {
         full-width
         padding="16px 24px"
         role="radio"
-        @click="() => selectPreset(idx)"
+        @click="selectPreset(idx)"
       >
         <div class="gs-preset-input__card-content">
           <div class="gs-preset-input__card-label">
