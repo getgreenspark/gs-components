@@ -28,14 +28,19 @@ const tooltipLocation = computed(() => props.placement || 'top')
       width="auto"
       z-index="2"
     >
-      <template #activator="{ props: tooltipProps }">
-        <div class="gs-tooltip__icon-wrapper" v-bind="tooltipProps">
-          <v-icon
-            :icon="'mdi-information-outline'"
-            :size="iconSize || 16"
-            class="gs-tooltip__icon"
-          />
-        </div>
+      <template #activator="{ props }">
+        <template v-if="$slots.activator">
+          <slot :props="props" name="activator" />
+        </template>
+        <template v-else>
+          <div class="gs-tooltip__icon-wrapper" v-bind="props">
+            <v-icon
+              :icon="'mdi-information-outline'"
+              :size="iconSize || 16"
+              class="gs-tooltip__icon"
+            />
+          </div>
+        </template>
       </template>
       <div class="gs-tooltip__popup">{{ props.text }}</div>
     </v-tooltip>

@@ -91,3 +91,29 @@ export const Sizes: Story = {
     `,
   }),
 }
+
+export const CustomActivator: Story = {
+  args: {
+    variant: 'dark',
+    placement: 'top',
+    iconSize: 16,
+  },
+  render: (args) => ({
+    components: { GsTooltip },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="display: flex; gap: 10px; flex-direction: column">
+        <GsTooltip v-bind="args" :text="'Custom activator'">
+          <template #activator="{ props }">
+            <div
+              v-bind="props"
+              style="height: 40px; width: 40px; background-color: red"
+            ></div>
+          </template>
+        </GsTooltip>
+      </div>
+    `,
+  }),
+}
