@@ -3,6 +3,10 @@ import GsActionCard from './GsActionCard.vue'
 import GsInput from './GsInput.vue'
 import GsTooltip from './GsTooltip.vue'
 import { computed, ref, watch } from 'vue'
+import { useTranslate } from '@tolgee/vue'
+import type { Rule } from '@/helpers/validation.ts'
+
+const { t } = useTranslate()
 
 interface Preset {
   label: string
@@ -19,7 +23,7 @@ const props = defineProps<{
   postfix?: string
   inputLabel?: string
   inputPlaceholder?: string
-  inputRules?: ((...args: (string | number)[]) => unknown)[]
+  inputRules?: Rule[]
   inputHideDetails?: boolean
   prependInner?: string
 }>()
@@ -96,7 +100,7 @@ function setCustomValue() {
       >
         <div class="gs-preset-input__card-content gs-preset-input__card-content--custom">
           <div class="gs-preset-input__card-label gs-preset-input__card-label--custom">
-            {{ $t('set_your_own') }}
+            {{ t('set_your_own') }}
           </div>
         </div>
       </GsActionCard>
