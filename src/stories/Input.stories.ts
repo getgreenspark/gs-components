@@ -5,7 +5,7 @@ import '@/assets/style/fonts.css'
 import '@/assets/style/variables.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
-import { required } from '@/helpers/validation'
+import { minlength, required } from '@/helpers/validation'
 
 import GsInput from '@/components/GsInput.vue'
 
@@ -45,9 +45,9 @@ export const Default: Story = {
       return { args }
     },
     template: `
-    <div style="width: 335px;">
-      <GsInput v-bind="args" v-model="args.modelValue" />
-    </div>
+      <div style="width: 335px;">
+        <GsInput v-bind="args" v-model="args.modelValue" />
+      </div>
     `,
   }),
 }
@@ -64,9 +64,9 @@ export const Prefilled: Story = {
       return { args }
     },
     template: `
-    <div style="width: 335px;">
-      <GsInput v-bind="args" v-model="args.modelValue" />
-    </div>`,
+      <div style="width: 335px;">
+        <GsInput v-bind="args" v-model="args.modelValue" />
+      </div>`,
   }),
 }
 
@@ -82,9 +82,9 @@ export const WithHelperText: Story = {
       return { args }
     },
     template: `
-    <div style="width: 335px;">
-      <GsInput v-bind="args" v-model="args.modelValue" persistent-hint hint="Your name should include a last name." />
-    </div>
+      <div style="width: 335px;">
+        <GsInput v-bind="args" v-model="args.modelValue" persistent-hint hint="Your name should include a last name." />
+      </div>
     `,
   }),
 }
@@ -101,9 +101,9 @@ export const Disabled: Story = {
       return { args }
     },
     template: `
-    <div style="width: 335px;">
-      <GsInput v-bind="args" v-model="args.modelValue" disabled />
-    </div>
+      <div style="width: 335px;">
+        <GsInput v-bind="args" v-model="args.modelValue" disabled />
+      </div>
     `,
   }),
 }
@@ -119,17 +119,17 @@ export const ErrorState: Story = {
     setup() {
       return {
         args,
-        rules: [required],
+        rules: [required, minlength(3)],
       }
     },
     template: `
-    <div style="width: 335px;">
-     <GsInput
-        v-bind="args"
-        v-model="args.modelValue"
-        :rules="rules"
-      />
-    </div>
+      <div style="width: 335px;">
+        <GsInput
+          v-bind="args"
+          v-model="args.modelValue"
+          :rules="rules"
+        />
+      </div>
     `,
   }),
 }

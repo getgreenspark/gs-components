@@ -7,7 +7,7 @@ import '@/assets/style/variables.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
 import GsPresetInput from '@/components/GsPresetInput.vue'
-import { minValue } from '@/helpers/validation.ts'
+import { minValue, positiveInteger, required } from '@/helpers/validation.ts'
 
 const meta: Meta<typeof GsPresetInput> = {
   title: 'Components/PresetInput',
@@ -66,7 +66,7 @@ export const Default: Story = {
     postfix: ' order',
     inputLabel: 'Order value',
     inputPlaceholder: 'Input order value',
-    inputRules: [minValue(10)],
+    inputRules: [positiveInteger, minValue(0), required],
     prependInner: '€',
   },
   render: (args) => ({
