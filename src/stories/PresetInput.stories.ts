@@ -61,7 +61,7 @@ export const Default: Story = {
       { label: 'Recommended', value: 25, info: 'Best for most users' },
       { label: 'High impact', value: 50 },
     ],
-    modelValue: 0,
+    modelValue: 26,
     prefix: '€',
     postfix: ' order',
     inputLabel: 'Order value',

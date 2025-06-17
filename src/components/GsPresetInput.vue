@@ -2,7 +2,7 @@
 import GsActionCard from './GsActionCard.vue'
 import GsInput from './GsInput.vue'
 import GsTooltip from './GsTooltip.vue'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useTranslate } from '@tolgee/vue'
 import type { Rule } from '@/helpers/validation.ts'
 
@@ -33,6 +33,10 @@ const selectedIndex = computed(() => {
 })
 
 const isCustom = ref<boolean>(false)
+
+onMounted(() => {
+  isCustom.value = selectedIndex.value === -1
+})
 
 const emit = defineEmits<{
   (e: 'update:model-value', value: number): void
