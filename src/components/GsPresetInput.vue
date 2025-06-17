@@ -2,7 +2,7 @@
 import GsActionCard from './GsActionCard.vue'
 import GsInput from './GsInput.vue'
 import GsTooltip from './GsTooltip.vue'
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { useTranslate } from '@tolgee/vue'
 import type { Rule } from '@/helpers/validation.ts'
 
@@ -34,15 +34,6 @@ const selectedIndex = computed(() => {
 
 const isCustom = ref<boolean>(false)
 
-watch(
-  () => props.modelValue,
-  (newVal) => {
-    // If the value is not in the presets, set isCustom to true
-    isCustom.value = props.presets.findIndex((preset) => preset.value === newVal) === -1
-  },
-  { immediate: true },
-)
-
 const emit = defineEmits<{
   (e: 'update:model-value', value: number): void
 }>()
@@ -70,7 +61,7 @@ function setCustomValue() {
         v-for="(preset, idx) in props.presets"
         :key="preset.value"
         :aria-label="preset.label"
-        :selected="selectedIndex === idx"
+        :selected="selectedIndex === idx && !isCustom"
         class="gs-preset-input__card"
         full-width
         padding="16px 24px"

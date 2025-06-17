@@ -17,7 +17,7 @@ export const positiveInteger = (value: number): boolean | TranslationValue => {
   if (value === null || value === undefined) return true
   return Number.isSafeInteger(Number(value)) && Number(value) >= 0
     ? true
-    : tolgee.t(`RulesMixin.positive_integer`)
+    : tolgee.t(`rules.positive_integer`)
 }
 
 export const maxlength =

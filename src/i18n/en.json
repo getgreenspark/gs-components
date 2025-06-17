@@ -7,7 +7,8 @@
     "url": "Please provide a valid URL!",
     "max_value": "Please provide a value less than or equal to {limit}!",
     "min_value": "Please provide a value more than or equal to {limit}!",
-    "array_min_length": "Please select at least {limit} items!"
+    "array_min_length": "Please select at least {limit} items!",
+    "positive_integer": "Please provide a positive integer!"
   },
   "set_your_own": "Set your own"
 }
