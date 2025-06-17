@@ -60,7 +60,7 @@ const handleClick = (event: MouseEvent) => {
 .gs-action-card {
   font-family: 'Cabin', sans-serif;
   border-radius: 8px;
-  border: 1px solid var(--gray-light-CC);
+  border: 2px solid var(--gray-light-CC);
   transition: all 0.2s ease-in-out;
 
   &:hover:not(.gs-action-card--disabled) {

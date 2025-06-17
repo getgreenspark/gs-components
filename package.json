@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "vue": "^3.5.13",
-    "vuetify": "^3.6.6",
+    "vuetify": "^3.8.9",
     "@tolgee/format-icu": "^5.29.5",
     "@tolgee/vue": "^5.29.5"
   },
