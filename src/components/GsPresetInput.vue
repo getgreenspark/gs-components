@@ -127,7 +127,7 @@ function setCustomValue() {
     gap: 24px;
     width: 100%;
 
-    @media (max-width: 600px) {
+    @media (max-width: 960px) {
       flex-direction: column;
       gap: 12px;
     }

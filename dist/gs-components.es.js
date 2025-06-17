@@ -9952,7 +9952,7 @@ const bs = /* @__PURE__ */ He(_d, [["render", xd], ["__scopeId", "data-v-7750213
       ])) : Qe("", !0)
     ]));
   }
-}), Md = /* @__PURE__ */ He(Fd, [["__scopeId", "data-v-fae960f7"]]), Dd = {
+}), Md = /* @__PURE__ */ He(Fd, [["__scopeId", "data-v-ee407f88"]]), Dd = {
   dark: !1,
   colors: {
     primary: "#3B755F",
