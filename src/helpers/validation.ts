@@ -109,6 +109,7 @@ export const arrayMinLength =
     value?.length >= minLength || tolgee.t(`rules.array_min_length`, { limit: minLength })
 
 type RuleReturnType = boolean | string | TranslationValue
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ArgumentsType = any
 export type Rule =
   | ((...args: ArgumentsType[]) => RuleReturnType)
