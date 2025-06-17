@@ -25,7 +25,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         minlength: (minLength: number) => <Type>(value: string | Array<Type>) => boolean | import('@tolgee/core').TranslationValue;
         minValue: (minValue?: number, validationText?: string) => (v: number | string) => boolean | import('@tolgee/core').TranslationValue;
         password: (value: string) => boolean | import('@tolgee/core').TranslationValue;
-        positiveInteger: (value: number) => boolean;
+        positiveInteger: (value: number) => boolean | import('@tolgee/core').TranslationValue;
         required: (value: number | string) => boolean | import('@tolgee/core').TranslationValue;
         unique: <Type>(collection: Array<Type>) => (value: Type) => boolean;
         url: (value: string) => boolean | import('@tolgee/core').TranslationValue;

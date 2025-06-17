@@ -11,12 +11,13 @@ export const maxTwoDecimal = (value: number): boolean => {
     : Number(value) >= 0 && new Decimal(Number(value)).modulo(0.01).toNumber() === 0
 }
 
-export const positiveInteger = (value: number): boolean => {
+export const positiveInteger = (value: number): boolean | TranslationValue => {
   // when an input is cleared, the value is null
   // rendering the input initially empty the value is undefined
-  return value === null || value === undefined
+  if (value === null || value === undefined) return true
+  return Number.isSafeInteger(Number(value)) && Number(value) >= 0
     ? true
-    : Number.isSafeInteger(Number(value)) && Number(value) >= 0
+    : tolgee.t(`RulesMixin.positive_integer`)
 }
 
 export const maxlength =
