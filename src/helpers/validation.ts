@@ -106,4 +106,10 @@ export const unique =
 export const arrayMinLength =
   (minLength: number) =>
   (value: Array<unknown>): boolean | TranslationValue =>
-    value?.length >= minLength || tolgee.t(`rules.array_min_length`, { limit: minLength })
+    value?.length >= minLength || t(`rules.array_min_length`, { limit: minLength })
+
+type RuleReturnType = boolean | string | TranslationValue
+type ArgumentsType = any
+export type Rule =
+  | ((...args: ArgumentsType[]) => RuleReturnType)
+  | ((...args: ArgumentsType[]) => (...args: ArgumentsType[]) => RuleReturnType)
