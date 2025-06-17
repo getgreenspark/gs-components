@@ -184,6 +184,7 @@ function setCustomValue() {
     font-weight: 700;
     font-style: normal;
     line-height: normal;
+    text-align: center;
   }
 
   &__input-wrapper {
