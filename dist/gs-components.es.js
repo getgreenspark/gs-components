@@ -9879,7 +9879,7 @@ const bs = /* @__PURE__ */ He(_d, [["render", xd], ["__scopeId", "data-v-7750213
   setup(e, { emit: t }) {
     const { t: n } = of(), r = e, i = N(() => r.presets.findIndex((c) => c.value === r.modelValue)), o = K(!1);
     ln(() => {
-      o.value = i.value === -1;
+      o.value = r.modelValue ? i.value === -1 : !1;
     });
     const s = t;
     function a(c) {
@@ -9956,7 +9956,7 @@ const bs = /* @__PURE__ */ He(_d, [["render", xd], ["__scopeId", "data-v-7750213
       ])) : Qe("", !0)
     ]));
   }
-}), Md = /* @__PURE__ */ He(Fd, [["__scopeId", "data-v-9946e487"]]), Dd = {
+}), Md = /* @__PURE__ */ He(Fd, [["__scopeId", "data-v-4fa71879"]]), Dd = {
   dark: !1,
   colors: {
     primary: "#3B755F",

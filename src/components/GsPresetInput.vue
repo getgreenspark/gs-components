@@ -35,7 +35,7 @@ const selectedIndex = computed(() => {
 const isCustom = ref<boolean>(false)
 
 onMounted(() => {
-  isCustom.value = selectedIndex.value === -1
+  isCustom.value = props.modelValue ? selectedIndex.value === -1 : false
 })
 
 const emit = defineEmits<{
