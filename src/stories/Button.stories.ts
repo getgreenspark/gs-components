@@ -64,9 +64,14 @@ export default meta
 type Story = StoryObj<typeof GsButton>
 
 export const Default: Story = {
-  args: {
-    default: 'Button',
-  },
+  render: (args) => ({
+    components: { GsButton },
+    setup() {
+      return { args }
+    },
+    template: `
+      <GsButton v-bind="args">Button</GsButton>`,
+  }),
 }
 
 export const Variants: Story = {
@@ -98,7 +103,7 @@ export const Sizes: Story = {
     },
     template: `
       <div class="d-flex ga-3">
-        <GsButton size="small">Small Size</GsButton>
+        <GsButton size="small">SMALL SIZE</GsButton>
         <GsButton>Default Size</GsButton>
         <GsButton size="large">Large Size</GsButton>
       </div>
@@ -126,14 +131,23 @@ export const WithIcon: Story = {
 }
 
 export const Disabled: Story = {
-  args: {
-    disabled: true,
-    default: 'Disabled',
-  },
+  render: (args) => ({
+    components: { GsButton },
+    setup() {
+      return { args }
+    },
+    template: `
+      <GsButton disabled v-bind="args">Disabled</GsButton>`,
+  }),
 }
 
 export const Loading: Story = {
-  args: {
-    loading: true,
-  },
+  render: (args) => ({
+    components: { GsButton },
+    setup() {
+      return { args }
+    },
+    template: `
+      <GsButton loading v-bind="args">Loading</GsButton>`,
+  }),
 }
