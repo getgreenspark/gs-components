@@ -103,7 +103,6 @@ const loaderSize = computed(() => {
   min-width: 64px;
   height: 40px;
   padding: 0 16px;
-  text-transform: capitalize;
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
