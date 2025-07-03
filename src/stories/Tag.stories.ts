@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import GsTag from '@/components/GsTag.vue'
 
 const colorOptions = ['beige', 'black', 'pastel-green', 'grey', 'emerald-green']
