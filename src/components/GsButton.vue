@@ -61,6 +61,12 @@ const loaderSize = computed(() => {
       return 26
   }
 })
+
+const toSentenceCase = (str: string): string => {
+  if (!str) return ''
+  str = str.trim().toLowerCase()
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
 </script>
 
 <template>
@@ -77,8 +83,8 @@ const loaderSize = computed(() => {
     <v-icon v-if="props.icon && !props.loading" class="icon">
       {{ props.icon }}
     </v-icon>
-    <span v-if="$slots.default" class="text">
-      <slot />
+    <span v-if="$slots.default" class="text sentence-case">
+      {{ toSentenceCase($slots.default?.()[0]?.children as string) }}
     </span>
     <v-progress-circular
       v-if="props.loading"
