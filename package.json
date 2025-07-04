@@ -38,7 +38,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "release-it",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "chromatic": "npx chromatic --project-token=chpt_5517bfe6d8db85e --patch-build=add-visual-tests...master"
   },
   "dependencies": {
     "@tolgee/format-icu": "^5.29.5",
