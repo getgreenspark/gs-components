@@ -2,12 +2,12 @@
   <div class="filter-button-list">
     <button
       v-for="category in categories"
-      :key="category"
-      :class="['filter-button', { 'is-active': category === modelValue }]"
-      @click.prevent="searchByCategory(category)"
+      :key="category.value"
+      :class="['filter-button', { 'is-active': category.value === modelValue }]"
+      @click.prevent="searchByCategory(category.value)"
     >
       <span class="filter-button-title">
-        {{ category }}
+        {{ category.title }}
       </span>
     </button>
   </div>
@@ -16,12 +16,17 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 
+type Category = {
+  title: string
+  value: string
+}
+
 export default defineComponent({
   name: 'GsFilter',
   emits: ['update:modelValue'],
   methods: {
-    searchByCategory(category: string) {
-      this.$emit('update:modelValue', category)
+    searchByCategory(value: string) {
+      this.$emit('update:modelValue', value)
     },
   },
   props: {
@@ -29,7 +34,7 @@ export default defineComponent({
       type: String as PropType<string>,
     },
     categories: {
-      type: Array as PropType<string[]>,
+      type: Array as PropType<Category[]>,
       default: () => [],
     },
   },
@@ -69,9 +74,5 @@ export default defineComponent({
   &.is-active {
     background-color: var(--ui-black);
   }
-}
-
-.filter-button-title {
-  text-transform: capitalize;
 }
 </style>
