@@ -4040,15 +4040,15 @@ const Nl = z({
 function eu(e, t, n, r, i, o) {
   return Q(), le("div", Kl, [
     (Q(!0), le(Ge, null, vr(e.categories, (s) => (Q(), le("button", {
-      key: s,
-      class: J(["filter-button", { "is-active": s === e.modelValue }]),
-      onClick: Ps((a) => e.searchByCategory(s), ["prevent"])
+      key: s.value,
+      class: J(["filter-button", { "is-active": s.value === e.modelValue }]),
+      onClick: Ps((a) => e.searchByCategory(s.value), ["prevent"])
     }, [
-      B("span", Ql, Ae(s), 1)
+      B("span", Ql, Ae(s.title), 1)
     ], 10, Jl))), 128))
   ]);
 }
-const tu = /* @__PURE__ */ He(Yl, [["render", eu], ["__scopeId", "data-v-5a3f1ca3"]]), nu = pe({
+const tu = /* @__PURE__ */ He(Yl, [["render", eu], ["__scopeId", "data-v-1f125ef0"]]), nu = pe({
   name: "GsTabs",
   props: {
     tabs: {
