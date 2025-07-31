@@ -29,8 +29,13 @@ type Story = StoryObj<typeof GsFilter>
 
 export const Default: Story = {
   args: {
-    modelValue: 'All',
-    categories: ['All', 'Design', 'Development', 'Marketing'],
+    modelValue: 'all',
+    categories: [
+      { title: 'All', value: 'all' },
+      { title: 'Design', value: 'design' },
+      { title: 'Development', value: 'development' },
+      { title: 'Marketing', value: 'marketing' },
+    ],
   },
   render: (args) => ({
     components: { GsFilter },
