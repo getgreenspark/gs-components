@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue'
 
-type Category = {
+export interface Category {
   title: string
   value: string
 }

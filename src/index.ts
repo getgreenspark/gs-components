@@ -10,6 +10,8 @@ import GsTag from './components/GsTag.vue'
 import GsDivider from './components/GsDivider.vue'
 import GsInput from './components/GsInput.vue'
 import { RulesMixin } from './helpers/RulesMixin'
+import GsActionButton from './components/GsActionButton.vue'
+import type { ActionButtonItem } from './components/GsActionButton.vue'
 import GsActionCard from './components/GsActionCard.vue'
 import GsTooltip from './components/GsTooltip.vue'
 import GsPresetInput from './components/GsPresetInput.vue'
@@ -26,6 +28,7 @@ declare module 'vue' {
     GsDivider: (typeof import('./components/GsDivider.vue'))['default']
     GsInput: (typeof import('./components/GsInput.vue'))['default']
     RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin']
+    GsActionButton: (typeof import('./components/GsActionButton.vue'))['default']
     GsActionCard: (typeof import('./components/GsActionCard.vue'))['default']
     GsTooltip: (typeof import('./components/GsTooltip.vue'))['default']
     GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default']
@@ -42,6 +45,8 @@ export {
   GsDivider,
   GsInput,
   RulesMixin,
+  GsActionButton,
+  type ActionButtonItem,
   GsActionCard,
   GsTooltip,
   GsPresetInput,
@@ -56,6 +61,7 @@ const components = {
   GsDivider,
   GsInput,
   RulesMixin,
+  GsActionButton,
   GsActionCard,
   GsTooltip,
   GsPresetInput,
