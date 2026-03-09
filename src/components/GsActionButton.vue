@@ -55,7 +55,10 @@ function onItemClick(item: ActionButtonItem, index: number) {
       </v-btn>
     </template>
 
-    <v-list class="gs-action-button__menu" :style="props.width ? { width: props.width } : undefined">
+    <v-list
+      class="gs-action-button__menu"
+      :style="props.width ? { width: props.width } : props.fullWidth ? { width: '100%' } : undefined"
+    >
       <v-list-item
         v-for="(item, index) in props.items"
         :key="index"
@@ -80,8 +83,8 @@ function onItemClick(item: ActionButtonItem, index: number) {
 .gs-action-button {
   height: 41px !important;
   border-radius: 8px !important;
-  background-color: #212121 !important;
-  color: #f9f9f9 !important;
+  background-color: var(--ui-black) !important;
+  color: var(--ui-white) !important;
   font-family: 'Cabin', sans-serif;
   font-size: 20px !important;
   text-transform: none;
@@ -103,7 +106,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
 <style lang="scss">
 .gs-action-button__menu {
   width: 210px;
-  background-color: #fff !important;
+  background-color: var(--gray-light-FF) !important;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15) !important;
   border-radius: 8px !important;
   padding: 0 !important;
@@ -118,7 +121,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
     cursor: pointer;
 
     &:hover {
-      background-color: #dbdbdb;
+      background-color: var(--gray-light-DB);
     }
 
     .v-list-item__content {
@@ -134,7 +137,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
 
   .gs-action-button__item-icon {
     flex-shrink: 0;
-    color: #212121;
+    color: var(--ui-black);
   }
 
   .gs-action-button__item-text {
@@ -148,7 +151,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
     font-size: 14px;
     font-weight: 700;
     line-height: 1.2;
-    color: #212121;
+    color: var(--ui-black);
   }
 
   .gs-action-button__item-description {
@@ -156,7 +159,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
     font-size: 12px;
     font-weight: 400;
     line-height: 1.3;
-    color: #212121;
+    color: var(--ui-black);
   }
 }
 </style>

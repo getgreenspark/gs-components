@@ -36,7 +36,8 @@ const meta: Meta<typeof GsActionButton> = {
     },
     items: {
       control: 'object',
-      description: 'Array of menu items. Each item has an icon, title, and text.',
+      description:
+        'Array of menu items. Each item has an icon, title, and text, and may optionally include a `to` property to trigger router navigation when clicked.',
     },
     disabled: {
       control: 'boolean',
