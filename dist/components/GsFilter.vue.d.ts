@@ -1,8 +1,8 @@
 import { PropType } from 'vue';
-type Category = {
+export interface Category {
     title: string;
     value: string;
-};
+}
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: {
         type: PropType<string>;

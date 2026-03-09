@@ -7,6 +7,7 @@ import { default as GsTag } from './components/GsTag.vue';
 import { default as GsDivider } from './components/GsDivider.vue';
 import { default as GsInput } from './components/GsInput.vue';
 import { RulesMixin } from './helpers/RulesMixin';
+import { default as GsActionButton, ActionButtonItem } from './components/GsActionButton.vue';
 import { default as GsActionCard } from './components/GsActionCard.vue';
 import { default as GsTooltip } from './components/GsTooltip.vue';
 import { default as GsPresetInput } from './components/GsPresetInput.vue';
@@ -20,12 +21,13 @@ declare module 'vue' {
         GsDivider: (typeof import('./components/GsDivider.vue'))['default'];
         GsInput: (typeof import('./components/GsInput.vue'))['default'];
         RulesMixin: (typeof import('./helpers/RulesMixin.ts'))['RulesMixin'];
+        GsActionButton: (typeof import('./components/GsActionButton.vue'))['default'];
         GsActionCard: (typeof import('./components/GsActionCard.vue'))['default'];
         GsTooltip: (typeof import('./components/GsTooltip.vue'))['default'];
         GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default'];
     }
 }
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionCard, GsTooltip, GsPresetInput, };
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, };
 declare const GsComponents: {
     install(app: App): void;
 };
