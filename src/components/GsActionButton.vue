@@ -57,7 +57,9 @@ function onItemClick(item: ActionButtonItem, index: number) {
 
     <v-list
       class="gs-action-button__menu"
-      :style="props.width ? { width: props.width } : props.fullWidth ? { width: '100%' } : undefined"
+      :style="
+        props.width ? { width: props.width } : props.fullWidth ? { width: '100%' } : undefined
+      "
     >
       <v-list-item
         v-for="(item, index) in props.items"

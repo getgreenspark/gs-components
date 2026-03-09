@@ -12399,7 +12399,9 @@ const _s = /* @__PURE__ */ Ze(pv, [["render", yv], ["__scopeId", "data-v-7750213
       default: be(() => [
         I(_e(Ku), {
           class: "gs-action-button__menu",
-          style: ee(n.width ? { width: n.width } : n.fullWidth ? { width: "100%" } : void 0)
+          style: ee(
+            n.width ? { width: n.width } : n.fullWidth ? { width: "100%" } : void 0
+          )
         }, {
           default: be(() => [
             (ie(!0), me(Le, null, Vn(n.items, (l, c) => (ie(), st(_e(Bi), {
@@ -12433,7 +12435,7 @@ const _s = /* @__PURE__ */ Ze(pv, [["render", yv], ["__scopeId", "data-v-7750213
       _: 1
     }));
   }
-}), Cv = /* @__PURE__ */ Ze(xv, [["__scopeId", "data-v-5c59893d"]]), Av = ["aria-disabled", "aria-label"], Pv = /* @__PURE__ */ Be({
+}), Cv = /* @__PURE__ */ Ze(xv, [["__scopeId", "data-v-b5e0b226"]]), Av = ["aria-disabled", "aria-label"], Pv = /* @__PURE__ */ Be({
   __name: "GsActionCard",
   props: {
     padding: {},
