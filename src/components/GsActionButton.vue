@@ -13,6 +13,8 @@ type ActionButtonProps = {
   label?: string
   items?: ActionButtonItem[]
   disabled?: boolean
+  fullWidth?: boolean
+  width?: string
 }
 
 const props = withDefaults(defineProps<ActionButtonProps>(), {
@@ -39,7 +41,8 @@ function onItemClick(item: ActionButtonItem, index: number) {
     <template #activator="{ props: menuProps }">
       <v-btn
         v-bind="menuProps"
-        class="gs-action-button"
+        :class="['gs-action-button', { 'gs-action-button--full-width': props.fullWidth }]"
+        :style="props.width ? { width: props.width } : undefined"
         :disabled="props.disabled"
       >
         <template #prepend>
@@ -52,7 +55,7 @@ function onItemClick(item: ActionButtonItem, index: number) {
       </v-btn>
     </template>
 
-    <v-list class="gs-action-button__menu">
+    <v-list class="gs-action-button__menu" :style="props.width ? { width: props.width } : undefined">
       <v-list-item
         v-for="(item, index) in props.items"
         :key="index"
@@ -84,6 +87,10 @@ function onItemClick(item: ActionButtonItem, index: number) {
   text-transform: none;
   letter-spacing: normal;
   padding: 0 16px !important;
+
+  &--full-width {
+    width: 100% !important;
+  }
 
   &__label {
     font-size: 20px;

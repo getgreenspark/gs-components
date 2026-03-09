@@ -42,6 +42,14 @@ const meta: Meta<typeof GsActionButton> = {
       control: 'boolean',
       description: 'Disables the button if set to true.',
     },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Makes the button take the full width of its container.',
+    },
+    width: {
+      control: 'text',
+      description: 'Sets a specific width for the button (e.g. "300px").',
+    },
     onSelect: {
       action: 'select',
       description: 'Emitted when a menu item is clicked.',
@@ -104,6 +112,22 @@ export const ManyItems: Story = {
         text: 'Fund renewable energy projects across the globe.',
       },
     ],
+  },
+}
+
+export const FullWidth: Story = {
+  args: {
+    label: 'Actions',
+    items: sampleItems,
+    fullWidth: true,
+  },
+}
+
+export const CustomWidth: Story = {
+  args: {
+    label: 'Actions',
+    items: sampleItems,
+    width: '300px',
   },
 }
 
