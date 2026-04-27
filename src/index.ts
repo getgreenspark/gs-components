@@ -15,6 +15,8 @@ import type { ActionButtonItem } from './components/GsActionButton.vue'
 import GsActionCard from './components/GsActionCard.vue'
 import GsTooltip from './components/GsTooltip.vue'
 import GsPresetInput from './components/GsPresetInput.vue'
+import GsSimpleTable from './components/GsSimpleTable.vue'
+import type { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces'
 
 import { registerPlugins } from './plugins'
 
@@ -32,6 +34,7 @@ declare module 'vue' {
     GsActionCard: (typeof import('./components/GsActionCard.vue'))['default']
     GsTooltip: (typeof import('./components/GsTooltip.vue'))['default']
     GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default']
+    GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default']
   }
 }
 
@@ -50,6 +53,9 @@ export {
   GsActionCard,
   GsTooltip,
   GsPresetInput,
+  GsSimpleTable,
+  type SimpleTableColumn,
+  type SimpleTableItem,
 }
 
 const components = {
@@ -65,6 +71,7 @@ const components = {
   GsActionCard,
   GsTooltip,
   GsPresetInput,
+  GsSimpleTable,
 }
 
 const GsComponents = {
