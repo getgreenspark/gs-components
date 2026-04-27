@@ -11,6 +11,8 @@ import { default as GsActionButton, ActionButtonItem } from './components/GsActi
 import { default as GsActionCard } from './components/GsActionCard.vue';
 import { default as GsTooltip } from './components/GsTooltip.vue';
 import { default as GsPresetInput } from './components/GsPresetInput.vue';
+import { default as GsSimpleTable } from './components/GsSimpleTable.vue';
+import { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces';
 declare module 'vue' {
     interface GlobalComponents {
         GsButton: (typeof import('./components/GsButton.vue'))['default'];
@@ -25,9 +27,10 @@ declare module 'vue' {
         GsActionCard: (typeof import('./components/GsActionCard.vue'))['default'];
         GsTooltip: (typeof import('./components/GsTooltip.vue'))['default'];
         GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default'];
+        GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default'];
     }
 }
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, };
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, GsSimpleTable, type SimpleTableColumn, type SimpleTableItem, };
 declare const GsComponents: {
     install(app: App): void;
 };
