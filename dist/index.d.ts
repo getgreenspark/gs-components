@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { Plugin } from 'vue';
 import { default as GsAlertBar } from './components/GsAlertBar.vue';
 import { default as GsButton } from './components/GsButton.vue';
 import { default as GsFilter } from './components/GsFilter.vue';
@@ -12,7 +12,8 @@ import { default as GsActionCard } from './components/GsActionCard.vue';
 import { default as GsTooltip } from './components/GsTooltip.vue';
 import { default as GsPresetInput } from './components/GsPresetInput.vue';
 import { default as GsSimpleTable } from './components/GsSimpleTable.vue';
-import { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces';
+import { SimpleTableColumn, SimpleTableItem, GsPageSectionContentGap, GsPageSectionPadding, GsPageSectionTitleSize, GsPageSectionTitleTag, GsPageSectionVariant } from './helpers/interfaces';
+import { default as GsPageSection } from './components/GsPageSection.vue';
 declare module 'vue' {
     interface GlobalComponents {
         GsButton: (typeof import('./components/GsButton.vue'))['default'];
@@ -28,11 +29,10 @@ declare module 'vue' {
         GsTooltip: (typeof import('./components/GsTooltip.vue'))['default'];
         GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default'];
         GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default'];
+        GsPageSection: (typeof import('./components/GsPageSection.vue'))['default'];
     }
 }
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, GsSimpleTable, type SimpleTableColumn, type SimpleTableItem, };
-declare const GsComponents: {
-    install(app: App): void;
-};
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, GsSimpleTable, type SimpleTableColumn, type SimpleTableItem, GsPageSection, type GsPageSectionVariant, type GsPageSectionTitleTag, type GsPageSectionTitleSize, type GsPageSectionContentGap, type GsPageSectionPadding, };
+declare const GsComponents: Plugin;
 export default GsComponents;
 //# sourceMappingURL=index.d.ts.map

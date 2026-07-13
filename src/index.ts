@@ -17,6 +17,14 @@ import GsTooltip from './components/GsTooltip.vue'
 import GsPresetInput from './components/GsPresetInput.vue'
 import GsSimpleTable from './components/GsSimpleTable.vue'
 import type { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces'
+import GsPageSection from './components/GsPageSection.vue'
+import type {
+  GsPageSectionContentGap,
+  GsPageSectionPadding,
+  GsPageSectionTitleSize,
+  GsPageSectionTitleTag,
+  GsPageSectionVariant,
+} from './helpers/interfaces'
 
 import { registerPlugins } from './plugins'
 
@@ -35,6 +43,7 @@ declare module 'vue' {
     GsTooltip: (typeof import('./components/GsTooltip.vue'))['default']
     GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default']
     GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default']
+    GsPageSection: (typeof import('./components/GsPageSection.vue'))['default']
   }
 }
 
@@ -56,6 +65,12 @@ export {
   GsSimpleTable,
   type SimpleTableColumn,
   type SimpleTableItem,
+  GsPageSection,
+  type GsPageSectionVariant,
+  type GsPageSectionTitleTag,
+  type GsPageSectionTitleSize,
+  type GsPageSectionContentGap,
+  type GsPageSectionPadding,
 }
 
 const components = {
@@ -72,6 +87,7 @@ const components = {
   GsTooltip,
   GsPresetInput,
   GsSimpleTable,
+  GsPageSection,
 }
 
 const GsComponents = {
