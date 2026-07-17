@@ -1,6 +1,6 @@
 {
   "name": "@getgreenspark/gs-components",
-  "version": "1.12.0",
+  "version": "1.12.2",
   "type": "module",
   "description": "Greenspark's component library.",
   "author": "Greenspark <support@getgreenspark.com>",
@@ -43,7 +43,9 @@
   },
   "dependencies": {
     "@tolgee/format-icu": "^5.29.5",
-    "@tolgee/vue": "^5.29.5",
+    "@tolgee/vue": "^5.29.5"
+  },
+  "peerDependencies": {
     "vue": "^3.5.13",
     "vuetify": "^3.8.9"
   },
@@ -82,7 +84,9 @@
     "vite-plugin-vue-devtools": "^7.7.1",
     "vite-plugin-vuetify": "^2.1.0",
     "vitest": "^3.0.5",
-    "vue-tsc": "^2.2.0"
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0",
+    "vuetify": "^3.8.9"
   },
   "eslintConfig": {
     "extends": [

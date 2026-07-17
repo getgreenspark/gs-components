@@ -12789,19 +12789,19 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
   }
 }), tg = {
   key: 1,
-  class: "gs-page-section__description"
+  class: "gs-layout-card__description"
 }, ng = {
   key: 0,
-  class: "gs-page-section__actions"
+  class: "gs-layout-card__actions"
 }, ig = {
   key: 1,
-  class: "gs-page-section__body"
+  class: "gs-layout-card__body"
 }, rg = {
   key: 2,
-  class: "gs-page-section__footer"
+  class: "gs-layout-card__footer"
 }, ag = /* @__PURE__ */ Ae({
   inheritAttrs: !1,
-  __name: "GsPageSection",
+  __name: "GsLayoutCard",
   props: {
     title: {},
     description: {},
@@ -12815,14 +12815,14 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
   },
   setup(e) {
     const t = e, n = Hs(), i = Ms(), r = A(() => [
-      "gs-page-section",
-      `gs-page-section--${t.variant}`,
-      `gs-page-section--padding-${t.padding}`,
+      "gs-layout-card",
+      `gs-layout-card--${t.variant}`,
+      `gs-layout-card--padding-${t.padding}`,
       {
-        "gs-page-section--flush-mobile": t.flushOnMobile,
-        "gs-page-section--stretch": t.stretch,
-        "gs-page-section--gap-md": t.contentGap === "md",
-        "gs-page-section--has-footer": !!i.footer
+        "gs-layout-card--flush-mobile": t.flushOnMobile,
+        "gs-layout-card--stretch": t.stretch,
+        "gs-layout-card--gap-md": t.contentGap === "md",
+        "gs-layout-card--has-footer": !!i.footer
       },
       n.class
     ]), a = A(() => {
@@ -12833,20 +12833,20 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
       o.title || o.description || o.$slots.header || o.$slots.actions ? (U(), Q("header", {
         key: 0,
         class: G([
-          "gs-page-section__header",
-          { "gs-page-section__header--with-actions": o.$slots.actions && !o.$slots.header }
+          "gs-layout-card__header",
+          { "gs-layout-card__header--with-actions": o.$slots.actions && !o.$slots.header }
         ])
       }, [
         Je(o.$slots, "header", {}, () => [
           B("div", {
             class: G([
-              "gs-page-section__heading",
-              { "gs-page-section__heading--with-description": o.description }
+              "gs-layout-card__heading",
+              { "gs-layout-card__heading--with-description": o.description }
             ])
           }, [
             o.title ? (U(), Ve(Un(o.titleTag), {
               key: 0,
-              class: G(["gs-page-section__title", `gs-page-section__title--${o.titleSize}`])
+              class: G(["gs-layout-card__title", `gs-layout-card__title--${o.titleSize}`])
             }, {
               default: ge(() => [
                 Nt(ve(o.title), 1)
@@ -12868,7 +12868,7 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
       ])) : He("", !0)
     ], 16));
   }
-}), og = /* @__PURE__ */ Ge(ag, [["__scopeId", "data-v-80c92b7b"]]), sg = {
+}), og = /* @__PURE__ */ Ge(ag, [["__scopeId", "data-v-0678d9fd"]]), sg = {
   dark: !1,
   colors: {
     primary: "#3B755F",
@@ -12914,8 +12914,10 @@ const cg = {
   GsTooltip: Ts,
   GsPresetInput: Zv,
   GsSimpleTable: eg,
-  GsPageSection: og
+  GsLayoutCard: og
 }, vg = {
+  // App is loosely typed so consumers resolve against their own vue peer,
+  // avoiding Plugin identity mismatches when the library is file-linked.
   install(e) {
     ug(e);
     for (const [t, n] of Object.entries(cg))
@@ -12930,7 +12932,7 @@ export {
   gd as GsDivider,
   ad as GsFilter,
   Ps as GsInput,
-  og as GsPageSection,
+  og as GsLayoutCard,
   Zv as GsPresetInput,
   eg as GsSimpleTable,
   cd as GsTabs,

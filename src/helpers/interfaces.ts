@@ -13,8 +13,8 @@ export interface SimpleTableItem {
   key: string
 }
 
-export type GsPageSectionVariant = 'card' | 'elevated' | 'flat'
-export type GsPageSectionTitleTag = 'h2' | 'h3'
-export type GsPageSectionTitleSize = 'sm' | 'lg'
-export type GsPageSectionContentGap = 'sm' | 'md'
-export type GsPageSectionPadding = 'default' | 'compact'
+export type GsLayoutCardVariant = 'card' | 'elevated' | 'flat'
+export type GsLayoutCardTitleTag = 'h2' | 'h3'
+export type GsLayoutCardTitleSize = 'sm' | 'lg'
+export type GsLayoutCardContentGap = 'sm' | 'md'
+export type GsLayoutCardPadding = 'default' | 'compact'

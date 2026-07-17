@@ -5,13 +5,13 @@ import '@/assets/style/fonts.css'
 import '@/assets/style/variables.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
-import GsPageSection from '@/components/GsPageSection.vue'
+import GsLayoutCard from '@/components/GsLayoutCard.vue'
 
 const STORY_WIDTH = '720px'
 
-const meta: Meta<typeof GsPageSection> = {
-  title: 'Components/PageSection',
-  component: GsPageSection,
+const meta: Meta<typeof GsLayoutCard> = {
+  title: 'Components/LayoutCard',
+  component: GsLayoutCard,
   tags: ['autodocs'],
   decorators: [
     () => ({
@@ -41,17 +41,17 @@ export const Default: Story = {
     description: 'Optional section description',
   },
   render: (args) => ({
-    components: { GsPageSection },
+    components: { GsLayoutCard },
     setup() {
       return { args }
     },
     template: `
-      <GsPageSection v-bind="args">
+      <GsLayoutCard v-bind="args">
         <p style="margin: 0;">
           Section content goes here. Use this area for charts, lists, maps, or any page content
           that belongs inside a titled card section.
         </p>
-      </GsPageSection>
+      </GsLayoutCard>
     `,
   }),
 }
@@ -64,13 +64,13 @@ export const WithActionsAndFooter: Story = {
     contentGap: 'md',
   },
   render: (args) => ({
-    components: { GsPageSection },
+    components: { GsLayoutCard },
     setup() {
       return { args }
     },
     template: `
       <div style="height: 280px;">
-        <GsPageSection v-bind="args">
+        <GsLayoutCard v-bind="args">
           <template #actions>
             <button type="button">Action</button>
           </template>
@@ -81,7 +81,7 @@ export const WithActionsAndFooter: Story = {
           <template #footer>
             <button type="button" style="width: 100%;">Footer action</button>
           </template>
-        </GsPageSection>
+        </GsLayoutCard>
       </div>
     `,
   }),
@@ -95,17 +95,17 @@ export const FlatCompact: Story = {
     padding: 'compact',
   },
   render: (args) => ({
-    components: { GsPageSection },
+    components: { GsLayoutCard },
     setup() {
       return { args }
     },
     template: `
-      <GsPageSection v-bind="args">
+      <GsLayoutCard v-bind="args">
         <p style="margin: 0;">
           Flat, compact sections work well for map panels and side-by-side layouts where the card
           should stay flush with surrounding content without an extra shadow.
         </p>
-      </GsPageSection>
+      </GsLayoutCard>
     `,
   }),
 }

@@ -3,39 +3,39 @@
     <header
       v-if="title || description || $slots.header || $slots.actions"
       :class="[
-        'gs-page-section__header',
-        { 'gs-page-section__header--with-actions': $slots.actions && !$slots.header },
+        'gs-layout-card__header',
+        { 'gs-layout-card__header--with-actions': $slots.actions && !$slots.header },
       ]"
     >
       <slot name="header">
         <div
           :class="[
-            'gs-page-section__heading',
-            { 'gs-page-section__heading--with-description': description },
+            'gs-layout-card__heading',
+            { 'gs-layout-card__heading--with-description': description },
           ]"
         >
           <component
             :is="titleTag"
             v-if="title"
-            :class="['gs-page-section__title', `gs-page-section__title--${titleSize}`]"
+            :class="['gs-layout-card__title', `gs-layout-card__title--${titleSize}`]"
           >
             {{ title }}
           </component>
-          <p v-if="description" class="gs-page-section__description">
+          <p v-if="description" class="gs-layout-card__description">
             {{ description }}
           </p>
         </div>
-        <div v-if="$slots.actions" class="gs-page-section__actions">
+        <div v-if="$slots.actions" class="gs-layout-card__actions">
           <slot name="actions" />
         </div>
       </slot>
     </header>
 
-    <div v-if="$slots.default" class="gs-page-section__body">
+    <div v-if="$slots.default" class="gs-layout-card__body">
       <slot />
     </div>
 
-    <div v-if="$slots.footer" class="gs-page-section__footer">
+    <div v-if="$slots.footer" class="gs-layout-card__footer">
       <slot name="footer" />
     </div>
   </section>
@@ -44,11 +44,11 @@
 <script setup lang="ts">
 import { computed, useAttrs, useSlots } from 'vue'
 import type {
-  GsPageSectionContentGap,
-  GsPageSectionPadding,
-  GsPageSectionTitleSize,
-  GsPageSectionTitleTag,
-  GsPageSectionVariant,
+  GsLayoutCardContentGap,
+  GsLayoutCardPadding,
+  GsLayoutCardTitleSize,
+  GsLayoutCardTitleTag,
+  GsLayoutCardVariant,
 } from '@/helpers/interfaces'
 
 defineOptions({
@@ -59,13 +59,13 @@ const props = withDefaults(
   defineProps<{
     title?: string
     description?: string
-    titleTag?: GsPageSectionTitleTag
-    titleSize?: GsPageSectionTitleSize
-    variant?: GsPageSectionVariant
-    padding?: GsPageSectionPadding
+    titleTag?: GsLayoutCardTitleTag
+    titleSize?: GsLayoutCardTitleSize
+    variant?: GsLayoutCardVariant
+    padding?: GsLayoutCardPadding
     flushOnMobile?: boolean
     stretch?: boolean
-    contentGap?: GsPageSectionContentGap
+    contentGap?: GsLayoutCardContentGap
   }>(),
   {
     titleTag: 'h2',
@@ -82,14 +82,14 @@ const attrs = useAttrs()
 const slots = useSlots()
 
 const sectionClasses = computed(() => [
-  'gs-page-section',
-  `gs-page-section--${props.variant}`,
-  `gs-page-section--padding-${props.padding}`,
+  'gs-layout-card',
+  `gs-layout-card--${props.variant}`,
+  `gs-layout-card--padding-${props.padding}`,
   {
-    'gs-page-section--flush-mobile': props.flushOnMobile,
-    'gs-page-section--stretch': props.stretch,
-    'gs-page-section--gap-md': props.contentGap === 'md',
-    'gs-page-section--has-footer': Boolean(slots.footer),
+    'gs-layout-card--flush-mobile': props.flushOnMobile,
+    'gs-layout-card--stretch': props.stretch,
+    'gs-layout-card--gap-md': props.contentGap === 'md',
+    'gs-layout-card--has-footer': Boolean(slots.footer),
   },
   attrs.class,
 ])
@@ -102,7 +102,7 @@ const sectionAttrs = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.gs-page-section {
+.gs-layout-card {
   width: 100%;
   position: relative;
   display: flex;
@@ -153,7 +153,7 @@ const sectionAttrs = computed(() => {
   &--has-footer {
     justify-content: space-between;
 
-    .gs-page-section__body {
+    .gs-layout-card__body {
       flex: 1 1 auto;
       min-height: 0;
       display: flex;
@@ -162,7 +162,7 @@ const sectionAttrs = computed(() => {
   }
 }
 
-.gs-page-section__header--with-actions {
+.gs-layout-card__header--with-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,13 +174,13 @@ const sectionAttrs = computed(() => {
   }
 }
 
-.gs-page-section__heading--with-description {
-  .gs-page-section__title {
+.gs-layout-card__heading--with-description {
+  .gs-layout-card__title {
     margin-bottom: 8px;
   }
 }
 
-.gs-page-section__title {
+.gs-layout-card__title {
   margin: 0;
   color: var(--ui-black);
   font-weight: 700;
@@ -195,17 +195,17 @@ const sectionAttrs = computed(() => {
   }
 }
 
-.gs-page-section__description {
+.gs-layout-card__description {
   margin: 0;
   font-size: 20px;
   line-height: 24px;
 }
 
-.gs-page-section__body {
+.gs-layout-card__body {
   min-width: 0;
 }
 
-.gs-page-section__footer {
+.gs-layout-card__footer {
   margin-top: auto;
 }
 </style>
