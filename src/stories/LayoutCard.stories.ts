@@ -24,7 +24,7 @@ const meta: Meta<typeof GsLayoutCard> = {
     titleTag: { control: 'select', options: ['h2', 'h3'] },
     titleSize: { control: 'select', options: ['sm', 'lg'] },
     variant: { control: 'select', options: ['card', 'elevated', 'flat'] },
-    padding: { control: 'select', options: ['default', 'compact'] },
+    padding: { control: 'select', options: ['default', 'compact', 'spacious'] },
     flushOnMobile: { control: 'boolean' },
     stretch: { control: 'boolean' },
     contentGap: { control: 'select', options: ['sm', 'md'] },

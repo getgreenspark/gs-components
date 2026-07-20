@@ -4,7 +4,7 @@
       v-if="title || description || $slots.header || $slots.actions"
       :class="[
         'gs-layout-card__header',
-        { 'gs-layout-card__header--with-actions': $slots.actions && !$slots.header },
+        { 'gs-layout-card__header--with-actions': $slots.actions },
       ]"
     >
       <slot name="header">
@@ -25,10 +25,10 @@
             {{ description }}
           </p>
         </div>
-        <div v-if="$slots.actions" class="gs-layout-card__actions">
-          <slot name="actions" />
-        </div>
       </slot>
+      <div v-if="$slots.actions" class="gs-layout-card__actions">
+        <slot name="actions" />
+      </div>
     </header>
 
     <div v-if="$slots.default" class="gs-layout-card__body">
@@ -123,6 +123,14 @@ const sectionAttrs = computed(() => {
     padding: 16px;
   }
 
+  &--padding-spacious {
+    padding: 16px 8px;
+
+    @media only screen and (min-width: 600px) {
+      padding: 32px 24px;
+    }
+  }
+
   &--card {
     box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%);
   }
@@ -144,6 +152,13 @@ const sectionAttrs = computed(() => {
   &--stretch {
     height: 100%;
     min-height: 100%;
+
+    .gs-layout-card__body {
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &--gap-md {
@@ -152,13 +167,6 @@ const sectionAttrs = computed(() => {
 
   &--has-footer {
     justify-content: space-between;
-
-    .gs-layout-card__body {
-      flex: 1 1 auto;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-    }
   }
 }
 
