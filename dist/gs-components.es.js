@@ -12834,7 +12834,7 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
         key: 0,
         class: G([
           "gs-layout-card__header",
-          { "gs-layout-card__header--with-actions": o.$slots.actions && !o.$slots.header }
+          { "gs-layout-card__header--with-actions": o.$slots.actions }
         ])
       }, [
         Je(o.$slots, "header", {}, () => [
@@ -12854,11 +12854,11 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
               _: 1
             }, 8, ["class"])) : He("", !0),
             o.description ? (U(), Q("p", tg, ve(o.description), 1)) : He("", !0)
-          ], 2),
-          o.$slots.actions ? (U(), Q("div", ng, [
-            Je(o.$slots, "actions", {}, void 0, !0)
-          ])) : He("", !0)
-        ], !0)
+          ], 2)
+        ], !0),
+        o.$slots.actions ? (U(), Q("div", ng, [
+          Je(o.$slots, "actions", {}, void 0, !0)
+        ])) : He("", !0)
       ], 2)) : He("", !0),
       o.$slots.default ? (U(), Q("div", ig, [
         Je(o.$slots, "default", {}, void 0, !0)
@@ -12868,7 +12868,7 @@ const Ps = /* @__PURE__ */ Ge(Av, [["render", Pv], ["__scopeId", "data-v-7750213
       ])) : He("", !0)
     ], 16));
   }
-}), og = /* @__PURE__ */ Ge(ag, [["__scopeId", "data-v-0678d9fd"]]), sg = {
+}), og = /* @__PURE__ */ Ge(ag, [["__scopeId", "data-v-184a34e0"]]), sg = {
   dark: !1,
   colors: {
     primary: "#3B755F",
