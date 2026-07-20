@@ -12,3 +12,9 @@ export interface SimpleTableColumn {
 export interface SimpleTableItem {
   key: string
 }
+
+export type GsLayoutCardVariant = 'card' | 'elevated' | 'flat'
+export type GsLayoutCardTitleTag = 'h2' | 'h3'
+export type GsLayoutCardTitleSize = 'sm' | 'lg'
+export type GsLayoutCardContentGap = 'sm' | 'md'
+export type GsLayoutCardPadding = 'default' | 'compact' | 'spacious'

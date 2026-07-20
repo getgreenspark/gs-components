@@ -1,4 +1,3 @@
-import { App } from 'vue';
 import { default as GsAlertBar } from './components/GsAlertBar.vue';
 import { default as GsButton } from './components/GsButton.vue';
 import { default as GsFilter } from './components/GsFilter.vue';
@@ -12,7 +11,8 @@ import { default as GsActionCard } from './components/GsActionCard.vue';
 import { default as GsTooltip } from './components/GsTooltip.vue';
 import { default as GsPresetInput } from './components/GsPresetInput.vue';
 import { default as GsSimpleTable } from './components/GsSimpleTable.vue';
-import { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces';
+import { SimpleTableColumn, SimpleTableItem, GsLayoutCardContentGap, GsLayoutCardPadding, GsLayoutCardTitleSize, GsLayoutCardTitleTag, GsLayoutCardVariant } from './helpers/interfaces';
+import { default as GsLayoutCard } from './components/GsLayoutCard.vue';
 declare module 'vue' {
     interface GlobalComponents {
         GsButton: (typeof import('./components/GsButton.vue'))['default'];
@@ -28,11 +28,14 @@ declare module 'vue' {
         GsTooltip: (typeof import('./components/GsTooltip.vue'))['default'];
         GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default'];
         GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default'];
+        GsLayoutCard: (typeof import('./components/GsLayoutCard.vue'))['default'];
     }
 }
-export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, GsSimpleTable, type SimpleTableColumn, type SimpleTableItem, };
+export { GsButton, GsAlertBar, GsFilter, GsTabs, type TabItem, GsTag, GsDivider, GsInput, RulesMixin, GsActionButton, type ActionButtonItem, GsActionCard, GsTooltip, GsPresetInput, GsSimpleTable, type SimpleTableColumn, type SimpleTableItem, GsLayoutCard, type GsLayoutCardVariant, type GsLayoutCardTitleTag, type GsLayoutCardTitleSize, type GsLayoutCardContentGap, type GsLayoutCardPadding, };
 declare const GsComponents: {
-    install(app: App): void;
+    install(app: {
+        component: (name: string, component: unknown) => unknown;
+    }): void;
 };
 export default GsComponents;
 //# sourceMappingURL=index.d.ts.map

@@ -17,6 +17,14 @@ import GsTooltip from './components/GsTooltip.vue'
 import GsPresetInput from './components/GsPresetInput.vue'
 import GsSimpleTable from './components/GsSimpleTable.vue'
 import type { SimpleTableColumn, SimpleTableItem } from './helpers/interfaces'
+import GsLayoutCard from './components/GsLayoutCard.vue'
+import type {
+  GsLayoutCardContentGap,
+  GsLayoutCardPadding,
+  GsLayoutCardTitleSize,
+  GsLayoutCardTitleTag,
+  GsLayoutCardVariant,
+} from './helpers/interfaces'
 
 import { registerPlugins } from './plugins'
 
@@ -35,6 +43,7 @@ declare module 'vue' {
     GsTooltip: (typeof import('./components/GsTooltip.vue'))['default']
     GsPresetInput: (typeof import('./components/GsPresetInput.vue'))['default']
     GsSimpleTable: (typeof import('./components/GsSimpleTable.vue'))['default']
+    GsLayoutCard: (typeof import('./components/GsLayoutCard.vue'))['default']
   }
 }
 
@@ -56,6 +65,12 @@ export {
   GsSimpleTable,
   type SimpleTableColumn,
   type SimpleTableItem,
+  GsLayoutCard,
+  type GsLayoutCardVariant,
+  type GsLayoutCardTitleTag,
+  type GsLayoutCardTitleSize,
+  type GsLayoutCardContentGap,
+  type GsLayoutCardPadding,
 }
 
 const components = {
@@ -72,11 +87,14 @@ const components = {
   GsTooltip,
   GsPresetInput,
   GsSimpleTable,
+  GsLayoutCard,
 }
 
 const GsComponents = {
-  install(app: App) {
-    registerPlugins(app)
+  // App is loosely typed so consumers resolve against their own vue peer,
+  // avoiding Plugin identity mismatches when the library is file-linked.
+  install(app: { component: (name: string, component: unknown) => unknown }) {
+    registerPlugins(app as App)
     for (const [name, component] of Object.entries(components)) {
       app.component(name, component)
     }
